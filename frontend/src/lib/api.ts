@@ -45,7 +45,9 @@ export type Profile = {
 
 function apiBaseUrl(): string {
   const fromEnv = import.meta.env.VITE_API_BASE_URL as string | undefined
-  return (fromEnv ?? 'http://localhost:8000').replace(/\/$/, '')
+  if (fromEnv) return fromEnv.replace(/\/$/, '')
+  if (import.meta.env.DEV) return 'http://localhost:8000'
+  return ''
 }
 
 export async function getProfile(): Promise<Profile> {
@@ -53,4 +55,3 @@ export async function getProfile(): Promise<Profile> {
   if (!res.ok) throw new Error('Failed to load profile')
   return (await res.json()) as Profile
 }
-
