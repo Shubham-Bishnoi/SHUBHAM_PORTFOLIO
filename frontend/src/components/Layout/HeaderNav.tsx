@@ -25,13 +25,33 @@ export function HeaderNav() {
           <NavLink
             to="/about"
             style={{
-              fontSize: 14,
-              letterSpacing: '0.28em',
-              fontWeight: 600,
-              textTransform: 'uppercase',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 10,
             }}
+            aria-label="Shubham"
           >
-            SHUBHAM
+            <img
+              src="/images/shubham.jpeg"
+              alt="Shubham"
+              width={34}
+              height={34}
+              style={{
+                borderRadius: 999,
+                objectFit: 'cover',
+                border: '1px solid var(--hairline)',
+              }}
+            />
+            <span
+              style={{
+                fontSize: 14,
+                letterSpacing: '0.28em',
+                fontWeight: 600,
+                textTransform: 'uppercase',
+              }}
+            >
+              SHUBHAM
+            </span>
           </NavLink>
 
           <nav aria-label="Primary">
