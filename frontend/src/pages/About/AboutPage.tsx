@@ -7,7 +7,7 @@ import { useProfile } from '@/hooks/useProfile'
 import './AboutPage.css'
 
 function normalizeUrl(raw: string): string {
-  return raw.replaceAll('`', '').trim()
+  return raw.replace(/`/g, '').trim()
 }
 
 function subtitleFromSummary(summary: string[]): string {
@@ -97,7 +97,7 @@ export function AboutPage() {
           <div className="skillsGrid">
             {Object.entries(p.skills).map(([k, vals]) => (
               <div key={k} className="skillBlock">
-                <div className="skillTitle">{k.replaceAll('_', ' ')}</div>
+                <div className="skillTitle">{k.replace(/_/g, ' ')}</div>
                 <div className="skillList">{vals.join(', ')}</div>
               </div>
             ))}
@@ -140,4 +140,3 @@ export function AboutPage() {
     </main>
   )
 }
-
