@@ -1,0 +1,100 @@
+.pageRoot {
+  padding: 56px 0 84px;
+}
+
+.bullets {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 10px;
+}
+
+.inlineLinks {
+  margin-top: 18px;
+  font-size: 14px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.inlineLinks a {
+  color: inherit;
+}
+
+.dot {
+  color: var(--hairline);
+}
+
+.edu {
+  display: grid;
+  gap: 18px;
+}
+
+.eduItem {
+  padding-top: 14px;
+  border-top: 1px solid var(--hairline);
+}
+
+.eduItem:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.eduProgram {
+  font-weight: 500;
+}
+
+.eduMeta {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 28px;
+}
+
+.skillTitle {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.skillList {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.codingRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 28px;
+}
+
+.codingLabel {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.codingValue {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .skillsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .codingRow {
+    grid-template-columns: 1fr;
+  }
+}
+

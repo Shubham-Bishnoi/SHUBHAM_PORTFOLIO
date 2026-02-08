@@ -1,0 +1,278 @@
+{
+  "basics": {
+    "name": "SHUBHAM",
+    "fullName": "Shubham Bishnoi",
+    "title": "Analyst / AI Full-Stack Engineer",
+    "location": "Bangalore, India",
+    "email": "shubhambis9oi@gmail.com",
+    "phone": "+91-9991752283",
+    "links": {
+      "linkedin": " `https://www.linkedin.com/in/sbishnoi29/` ",
+      "github": " `https://github.com/Shubham-Bishnoi` "
+    },
+    "summary": [
+      "AI full-stack engineer building enterprise-grade agentic systems, real-time summarization, and deception-based cyber defense.",
+      "Experienced with FastAPI, React, LangChain/LangGraph/LlamaIndex, RAG pipelines, RabbitMQ orchestration, and vector search.",
+      "Delivered measurable impact: improved operational efficiency by ~70% and reduced manual workload by 50–80% across enterprise use cases."
+    ]
+  },
+  "education": [
+    {
+      "program": "B.Tech. (Information Technology)",
+      "institution": "Delhi Technological University (DTU)",
+      "location": "New Delhi",
+      "score": "7.89/10",
+      "years": "2021–2025"
+    },
+    {
+      "program": "Class XII (PCM)",
+      "institution": "Adarsh Jain Dharmic Shiksha Sadan",
+      "location": "New Delhi",
+      "score": "84%",
+      "year": "2019"
+    },
+    {
+      "program": "Class X",
+      "institution": "Northern International School",
+      "location": "Hisar, Haryana",
+      "score": "10/10",
+      "year": "2017"
+    }
+  ],
+  "experience": [
+    {
+      "company": "KPMG Delivery Network (KDN)",
+      "location": "Bangalore, India",
+      "title": "Analyst / AI Full-Stack Engineer",
+      "dates": "Feb 2025 – Present",
+      "highlights": [
+        "Designed and deployed enterprise-grade AI systems (multi-agent workflows, real-time meeting summarizers, deception-based cyber defense), improving internal operational efficiency by ~70%.",
+        "Built full-stack AI applications using FastAPI, React, LangChain/LlamaIndex, and OpenAI/Mistral models, automating document intelligence, hiring workflows, and compliance tasks across 15+ enterprise use cases.",
+        "Implemented scalable backend architectures (RabbitMQ pipelines, vector search, GPU inference patterns) enabling low-latency orchestration and reducing manual workload by 50–80%."
+      ]
+    },
+    {
+      "company": "7 Darter Info Services Pvt. Ltd.",
+      "location": "Delhi, India",
+      "title": "Software Development Engineer Intern",
+      "dates": "Apr 2023 – Jun 2023",
+      "highlights": [
+        "Optimized a mission-critical backend module, improving system efficiency by 20% and reducing API response time by 30% via algorithmic improvements and refactoring.",
+        "Built a secure OSINT-based web application for law enforcement, enabling real-time access to 10,000+ records and reducing information retrieval time by 40% through streamlined workflows and optimized querying."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Adaptive Deception Mesh – AI Cyber Defense System",
+      "year": "2025",
+      "tags": [
+        "Cybersecurity",
+        "MITRE ATT&CK",
+        "HoneyTokens",
+        "AI Agents",
+        "LLM",
+        "FastAPI",
+        "Three.js",
+        "Real-time Telemetry"
+      ],
+      "impact": [
+        "Engineered an AI-driven deception platform with HoneyTokens/Honey APIs/HoneyVMs that reduced attacker dwell time by 87% through automatic diversion into synthetic environments.",
+        "Implemented real-time MITRE ATT&CK mapping and a 3D cyber command center enabling SOC teams to visualize and classify attacker interactions with high-fidelity telemetry."
+      ],
+      "links": {
+        "demo": "",
+        "github": ""
+      }
+    },
+    {
+      "name": "SecBot AI – Multi-Agent Executive Assistant",
+      "year": "2025",
+      "tags": [
+        "LangGraph",
+        "LangChain",
+        "Multi-Agent Systems",
+        "RabbitMQ",
+        "Outlook API",
+        "RAG",
+        "Workflow Automation"
+      ],
+      "impact": [
+        "Developed a LangGraph-based orchestration system coordinating 6+ autonomous agents to automate end-to-end executive workflows.",
+        "Integrated Outlook Graph and workflow APIs to reduce manual coordination time by 62%."
+      ],
+      "links": {
+        "demo": "",
+        "github": ""
+      }
+    },
+    {
+      "name": "Real-Time Multi-Agent Meeting Summarization System",
+      "year": "2025",
+      "tags": [
+        "Whisper ASR",
+        "LlamaIndex",
+        "LangGraph",
+        "RAG",
+        "FastAPI",
+        "WebSockets",
+        "Task Extraction"
+      ],
+      "impact": [
+        "Built a live transcription + summarization pipeline enabling real-time summaries and task extraction with 93% accuracy.",
+        "Reduced post-meeting documentation effort by 70% through action-item detection and speaker-tagged transcripts."
+      ],
+      "links": {
+        "demo": "",
+        "github": ""
+      }
+    },
+    {
+      "name": "Recruitment Orchestrator – AI-Driven Hiring Automation",
+      "year": "2025",
+      "tags": [
+        "RabbitMQ",
+        "FastAPI",
+        "Workable API",
+        "AI Agents",
+        "Event-Driven Architecture",
+        "RAG"
+      ],
+      "impact": [
+        "Automated requisition creation and candidate shortlisting, reducing hiring cycle time by 55%.",
+        "Built event-driven triggers and approval chains enabling real-time hiring analytics and audit logs."
+      ],
+      "links": {
+        "demo": "",
+        "github": ""
+      }
+    },
+    {
+      "name": "Target AI – Intelligent Document Processing Platform",
+      "year": "2025",
+      "tags": [
+        "OCR",
+        "Tesseract",
+        "PyPDF2",
+        "LangChain Agents",
+        "GPT-4",
+        "Entity Extraction",
+        "FastAPI",
+        "React"
+      ],
+      "impact": [
+        "Developed an OCR→classification→entity extraction→reply generation pipeline with 95–99% confidence across 120+ documents.",
+        "Reduced compliance document processing time by 78%."
+      ],
+      "links": {
+        "demo": "",
+        "github": ""
+      }
+    },
+    {
+      "name": "Supplier–Treasury Digital Twin – Liquidity & Risk Intelligence",
+      "year": "2025",
+      "tags": [
+        "Digital Twin",
+        "Neo4j",
+        "ESG Risk",
+        "Prophet Forecasting",
+        "LangChain Agents",
+        "Oracle Fusion",
+        "Snowflake"
+      ],
+      "impact": [
+        "Designed a Neo4j-powered supplier twin with ontology-driven risk modeling across financial systems.",
+        "Built forecasting and action agents to simulate FX/payment-term scenarios, reducing liquidity decision time by 68%."
+      ],
+      "links": {
+        "demo": "",
+        "github": ""
+      }
+    }
+  ],
+  "skills": {
+    "languages": [
+      "Python",
+      "C++",
+      "JavaScript (ES6+)",
+      "TypeScript",
+      "SQL",
+      "HTML",
+      "CSS"
+    ],
+    "frontend": [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Three.js",
+      "D3.js"
+    ],
+    "backend": [
+      "FastAPI",
+      "Node.js/Express",
+      "REST APIs",
+      "WebSockets",
+      "Async I/O"
+    ],
+    "ai_llm": [
+      "LangChain",
+      "LangGraph",
+      "LlamaIndex",
+      "RAG",
+      "Whisper ASR",
+      "Hugging Face",
+      "LoRA",
+      "RLHF"
+    ],
+    "data": [
+      "Pandas",
+      "NumPy",
+      "PySpark",
+      "Dask"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MongoDB",
+      "MySQL",
+      "Redis",
+      "Neo4j",
+      "ChromaDB",
+      "FAISS",
+      "Pinecone"
+    ],
+    "devops": [
+      "Docker",
+      "Kubernetes",
+      "RabbitMQ",
+      "Nginx",
+      "CI/CD",
+      "AWS",
+      "Azure",
+      "GCP"
+    ],
+    "security": [
+      "MITRE ATT&CK",
+      "HoneyTokens",
+      "HoneyVMs",
+      "Threat Telemetry"
+    ]
+  },
+  "awards": [
+    "KDN AI Achiever’s Award (KPMG) — recognized for foundational AI systems development."
+  ],
+  "leadership": [
+    "Head of Logistics, Sports Council (DTU) (2023–2024) — coordinated logistics for Avahan’24; led 30 volunteers across 10+ sports events.",
+    "Class Representative, DTU (2021–2022) — managed coordination for a cohort of 70 students."
+  ],
+  "coding": {
+    "leetcode": {
+      "handle": "sbishnoi29",
+      "solved": "950+"
+    },
+    "geeksforgeeks": {
+      "handle": "shubhambishnoi29",
+      "solved": "600+"
+    }
+  }
+}

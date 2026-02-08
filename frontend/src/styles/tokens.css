@@ -1,0 +1,9 @@
+:root {
+  --bg: #ffffff;
+  --text: #000000;
+  --muted: #9c9c9c;
+  --hairline: rgba(0, 0, 0, 0.12);
+  --max: 1120px;
+  --pad: 24px;
+}
+
