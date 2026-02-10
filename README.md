@@ -25,5 +25,7 @@ npm install
 npm run dev
 ```
 
-The frontend posts to `VITE_API_BASE_URL` (defaults to `http://localhost:8000`).
+API:
 
+- Local dev: the frontend calls the FastAPI server at `http://localhost:8000`.
+- Vercel deploys the `api/` serverless functions (same origin), which read from `backend/app/data/profile.json`.
