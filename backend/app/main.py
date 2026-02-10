@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes_contact import router as contact_router
 from app.api.routes_profile import router as profile_router
+from app.api.routes_projects import router as projects_router
 from app.core.config import settings
 
 
@@ -24,3 +25,4 @@ def health() -> dict:
 
 app.include_router(contact_router)
 app.include_router(profile_router)
+app.include_router(projects_router)

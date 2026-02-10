@@ -64,130 +64,291 @@
   ],
   "projects": [
     {
-      "name": "Adaptive Deception Mesh – AI Cyber Defense System",
-      "year": "2025",
-      "tags": [
-        "Cybersecurity",
-        "MITRE ATT&CK",
-        "HoneyTokens",
-        "AI Agents",
-        "LLM",
-        "FastAPI",
-        "Three.js",
-        "Real-time Telemetry"
-      ],
-      "impact": [
-        "Engineered an AI-driven deception platform with HoneyTokens/Honey APIs/HoneyVMs that reduced attacker dwell time by 87% through automatic diversion into synthetic environments.",
-        "Implemented real-time MITRE ATT&CK mapping and a 3D cyber command center enabling SOC teams to visualize and classify attacker interactions with high-fidelity telemetry."
-      ],
-      "links": {
-        "demo": "",
-        "github": ""
+      "name": "Adaptive Deception Mesh",
+      "slug": "adaptive-deception-mesh",
+      "category": "Cybersecurity",
+      "dateLabel": "2025",
+      "short": "AI deception platform that diverts intrusions into synthetic environments.",
+      "thumbnail": "/projects/adaptive-deception-mesh/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/adaptive-deception-mesh/01.svg",
+          "/projects/adaptive-deception-mesh/02.svg",
+          "/projects/adaptive-deception-mesh/03.svg"
+        ],
+        "badgeIcon": "shield"
+      },
+      "caseStudy": {
+        "intro": "An AI-driven deception mesh designed to shorten attacker dwell time by redirecting suspicious activity into instrumented, synthetic targets.",
+        "sections": [
+          {
+            "heading": "Problem",
+            "body": [
+              "Traditional detection pipelines are reactive and often drown analysts in low-signal alerts.",
+              "The goal was to proactively engage adversaries, capture high-fidelity telemetry, and map behavior to MITRE ATT&CK without adding analyst burden."
+            ]
+          },
+          {
+            "heading": "Approach",
+            "body": [
+              "Built a deception control plane that deploys and manages HoneyTokens, Honey APIs, and HoneyVMs, guiding suspicious actors into safe, observable surfaces.",
+              "Streamed interaction events into a real-time pipeline and enriched them with MITRE ATT&CK technique mapping for faster triage.",
+              "Shipped a cyber command center UI that turns telemetry into an at-a-glance view of adversary paths and engagement points."
+            ]
+          },
+          {
+            "heading": "Outcome",
+            "body": [
+              "Reduced attacker dwell time by 87% by automatically diverting activity into synthetic environments.",
+              "Enabled SOC teams to visualize and classify interactions quickly using structured telemetry and technique mapping."
+            ]
+          }
+        ],
+        "highlights": [
+          "HoneyTokens / Honey APIs / HoneyVMs",
+          "MITRE ATT&CK mapping",
+          "Real-time telemetry + visualization"
+        ]
       }
     },
     {
-      "name": "SecBot AI – Multi-Agent Executive Assistant",
-      "year": "2025",
-      "tags": [
-        "LangGraph",
-        "LangChain",
-        "Multi-Agent Systems",
-        "RabbitMQ",
-        "Outlook API",
-        "RAG",
-        "Workflow Automation"
-      ],
-      "impact": [
-        "Developed a LangGraph-based orchestration system coordinating 6+ autonomous agents to automate end-to-end executive workflows.",
-        "Integrated Outlook Graph and workflow APIs to reduce manual coordination time by 62%."
-      ],
-      "links": {
-        "demo": "",
-        "github": ""
+      "name": "SecBot AI",
+      "slug": "secbot-ai",
+      "category": "Agentic Systems",
+      "dateLabel": "2025",
+      "short": "Multi-agent executive assistant for scheduling, email, and workflow automation.",
+      "thumbnail": "/projects/secbot-ai/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/secbot-ai/01.svg",
+          "/projects/secbot-ai/02.svg",
+          "/projects/secbot-ai/03.svg"
+        ],
+        "badgeIcon": "bots"
+      },
+      "caseStudy": {
+        "intro": "A LangGraph-based orchestration system that coordinates autonomous agents to handle executive workflows end-to-end.",
+        "sections": [
+          {
+            "heading": "Problem",
+            "body": [
+              "Executive workflows span email, calendar, documents, and approvals, but coordination is still largely manual.",
+              "The challenge was to automate these flows safely while keeping control, traceability, and human review where needed."
+            ]
+          },
+          {
+            "heading": "Approach",
+            "body": [
+              "Implemented an agent graph with explicit roles (triage, retrieval, drafting, scheduling, and follow-ups), orchestrated through a message-driven pipeline.",
+              "Integrated Outlook/Graph APIs and internal workflow services, with retrieval augmented generation for context-aware responses.",
+              "Added guardrails: structured tool calls, step-by-step execution, and deterministic fallbacks for ambiguous requests."
+            ]
+          },
+          {
+            "heading": "Outcome",
+            "body": [
+              "Reduced manual coordination time by 62% through automation of scheduling, drafting, and follow-up tasks.",
+              "Improved reliability by separating responsibilities across agents and keeping execution auditable."
+            ]
+          }
+        ],
+        "highlights": [
+          "6+ autonomous agents",
+          "RabbitMQ orchestration",
+          "Outlook/Graph + RAG"
+        ]
       }
     },
     {
-      "name": "Real-Time Multi-Agent Meeting Summarization System",
-      "year": "2025",
-      "tags": [
-        "Whisper ASR",
-        "LlamaIndex",
-        "LangGraph",
-        "RAG",
-        "FastAPI",
-        "WebSockets",
-        "Task Extraction"
-      ],
-      "impact": [
-        "Built a live transcription + summarization pipeline enabling real-time summaries and task extraction with 93% accuracy.",
-        "Reduced post-meeting documentation effort by 70% through action-item detection and speaker-tagged transcripts."
-      ],
-      "links": {
-        "demo": "",
-        "github": ""
+      "name": "Real-Time Meeting Summarization System",
+      "slug": "real-time-meeting-summarization-system",
+      "category": "Real-time AI",
+      "dateLabel": "2025",
+      "short": "Live transcription, summaries, and action items with low-latency streaming.",
+      "thumbnail": "/projects/real-time-meeting-summarization-system/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/real-time-meeting-summarization-system/01.svg",
+          "/projects/real-time-meeting-summarization-system/02.svg",
+          "/projects/real-time-meeting-summarization-system/03.svg"
+        ],
+        "badgeIcon": "doc"
+      },
+      "caseStudy": {
+        "intro": "A real-time pipeline that turns live audio into structured notes, speaker-aware transcripts, and action items while the meeting is still happening.",
+        "sections": [
+          {
+            "heading": "Problem",
+            "body": [
+              "Teams lose time after meetings turning raw conversations into decisions, tasks, and follow-ups.",
+              "The goal was to produce accurate summaries continuously, not minutes later, and keep output structured for downstream workflows."
+            ]
+          },
+          {
+            "heading": "Approach",
+            "body": [
+              "Built a streaming transcription layer and pushed partial segments through a multi-agent summarization and extraction workflow.",
+              "Used retrieval where needed for contextual grounding and tracked tasks with consistent formatting for easy copy/paste into trackers.",
+              "Delivered results over WebSockets for an always-updating summary panel."
+            ]
+          },
+          {
+            "heading": "Outcome",
+            "body": [
+              "Achieved 93% accuracy on real-time summaries and task extraction.",
+              "Reduced post-meeting documentation effort by 70% with speaker-tagged transcripts and actionable outputs."
+            ]
+          }
+        ],
+        "highlights": [
+          "Streaming + WebSockets",
+          "Speaker-aware transcripts",
+          "Action item extraction"
+        ]
       }
     },
     {
-      "name": "Recruitment Orchestrator – AI-Driven Hiring Automation",
-      "year": "2025",
-      "tags": [
-        "RabbitMQ",
-        "FastAPI",
-        "Workable API",
-        "AI Agents",
-        "Event-Driven Architecture",
-        "RAG"
-      ],
-      "impact": [
-        "Automated requisition creation and candidate shortlisting, reducing hiring cycle time by 55%.",
-        "Built event-driven triggers and approval chains enabling real-time hiring analytics and audit logs."
-      ],
-      "links": {
-        "demo": "",
-        "github": ""
+      "name": "Recruitment Orchestrator",
+      "slug": "recruitment-orchestrator",
+      "category": "Hiring Automation",
+      "dateLabel": "2025",
+      "short": "Event-driven hiring automation for requisitions, screening, and approvals.",
+      "thumbnail": "/projects/recruitment-orchestrator/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/recruitment-orchestrator/01.svg",
+          "/projects/recruitment-orchestrator/02.svg",
+          "/projects/recruitment-orchestrator/03.svg"
+        ],
+        "badgeIcon": "bots"
+      },
+      "caseStudy": {
+        "intro": "An event-driven orchestration layer that automates requisition creation, candidate shortlisting, and approvals with clear auditability.",
+        "sections": [
+          {
+            "heading": "Problem",
+            "body": [
+              "Hiring pipelines often break down in hand-offs between roles, tools, and approvals.",
+              "The objective was to reduce time-to-hire while maintaining traceability and compliance-friendly logs."
+            ]
+          },
+          {
+            "heading": "Approach",
+            "body": [
+              "Implemented a message-driven workflow with triggers for each stage of the funnel and explicit approval steps.",
+              "Connected ATS APIs and internal services to keep the system synchronized and to unlock real-time analytics.",
+              "Used retrieval and agent tooling to assist screening, shortlisting, and communication drafting."
+            ]
+          },
+          {
+            "heading": "Outcome",
+            "body": [
+              "Reduced hiring cycle time by 55% by automating repetitive steps and tightening stage transitions.",
+              "Delivered auditable event logs and real-time metrics for stakeholders."
+            ]
+          }
+        ],
+        "highlights": [
+          "Event-driven architecture",
+          "Approval chains + audit logs",
+          "ATS/API integrations"
+        ]
       }
     },
     {
-      "name": "Target AI – Intelligent Document Processing Platform",
-      "year": "2025",
-      "tags": [
-        "OCR",
-        "Tesseract",
-        "PyPDF2",
-        "LangChain Agents",
-        "GPT-4",
-        "Entity Extraction",
-        "FastAPI",
-        "React"
-      ],
-      "impact": [
-        "Developed an OCR→classification→entity extraction→reply generation pipeline with 95–99% confidence across 120+ documents.",
-        "Reduced compliance document processing time by 78%."
-      ],
-      "links": {
-        "demo": "",
-        "github": ""
+      "name": "Target AI",
+      "slug": "target-ai",
+      "category": "Document Intelligence",
+      "dateLabel": "2025",
+      "short": "OCR-to-answers pipeline for compliance documents with high-confidence extraction.",
+      "thumbnail": "/projects/target-ai/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/target-ai/01.svg",
+          "/projects/target-ai/02.svg",
+          "/projects/target-ai/03.svg"
+        ],
+        "badgeIcon": "doc"
+      },
+      "caseStudy": {
+        "intro": "A document processing platform that converts messy PDFs into structured entities, classifications, and response-ready outputs.",
+        "sections": [
+          {
+            "heading": "Problem",
+            "body": [
+              "Compliance teams spend hours extracting details from unstructured documents and responding in consistent formats.",
+              "The platform needed to handle varied layouts while keeping confidence and traceability visible to users."
+            ]
+          },
+          {
+            "heading": "Approach",
+            "body": [
+              "Built an OCR → classification → entity extraction pipeline that preserves source spans and confidence scores.",
+              "Used agent tooling to generate responses that reference extracted entities and maintain consistent formatting.",
+              "Designed the UI around fast review: the system shows what it found, where it came from, and what will be sent."
+            ]
+          },
+          {
+            "heading": "Outcome",
+            "body": [
+              "Reached 95–99% confidence across 120+ documents for classification and extraction.",
+              "Reduced compliance document processing time by 78% with automated extraction and templated replies."
+            ]
+          }
+        ],
+        "highlights": [
+          "OCR + entity extraction",
+          "Confidence-first UI",
+          "Response generation"
+        ]
       }
     },
     {
-      "name": "Supplier–Treasury Digital Twin – Liquidity & Risk Intelligence",
-      "year": "2025",
-      "tags": [
-        "Digital Twin",
-        "Neo4j",
-        "ESG Risk",
-        "Prophet Forecasting",
-        "LangChain Agents",
-        "Oracle Fusion",
-        "Snowflake"
-      ],
-      "impact": [
-        "Designed a Neo4j-powered supplier twin with ontology-driven risk modeling across financial systems.",
-        "Built forecasting and action agents to simulate FX/payment-term scenarios, reducing liquidity decision time by 68%."
-      ],
-      "links": {
-        "demo": "",
-        "github": ""
+      "name": "Supplier–Treasury Digital Twin",
+      "slug": "supplier-treasury-digital-twin",
+      "category": "Digital Twin",
+      "dateLabel": "2025",
+      "short": "Neo4j-powered twin for liquidity, risk modeling, and scenario simulation.",
+      "thumbnail": "/projects/supplier-treasury-digital-twin/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/supplier-treasury-digital-twin/01.svg",
+          "/projects/supplier-treasury-digital-twin/02.svg",
+          "/projects/supplier-treasury-digital-twin/03.svg"
+        ],
+        "badgeIcon": "figma"
+      },
+      "caseStudy": {
+        "intro": "A supplier–treasury digital twin that connects operational and financial signals to simulate liquidity and risk outcomes.",
+        "sections": [
+          {
+            "heading": "Problem",
+            "body": [
+              "Treasury decisions depend on fragmented supplier, payment, and market data spread across systems.",
+              "The goal was to unify relationships and enable fast what-if analysis for FX and payment-term scenarios."
+            ]
+          },
+          {
+            "heading": "Approach",
+            "body": [
+              "Modeled suppliers, contracts, and financial dependencies in a graph to make relationships queryable and explainable.",
+              "Added forecasting and action agents to simulate scenarios and produce decision-ready summaries.",
+              "Integrated key enterprise sources to keep the twin aligned with real operational data."
+            ]
+          },
+          {
+            "heading": "Outcome",
+            "body": [
+              "Reduced liquidity decision time by 68% by turning cross-system data into scenario-driven recommendations.",
+              "Enabled ontology-driven risk modeling with clear relationship tracing for stakeholders."
+            ]
+          }
+        ],
+        "highlights": [
+          "Graph-based digital twin",
+          "Scenario simulation agents",
+          "Liquidity + risk intelligence"
+        ]
       }
     }
   ],
