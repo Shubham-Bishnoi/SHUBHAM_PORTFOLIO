@@ -14,7 +14,19 @@ export default async function handler(req, res) {
     const profile = JSON.parse(raw)
 
     const projects = Array.isArray(profile?.projects) ? profile.projects : []
-    const cards = projects.map((p) => ({
+    const featured = projects
+      .filter((p) => Number.isInteger(p?.featuredRank))
+      .sort((a, b) => (a.featuredRank ?? 1e9) - (b.featuredRank ?? 1e9))
+
+    const rest = projects
+      .filter((p) => !Number.isInteger(p?.featuredRank))
+      .sort((a, b) => (a.useCaseId ?? 1e9) - (b.useCaseId ?? 1e9))
+
+    const ordered = [...featured, ...rest]
+
+    const cards = ordered.map((p) => ({
+      useCaseId: p.useCaseId ?? null,
+      featuredRank: p.featuredRank ?? null,
       slug: p.slug,
       name: p.name,
       category: p.category,
@@ -29,4 +41,3 @@ export default async function handler(req, res) {
     res.status(500).json({ ok: false })
   }
 }
-

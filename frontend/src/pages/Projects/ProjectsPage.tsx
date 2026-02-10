@@ -48,10 +48,32 @@ export function ProjectsPage() {
         <Container>
           {projectsState.kind === 'loading' ? <div>Loading...</div> : null}
           {projectsState.kind === 'error' ? <div>Not found.</div> : null}
-          {projectsState.kind === 'ready' ? <ProjectGrid projects={projectsState.projects} pop={pop} /> : null}
+          {projectsState.kind === 'ready' ? (
+            (() => {
+              const featured = projectsState.projects.filter((p) => typeof p.featuredRank === 'number')
+              const rest = projectsState.projects.filter((p) => typeof p.featuredRank !== 'number')
+
+              if (!featured.length) {
+                return <ProjectGrid projects={projectsState.projects} pop={pop} />
+              }
+
+              return (
+                <div className="projectsGroups">
+                  <section className="projectsGroup">
+                    <div className="projectsGroupHeading">Featured</div>
+                    <ProjectGrid projects={featured} pop={pop} />
+                  </section>
+
+                  <section className="projectsGroup projectsGroupTight">
+                    <div className="projectsGroupHeading">All use cases</div>
+                    <ProjectGrid projects={rest} pop={pop} />
+                  </section>
+                </div>
+              )
+            })()
+          ) : null}
         </Container>
       </div>
     </main>
   )
 }
-

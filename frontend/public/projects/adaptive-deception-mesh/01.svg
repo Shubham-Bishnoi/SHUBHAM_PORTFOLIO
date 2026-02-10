@@ -1,7 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
-  <rect width="1200" height="675" fill="#F3F4F6" />
-  <rect x="48" y="48" width="1104" height="579" fill="none" stroke="#111111" stroke-opacity="0.18" stroke-width="2" />
-  <text x="80" y="140" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace" font-size="44" fill="#111111" fill-opacity="0.68">Adaptive Deception Mesh</text>
-  <text x="80" y="200" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace" font-size="22" fill="#111111" fill-opacity="0.48">01</text>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="1040" viewBox="0 0 760 1040">
+  <rect width="760" height="1040" fill="#E5E7EB"/>
+  <rect x="24" y="24" width="712" height="992" fill="#F3F4F6" stroke="#111111" stroke-opacity="0.14"/>
+  <text x="380" y="520" text-anchor="middle" dominant-baseline="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="24" fill="#111111" fill-opacity="0.55">adaptive-deception-mesh • 01</text>
 </svg>
-

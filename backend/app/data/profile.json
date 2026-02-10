@@ -7,8 +7,8 @@
     "email": "shubhambis9oi@gmail.com",
     "phone": "+91-9991752283",
     "links": {
-      "linkedin": " `https://www.linkedin.com/in/sbishnoi29/` ",
-      "github": " `https://github.com/Shubham-Bishnoi` "
+      "linkedin": "https://www.linkedin.com/in/sbishnoi29/",
+      "github": "https://github.com/Shubham-Bishnoi"
     },
     "summary": [
       "AI full-stack engineer building enterprise-grade agentic systems, real-time summarization, and deception-based cyber defense.",
@@ -64,11 +64,14 @@
   ],
   "projects": [
     {
+      "useCaseId": 16,
+      "featuredRank": 1,
       "name": "Adaptive Deception Mesh",
       "slug": "adaptive-deception-mesh",
       "category": "Cybersecurity",
       "dateLabel": "2025",
-      "short": "AI deception platform that diverts intrusions into synthetic environments.",
+      "short": "Self-adapting AI deception fabric that traps adversaries inside synthetic environments with real-time MITRE ATT&CK insights.",
+      "tags": ["MITRE ATT&CK", "HoneyTokens", "Honey VMs", "Honey APIs", "LangChain Agents", "Three.js", "WebSockets", "SIEM"],
       "thumbnail": "/projects/adaptive-deception-mesh/thumb.svg",
       "hero": {
         "collage": [
@@ -79,44 +82,53 @@
         "badgeIcon": "shield"
       },
       "caseStudy": {
-        "intro": "An AI-driven deception mesh designed to shorten attacker dwell time by redirecting suspicious activity into instrumented, synthetic targets.",
+        "intro": "A next-generation deception mesh that proactively disrupts attackers, gathers high-fidelity intelligence, and maps behaviors to MITRE ATT&CK without exposing real systems.",
         "sections": [
           {
-            "heading": "Problem",
+            "heading": "Business-Focused Description",
             "body": [
-              "Traditional detection pipelines are reactive and often drown analysts in low-signal alerts.",
-              "The goal was to proactively engage adversaries, capture high-fidelity telemetry, and map behavior to MITRE ATT&CK without adding analyst burden."
+              "Lures attackers into AI-generated honey environments (HoneyTokens, Honey VMs, Honey APIs) to waste adversary time and capture telemetry.",
+              "Provides SOC-grade visibility with real-time MITRE ATT&CK mapping and adversary replay.",
+              "Designed for regulated enterprises needing deep adversary insight without production exposure."
             ]
           },
           {
-            "heading": "Approach",
+            "heading": "Tech Stack (AI-Focused Breakdown)",
             "body": [
-              "Built a deception control plane that deploys and manages HoneyTokens, Honey APIs, and HoneyVMs, guiding suspicious actors into safe, observable surfaces.",
-              "Streamed interaction events into a real-time pipeline and enriched them with MITRE ATT&CK technique mapping for faster triage.",
-              "Shipped a cyber command center UI that turns telemetry into an at-a-glance view of adversary paths and engagement points."
+              "LLMs: GPT-4 / Llama-3 for behavioral analysis, adaptive lure deployment, synthetic data/API generation.",
+              "LangChain multi-agent system: Lure Agent, Profiling Agent, MITRE Mapping Agent, Forensics Agent.",
+              "Backend microservices: Node.js + Redis (MITRE engine), HoneyToken Service, Honey API Service (FastAPI/Node), Honey VM telemetry daemon.",
+              "SIEM integrations via Syslog/Webhooks (Sentinel/Splunk).",
+              "3D Cyber Command Center: Three.js / React-Three-Fiber + WebSocket telemetry overlays."
             ]
           },
           {
-            "heading": "Outcome",
+            "heading": "Unique Capabilities Demonstrated",
             "body": [
-              "Reduced attacker dwell time by 87% by automatically diverting activity into synthetic environments.",
-              "Enabled SOC teams to visualize and classify interactions quickly using structured telemetry and technique mapping."
+              "AI-adaptive deception that evolves based on attacker actions (dynamic deployment of shares, accounts, APIs, deeper traps).",
+              "End-to-end real-time MITRE technique activation with attacker journey visualization in 3D.",
+              "High-fidelity synthetic ecosystems: finance, HR, cloud, and audit deception layer (workpapers, SOX controls, CFO memos).",
+              "AI-narrated adversary replay for board-level storytelling and SOC incident review."
             ]
           }
         ],
         "highlights": [
-          "HoneyTokens / Honey APIs / HoneyVMs",
-          "MITRE ATT&CK mapping",
-          "Real-time telemetry + visualization"
+          "AI-adaptive deception (not static honeypots)",
+          "Real-time MITRE ATT&CK mapping",
+          "3D cyber command center + replay"
         ]
       }
     },
+
     {
-      "name": "SecBot AI",
+      "useCaseId": 12,
+      "featuredRank": 2,
+      "name": "Agentic AI Secretary (Secbot AI)",
       "slug": "secbot-ai",
       "category": "Agentic Systems",
       "dateLabel": "2025",
-      "short": "Multi-agent executive assistant for scheduling, email, and workflow automation.",
+      "short": "Multi-agent executive assistant that schedules, books travel, manages docs and approvals across web, Teams, and WhatsApp.",
+      "tags": ["LangGraph", "LangChain", "FastAPI", "WebSockets", "Outlook Graph", "Pinecone", "LlamaIndex", "Twilio"],
       "thumbnail": "/projects/secbot-ai/thumb.svg",
       "hero": {
         "collage": [
@@ -127,92 +139,110 @@
         "badgeIcon": "bots"
       },
       "caseStudy": {
-        "intro": "A LangGraph-based orchestration system that coordinates autonomous agents to handle executive workflows end-to-end.",
+        "intro": "A production-grade multi-agent EA that plans and executes workflows (calendar, travel, procurement, docs, approvals) with memory, traceability, and real-time execution streaming.",
         "sections": [
           {
-            "heading": "Problem",
+            "heading": "Business-Focused Description",
             "body": [
-              "Executive workflows span email, calendar, documents, and approvals, but coordination is still largely manual.",
-              "The challenge was to automate these flows safely while keeping control, traceability, and human review where needed."
+              "Automates EA workflows: scheduling, travel booking, venue management, procurement, document handling, and approvals.",
+              "Runs as a multi-agent system with memory + preferences, keeping executives in control via approvals and audit trails.",
+              "Accessible via web UI, MS Teams bot, and WhatsApp/Twilio channels."
             ]
           },
           {
-            "heading": "Approach",
+            "heading": "Tech Stack (AI-Focused Breakdown)",
             "body": [
-              "Implemented an agent graph with explicit roles (triage, retrieval, drafting, scheduling, and follow-ups), orchestrated through a message-driven pipeline.",
-              "Integrated Outlook/Graph APIs and internal workflow services, with retrieval augmented generation for context-aware responses.",
-              "Added guardrails: structured tool calls, step-by-step execution, and deterministic fallbacks for ambiguous requests."
+              "Backend: FastAPI (Python), LangGraph + LangChain orchestration, tool wrappers for external services.",
+              "Agents: Travel, Calendar, Venue, Procurement, Docs, Memory, Approval; coordinated by an Orchestrator node.",
+              "Execution streaming: WebSockets for live plan/tool-call traces and per-user/per-booking updates.",
+              "Integrations: Outlook Graph API, travel providers, Puppeteer automation/scraping, DocuSign, Stripe, SendGrid, Twilio, Pinecone (vector memory) + LlamaIndex."
             ]
           },
           {
-            "heading": "Outcome",
+            "heading": "Unique Capabilities Demonstrated",
             "body": [
-              "Reduced manual coordination time by 62% through automation of scheduling, drafting, and follow-up tasks.",
-              "Improved reliability by separating responsibilities across agents and keeping execution auditable."
+              "True multi-agent EA (plans + executes), not just ‘chat with calendar’.",
+              "Glass-box agent UX via live execution trace (auditable and demo-friendly).",
+              "Memory-driven personalization (airlines, budgets, vendors, past itineraries).",
+              "Multi-channel experience (Web + Teams + WhatsApp/voice-ready)."
             ]
           }
         ],
         "highlights": [
-          "6+ autonomous agents",
-          "RabbitMQ orchestration",
-          "Outlook/Graph + RAG"
+          "Multi-agent orchestration (LangGraph)",
+          "Real-time execution trace",
+          "Approvals + memory personalization"
         ]
       }
     },
+
     {
-      "name": "Real-Time Meeting Summarization System",
-      "slug": "real-time-meeting-summarization-system",
+      "useCaseId": 11,
+      "featuredRank": 3,
+      "name": "Multi-Agent Meeting Summarisation & Action Tracking",
+      "slug": "meeting-summarisation-action-tracking",
       "category": "Real-time AI",
       "dateLabel": "2025",
-      "short": "Live transcription, summaries, and action items with low-latency streaming.",
-      "thumbnail": "/projects/real-time-meeting-summarization-system/thumb.svg",
+      "short": "Real-time meeting intelligence: live transcription, evolving summaries, and structured action items via multi-agent orchestration.",
+      "tags": ["Whisper", "LlamaIndex", "LangGraph", "FastAPI", "WebSockets", "Diarization", "Task Manager"],
+      "thumbnail": "/projects/meeting-summarisation-action-tracking/thumb.svg",
       "hero": {
         "collage": [
-          "/projects/real-time-meeting-summarization-system/01.svg",
-          "/projects/real-time-meeting-summarization-system/02.svg",
-          "/projects/real-time-meeting-summarization-system/03.svg"
+          "/projects/meeting-summarisation-action-tracking/01.svg",
+          "/projects/meeting-summarisation-action-tracking/02.svg",
+          "/projects/meeting-summarisation-action-tracking/03.svg"
         ],
         "badgeIcon": "doc"
       },
       "caseStudy": {
-        "intro": "A real-time pipeline that turns live audio into structured notes, speaker-aware transcripts, and action items while the meeting is still happening.",
+        "intro": "A real-time autonomous notetaker that continuously summarizes meetings and extracts action items with owners, priority, due dates, and lifecycle tracking.",
         "sections": [
           {
-            "heading": "Problem",
+            "heading": "Business-Focused Description",
             "body": [
-              "Teams lose time after meetings turning raw conversations into decisions, tasks, and follow-ups.",
-              "The goal was to produce accurate summaries continuously, not minutes later, and keep output structured for downstream workflows."
+              "Eliminates manual note-taking by generating real-time summaries and action items while the meeting is still happening.",
+              "Improves meeting productivity and ensures all tasks are captured, assigned, and tracked.",
+              "Built for consulting, enterprise ops, PMOs, and delivery teams."
             ]
           },
           {
-            "heading": "Approach",
+            "heading": "Tech Stack (AI-Focused Breakdown)",
             "body": [
-              "Built a streaming transcription layer and pushed partial segments through a multi-agent summarization and extraction workflow.",
-              "Used retrieval where needed for contextual grounding and tracked tasks with consistent formatting for easy copy/paste into trackers.",
-              "Delivered results over WebSockets for an always-updating summary panel."
+              "LLM reasoning: GPT-4 / Llama-3 / enterprise LLMs for summaries + task extraction.",
+              "LlamaIndex: SlidingWindowNodeParser + SummaryIndex + multi-round summarization for long-context handling.",
+              "LangGraph: multi-agent orchestration (Summariser Agent + Action Tracker Agent).",
+              "Real-time audio: Whisper (live STT), WebRTC mic capture, speaker diarization support.",
+              "Backend: FastAPI streaming endpoints (/transcript/stream, /summary/generate, /tasks/extract), storage in Postgres/MongoDB, background workers (Celery/RQ).",
+              "Frontend: React + TypeScript for live transcript + dashboards + task manager + integrations panel."
             ]
           },
           {
-            "heading": "Outcome",
+            "heading": "Unique Capabilities Demonstrated",
             "body": [
-              "Achieved 93% accuracy on real-time summaries and task extraction.",
-              "Reduced post-meeting documentation effort by 70% with speaker-tagged transcripts and actionable outputs."
+              "Real-time multi-agent autonomy (summaries + actions in parallel).",
+              "Sliding-window long-context understanding (continuous processing, not batch).",
+              "Structured task extraction (owner, due date, priority, meeting reference, status).",
+              "End-to-end meeting lifecycle automation (before/during/after + follow-ups)."
             ]
           }
         ],
         "highlights": [
-          "Streaming + WebSockets",
-          "Speaker-aware transcripts",
-          "Action item extraction"
+          "Live transcript → summary → tasks",
+          "Long-context processing (sliding window)",
+          "Full meeting lifecycle suite"
         ]
       }
     },
+
     {
-      "name": "Recruitment Orchestrator",
+      "useCaseId": 15,
+      "featuredRank": 4,
+      "name": "Recruitment Orchestrator & Workflow",
       "slug": "recruitment-orchestrator",
       "category": "Hiring Automation",
       "dateLabel": "2025",
-      "short": "Event-driven hiring automation for requisitions, screening, and approvals.",
+      "short": "Conversational, event-driven hiring automation with Workable ATS integration, RabbitMQ orchestration, approvals, and audit logs.",
+      "tags": ["Workable ATS", "RabbitMQ", "FastAPI", "LangChain", "Audit Logs", "Maker-Checker", "NLU", "Microservices"],
       "thumbnail": "/projects/recruitment-orchestrator/thumb.svg",
       "hero": {
         "collage": [
@@ -223,92 +253,109 @@
         "badgeIcon": "bots"
       },
       "caseStudy": {
-        "intro": "An event-driven orchestration layer that automates requisition creation, candidate shortlisting, and approvals with clear auditability.",
+        "intro": "A chat-driven recruitment control system that converts natural language requests into ATS actions and coordinates async search agents via RabbitMQ.",
         "sections": [
           {
-            "heading": "Problem",
+            "heading": "Business-Focused Description",
             "body": [
-              "Hiring pipelines often break down in hand-offs between roles, tools, and approvals.",
-              "The objective was to reduce time-to-hire while maintaining traceability and compliance-friendly logs."
+              "Allows hiring managers to create requisitions, view candidates, and manage pipelines via natural-language chat.",
+              "Automates retrieval, shortlisting, approvals, and audit logging to reduce time-to-hire and improve governance.",
+              "Transforms recruitment into a guided, event-driven workflow."
             ]
           },
           {
-            "heading": "Approach",
+            "heading": "Tech Stack (AI-Focused Breakdown)",
             "body": [
-              "Implemented a message-driven workflow with triggers for each stage of the funnel and explicit approval steps.",
-              "Connected ATS APIs and internal services to keep the system synchronized and to unlock real-time analytics.",
-              "Used retrieval and agent tooling to assist screening, shortlisting, and communication drafting."
+              "LLMs: GPT-4 / Llama-3 for intent detection and structured requisition payload generation.",
+              "LangChain for tool-based routing + attribute extraction (role, location, seniority, department) + session memory.",
+              "Backend: FastAPI + PostgreSQL (requisitions, approvals, audit_logs, candidate_actions).",
+              "Messaging: RabbitMQ events (REQ_CREATED → Search Agent, SHORTLIST_READY back to UI).",
+              "Integration: Workable ATS API for req creation, candidate fetch, pipeline updates."
             ]
           },
           {
-            "heading": "Outcome",
+            "heading": "Unique Capabilities Demonstrated",
             "body": [
-              "Reduced hiring cycle time by 55% by automating repetitive steps and tightening stage transitions.",
-              "Delivered auditable event logs and real-time metrics for stakeholders."
+              "Natural language → structured ATS payloads (no form filling).",
+              "Fully event-driven hiring pipeline using RabbitMQ and microservices (Search Agent).",
+              "Multi-agent coordination (Manager/ATS/Search agents).",
+              "Maker–Checker approvals + audit logs for enterprise governance."
             ]
           }
         ],
         "highlights": [
-          "Event-driven architecture",
-          "Approval chains + audit logs",
-          "ATS/API integrations"
+          "Chat-controlled ATS automation",
+          "RabbitMQ event-driven pipeline",
+          "Maker–Checker governance + audit logs"
         ]
       }
     },
+
     {
-      "name": "Target AI",
-      "slug": "target-ai",
+      "useCaseId": 9,
+      "featuredRank": 5,
+      "name": "Target: AI-Agent Document Processing System",
+      "slug": "target-document-processing",
       "category": "Document Intelligence",
       "dateLabel": "2025",
-      "short": "OCR-to-answers pipeline for compliance documents with high-confidence extraction.",
-      "thumbnail": "/projects/target-ai/thumb.svg",
+      "short": "End-to-end AI agent pipeline: OCR/text extraction → classification → entity extraction → professional response generation with confidence scoring.",
+      "tags": ["OCR", "PyTesseract", "PyPDF2", "LangChain Agents", "Embeddings", "FastAPI", "React", "Confidence Scoring"],
+      "thumbnail": "/projects/target-document-processing/thumb.svg",
       "hero": {
         "collage": [
-          "/projects/target-ai/01.svg",
-          "/projects/target-ai/02.svg",
-          "/projects/target-ai/03.svg"
+          "/projects/target-document-processing/01.svg",
+          "/projects/target-document-processing/02.svg",
+          "/projects/target-document-processing/03.svg"
         ],
         "badgeIcon": "doc"
       },
       "caseStudy": {
-        "intro": "A document processing platform that converts messy PDFs into structured entities, classifications, and response-ready outputs.",
+        "intro": "An AI-agentic notification processing platform that automates compliance and finance document workflows from upload to response-ready outputs with auditability.",
         "sections": [
           {
-            "heading": "Problem",
+            "heading": "Business-Focused Description",
             "body": [
-              "Compliance teams spend hours extracting details from unstructured documents and responding in consistent formats.",
-              "The platform needed to handle varied layouts while keeping confidence and traceability visible to users."
+              "Automates processing of tax, audit, and compliance documents by extracting text, classifying type, extracting key fields, and generating professional responses.",
+              "Replaces hours of manual review with an end-to-end AI pipeline for improved turnaround time, accuracy, and consistency.",
+              "Designed for compliance and finance teams needing reliable, repeatable outputs."
             ]
           },
           {
-            "heading": "Approach",
+            "heading": "Tech Stack (AI-Focused Breakdown)",
             "body": [
-              "Built an OCR → classification → entity extraction pipeline that preserves source spans and confidence scores.",
-              "Used agent tooling to generate responses that reference extracted entities and maintain consistent formatting.",
-              "Designed the UI around fast review: the system shows what it found, where it came from, and what will be sent."
+              "Agents: Text Extraction (OCR + native), Classification (GPT-4/3.5), Entity Extraction (GPT-3.5), Response Generation (GPT-4), optional Feedback Agent.",
+              "Techniques: embeddings + cosine similarity for confidence, deterministic + AI confidence normalization, template-driven compliance output.",
+              "Backend: FastAPI + Uvicorn, LangChain tools/agents, OCR fallback pipeline (pdf2image + PyTesseract + PyPDF2), Pydantic validation, retry/error handling.",
+              "Frontend: React + TypeScript, Tailwind + Radix UI, React Query, upload wizard + history + results + confidence visualization."
             ]
           },
           {
-            "heading": "Outcome",
+            "heading": "Unique Capabilities Demonstrated",
             "body": [
-              "Reached 95–99% confidence across 120+ documents for classification and extraction.",
-              "Reduced compliance document processing time by 78% with automated extraction and templated replies."
+              "Modular multi-agent workflow (not a monolithic LLM call).",
+              "Hybrid extraction pipeline (native PDF + OCR fallback) for 100% document compatibility.",
+              "Enterprise-grade multi-level confidence scoring (model certainty + deterministic checks + embedding similarity).",
+              "Plug-and-play architecture for adding new agents (translation, compliance-check, summarization)."
             ]
           }
         ],
         "highlights": [
-          "OCR + entity extraction",
-          "Confidence-first UI",
-          "Response generation"
+          "OCR + classification + extraction + response",
+          "Multi-level confidence scoring",
+          "Audit-ready workflow + extensibility"
         ]
       }
     },
+
     {
+      "useCaseId": 14,
+      "featuredRank": 6,
       "name": "Supplier–Treasury Digital Twin",
       "slug": "supplier-treasury-digital-twin",
       "category": "Digital Twin",
       "dateLabel": "2025",
-      "short": "Neo4j-powered twin for liquidity, risk modeling, and scenario simulation.",
+      "short": "Real-time supplier–treasury digital twin with risk, forecasting, and action agents for liquidity decisions and scenario simulation.",
+      "tags": ["Neo4j", "LangChain Agents", "Prophet", "Kafka", "Power BI", "Mapbox", "FastAPI", "OpenTelemetry"],
       "thumbnail": "/projects/supplier-treasury-digital-twin/thumb.svg",
       "hero": {
         "collage": [
@@ -316,124 +363,702 @@
           "/projects/supplier-treasury-digital-twin/02.svg",
           "/projects/supplier-treasury-digital-twin/03.svg"
         ],
-        "badgeIcon": "figma"
+        "badgeIcon": "finance"
       },
       "caseStudy": {
-        "intro": "A supplier–treasury digital twin that connects operational and financial signals to simulate liquidity and risk outcomes.",
+        "intro": "A real-time digital twin that models suppliers, payments, ESG exposure, and liquidity flows, enabling CFOs to predict and act on risk with explainability and governance-first logging.",
         "sections": [
           {
-            "heading": "Problem",
+            "heading": "Business-Focused Description",
             "body": [
-              "Treasury decisions depend on fragmented supplier, payment, and market data spread across systems.",
-              "The goal was to unify relationships and enable fast what-if analysis for FX and payment-term scenarios."
+              "Models suppliers, payments, ESG exposure, and liquidity flows so CFOs can see, predict, and act on risk instantly.",
+              "Deploys AI agents (Risk, Forecast, Action) to detect supplier deterioration, simulate cashflow impact, and recommend treasury actions.",
+              "Transforms treasury from reactive operations into AI-governed, predictive management."
             ]
           },
           {
-            "heading": "Approach",
+            "heading": "Tech Stack (AI-Focused Breakdown)",
             "body": [
-              "Modeled suppliers, contracts, and financial dependencies in a graph to make relationships queryable and explainable.",
-              "Added forecasting and action agents to simulate scenarios and produce decision-ready summaries.",
-              "Integrated key enterprise sources to keep the twin aligned with real operational data."
+              "Agents: Risk Agent (Neo4j retrieval + scoring), Forecast Agent (Prophet + variance detection), Action Agent (scenario simulation + evidence pack), CFO Copilot (LLM agent executor).",
+              "Digital twin: Neo4j graph ontology (Supplier, Bank, Country, Payment, ESGMetric) with explainable relationship tracing.",
+              "Integrations: ERP (SAP/Oracle), streaming (Kafka/Integration Cloud), lakehouse (Snowflake/Fabric/ADW), ESG feeds (Refinitiv/World Bank).",
+              "Visualization: Power BI / Oracle Analytics + Mapbox geospatial supplier galaxy.",
+              "Governance: Azure Purview evidence vault, OpenTelemetry traces, Key Vault + OIDC."
             ]
           },
           {
-            "heading": "Outcome",
+            "heading": "Unique Capabilities Demonstrated",
             "body": [
-              "Reduced liquidity decision time by 68% by turning cross-system data into scenario-driven recommendations.",
-              "Enabled ontology-driven risk modeling with clear relationship tracing for stakeholders."
+              "Real-time supplier digital twin with ESG + payment + bank/country risk fusion.",
+              "Multi-agent treasury intelligence (Risk + Forecast + Action) with board-ready simulations (FX, terms, shocks).",
+              "Conversational CFO command center for actionable treasury commands with evidence packs.",
+              "Governance-first architecture with audit-ready logging and explainability."
             ]
           }
         ],
         "highlights": [
-          "Graph-based digital twin",
-          "Scenario simulation agents",
-          "Liquidity + risk intelligence"
+          "Neo4j digital twin + explainability",
+          "Risk + forecast + action agents",
+          "Scenario simulation + governance trails"
+        ]
+      }
+    },
+
+    {
+      "useCaseId": 1,
+      "featuredRank": null,
+      "name": "Predictive Audit Risk Scoring Platform",
+      "slug": "predictive-audit-risk-scoring-platform",
+      "category": "Audit Analytics",
+      "dateLabel": "2025",
+      "short": "ML-based audit fraud-risk scoring with SHAP explainability to prioritize high-risk clients and reduce audit cycle time.",
+      "tags": ["XGBoost", "LSTM", "SHAP", "FastAPI", "PostgreSQL/Oracle", "Streamlit", "Dash", "Docker"],
+      "thumbnail": "/projects/predictive-audit-risk-scoring-platform/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/predictive-audit-risk-scoring-platform/01.svg",
+          "/projects/predictive-audit-risk-scoring-platform/02.svg",
+          "/projects/predictive-audit-risk-scoring-platform/03.svg"
+        ],
+        "badgeIcon": "chart"
+      },
+      "caseStudy": {
+        "intro": "A real-time audit risk engine that scores clients using financial ratios and historical fraud signals, backed by SHAP explainability for compliance trust.",
+        "sections": [
+          {
+            "heading": "Business-Focused Description",
+            "body": [
+              "Automatically identifies high-risk clients using financial statements, audit ratios, and historical fraud indicators.",
+              "Replaces slow manual audit review with real-time ML-driven scoring to detect fraud earlier and cut audit cycle time.",
+              "Uses SHAP explainability to justify risk scores to compliance stakeholders."
+            ]
+          },
+          {
+            "heading": "Tech Stack (AI-Focused Breakdown)",
+            "body": [
+              "AI/ML: XGBoost for tabular classification, LSTM for sequential trend analysis (revenue/liquidity/cashflow).",
+              "Explainability: SHAP (beeswarm, force, waterfall, bar, dependence plots).",
+              "Python ML stack: NumPy, Pandas, Scikit-Learn, Matplotlib; model persistence via Joblib.",
+              "Backend: FastAPI + Uvicorn + Pydantic; integrates with PostgreSQL/Oracle.",
+              "Dashboards: Streamlit/Dash + React (Material UI + Tailwind).",
+              "Deployment: Docker, AWS EC2/Azure App Service, Vercel frontend."
+            ]
+          },
+          {
+            "heading": "Unique Capabilities Demonstrated",
+            "body": [
+              "Hybrid ML (XGBoost + LSTM) combining tabular patterns with temporal risk signals.",
+              "Explainable AI for audit-grade defensibility.",
+              "Real-time risk API for continuous monitoring and enterprise integration.",
+              "End-to-end pipeline delivery (ingestion → ML → SHAP → dashboard → deploy)."
+            ]
+          }
+        ],
+        "highlights": [
+          "SHAP explainability for auditors",
+          "Hybrid ML (tabular + temporal)",
+          "Real-time audit risk scoring API"
+        ]
+      }
+    },
+
+    {
+      "useCaseId": 2,
+      "featuredRank": null,
+      "name": "AI-Driven Biodiversity & Natural Capital Evaluation",
+      "slug": "biodiversity-natural-capital-evaluation",
+      "category": "ESG / Geospatial AI",
+      "dateLabel": "2025",
+      "short": "Geospatial AI platform that detects deforestation, water pollution, and biodiversity loss at scale and generates TNFD-aligned risk reports.",
+      "tags": ["CNN", "Remote Sensing", "Earth Engine", "Rasterio", "GDAL", "TorchGeo", "TNFD", "D3.js"],
+      "thumbnail": "/projects/biodiversity-natural-capital-evaluation/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/biodiversity-natural-capital-evaluation/01.svg",
+          "/projects/biodiversity-natural-capital-evaluation/02.svg",
+          "/projects/biodiversity-natural-capital-evaluation/03.svg"
+        ],
+        "badgeIcon": "leaf"
+      },
+      "caseStudy": {
+        "intro": "An ESG geospatial intelligence platform that converts satellite and ecological data into automated biodiversity monitoring, natural capital valuation, and TNFD-ready reports.",
+        "sections": [
+          {
+            "heading": "Business-Focused Description",
+            "body": [
+              "Uses satellite imagery, remote sensing, and ecological datasets to detect deforestation, water pollution, and biodiversity loss at scale.",
+              "Quantifies natural capital value and generates TNFD-aligned biodiversity risk reports for ESG compliance.",
+              "Transforms manual environmental assessment into automated, real-time AI workflows."
+            ]
+          },
+          {
+            "heading": "Tech Stack (AI-Focused Breakdown)",
+            "body": [
+              "Models: CNNs for land-use change, spectral-analysis AI for water pollution, LSTM/Transformers for biodiversity forecasting.",
+              "Geospatial: Rasterio, GDAL, OpenCV, TorchGeo, mmsegmentation.",
+              "Data engines: Google Earth Engine (NDVI/NDWI), Sentinel Hub, Landsat, MODIS.",
+              "Valuation: InVEST, ARIES, ENCORE + custom natural capital economic simulation.",
+              "Backend: FastAPI + Dockerized services; cloud on AWS/GCP/Azure.",
+              "Dashboards: Streamlit ESG monitoring + React (Tailwind + D3.js) + TNFD report generator (PDF/JSON)."
+            ]
+          },
+          {
+            "heading": "Unique Capabilities Demonstrated",
+            "body": [
+              "Triple-risk detection engine (deforestation + water pollution + biodiversity loss).",
+              "Natural capital valuation mapping ecological impact to financial risk.",
+              "Automated TNFD compliance reporting and sustainability recommendation engine.",
+              "Continuous monitoring using updated NDVI/NDWI feeds."
+            ]
+          }
+        ],
+        "highlights": [
+          "Satellite-driven triple-risk engine",
+          "TNFD-aligned reporting automation",
+          "Natural capital valuation"
+        ]
+      }
+    },
+
+    {
+      "useCaseId": 3,
+      "featuredRank": null,
+      "name": "Multi-Agent RL for Dynamic Contract Bidding & Negotiation",
+      "slug": "multi-agent-rl-contract-bidding-negotiation",
+      "category": "Reinforcement Learning",
+      "dateLabel": "2025",
+      "short": "Multi-agent DeepRL bidding simulator with LLM-driven negotiation to discover optimal procurement and contracting strategies.",
+      "tags": ["PPO", "DQN", "SAC", "Ray RLlib", "PettingZoo", "Gymnasium", "LangChain", "FastAPI"],
+      "thumbnail": "/projects/multi-agent-rl-contract-bidding-negotiation/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/multi-agent-rl-contract-bidding-negotiation/01.svg",
+          "/projects/multi-agent-rl-contract-bidding-negotiation/02.svg",
+          "/projects/multi-agent-rl-contract-bidding-negotiation/03.svg"
+        ],
+        "badgeIcon": "brain"
+      },
+      "caseStudy": {
+        "intro": "A multi-agent market simulation where vendor/buyer agents learn optimal bidding strategies under shifting market dynamics, augmented by LLM negotiation.",
+        "sections": [
+          {
+            "heading": "Business-Focused Description",
+            "body": [
+              "Automates dynamic contract bidding strategy evaluation in competitive markets using multi-agent RL + NLP negotiation.",
+              "Helps reduce procurement costs, improve bidding efficiency, and uncover optimal contracting strategies without human intervention.",
+              "Enables scenario testing of procurement policies and supplier competitiveness."
+            ]
+          },
+          {
+            "heading": "Tech Stack (AI-Focused Breakdown)",
+            "body": [
+              "DeepRL: Q-Learning, DQN, PPO, A2C, TD3, SAC (Stable Baselines3, Ray RLlib).",
+              "Multi-agent: PettingZoo vendor–buyer simulation, Gymnasium custom environments.",
+              "NLP negotiation: GPT-4 / Llama via LangChain prompt chains for dialogues and contract reasoning.",
+              "Backend: FastAPI serving RL actions + negotiation outputs.",
+              "Training/Deployment: Docker + Kubernetes (AKS), cloud training via SageMaker/Azure ML/GCP.",
+              "Visualization: Streamlit + Plotly/Matplotlib for win-rates, reward curves, bidding behavior."
+            ]
+          },
+          {
+            "heading": "Unique Capabilities Demonstrated",
+            "body": [
+              "Vendor and buyer agents adapt strategies over thousands of episodes (strategy discovery).",
+              "Dynamic market adaptation (thresholds and conditions shift in real time).",
+              "Hybrid AI: RL for strategy + LLM for negotiation language.",
+              "Scalable architecture for adding new agent types and domain rules."
+            ]
+          }
+        ],
+        "highlights": [
+          "Multi-agent RL market simulator",
+          "LLM negotiation layer",
+          "Strategy discovery + analytics"
+        ]
+      }
+    },
+
+    {
+      "useCaseId": 4,
+      "featuredRank": null,
+      "name": "Automated Anomaly Detection & Fraud Risk Scoring System",
+      "slug": "anomaly-detection-fraud-risk-scoring",
+      "category": "Fraud Detection",
+      "dateLabel": "2025",
+      "short": "Real-time fraud detection pipeline with Kafka streaming, hybrid ML + graph + rules, and LLM-based audit report generation.",
+      "tags": ["Kafka", "Isolation Forest", "Autoencoders", "Neo4j", "MLflow", "FastAPI", "Docker", "Kubernetes"],
+      "thumbnail": "/projects/anomaly-detection-fraud-risk-scoring/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/anomaly-detection-fraud-risk-scoring/01.svg",
+          "/projects/anomaly-detection-fraud-risk-scoring/02.svg",
+          "/projects/anomaly-detection-fraud-risk-scoring/03.svg"
+        ],
+        "badgeIcon": "shield"
+      },
+      "caseStudy": {
+        "intro": "A bank-scale streaming fraud pipeline that scores transactions in real time, publishes alerts instantly, and generates audit summaries via LLM agents.",
+        "sections": [
+          {
+            "heading": "Business-Focused Description",
+            "body": [
+              "Monitors financial transactions, detects anomalies, and assigns dynamic fraud risk scores in real time.",
+              "Eliminates manual audit bottlenecks using ML detection + streaming pipelines + intelligent agents.",
+              "Scales across ERP, banking, and tax systems with automated alerts and dashboards."
+            ]
+          },
+          {
+            "heading": "Tech Stack (AI-Focused Breakdown)",
+            "body": [
+              "ML: Isolation Forest, LOF, Autoencoders, XGBoost risk models; PyTorch/TensorFlow anomaly models.",
+              "MLOps: MLflow for versioning/retraining; preprocessing via Polars/Pandas/PySpark.",
+              "Graph anomaly: Neo4j queries for relationship-based fraud patterns.",
+              "Streaming: Kafka producers/consumers + alert topics (transactions → fraud_alerts).",
+              "Agents: Headlist Agent (rule+ML hybrid) + LangChain LLM Agent (Llama 3.2 via Ollama) for PDF audit summaries.",
+              "Storage: Postgres, MongoDB, Delta Lake; ETL via Spark/AWS Glue.",
+              "Backend: FastAPI scoring service; Dockerized microservices + Kubernetes/Lambda scale-out."
+            ]
+          },
+          {
+            "heading": "Unique Capabilities Demonstrated",
+            "body": [
+              "End-to-end real-time pipeline with instant alert publication and incident workflows.",
+              "Hybrid AI: ML + Neo4j graph + rule engine for robust fraud detection.",
+              "Handles large transactional datasets (1.2GB+) with scalable preprocessing + ETL.",
+              "LLM agent generates audit-grade summaries autonomously from ML outputs and dates."
+            ]
+          }
+        ],
+        "highlights": [
+          "Kafka real-time fraud scoring",
+          "Hybrid ML + graph + rules",
+          "LLM-generated audit reports"
+        ]
+      }
+    },
+
+    {
+      "useCaseId": 5,
+      "featuredRank": null,
+      "name": "AI-Powered Resume Screener & Intelligent Recruitment Platform",
+      "slug": "ai-resume-screener-recruitment-platform",
+      "category": "HR Tech",
+      "dateLabel": "2025",
+      "short": "Resume parsing + job understanding + explainable match scoring using embeddings and multi-agent AI microservices.",
+      "tags": ["Embeddings", "Sentence-Transformers", "spaCy", "FastAPI", "React", "shadcn/ui", "Vector DB", "Explainable Scoring"],
+      "thumbnail": "/projects/ai-resume-screener-recruitment-platform/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/ai-resume-screener-recruitment-platform/01.svg",
+          "/projects/ai-resume-screener-recruitment-platform/02.svg",
+          "/projects/ai-resume-screener-recruitment-platform/03.svg"
+        ],
+        "badgeIcon": "users"
+      },
+      "caseStudy": {
+        "intro": "An enterprise recruitment AI that parses resumes, understands job requirements, ranks candidates, and explains match decisions with a clean ATS-style UI.",
+        "sections": [
+          {
+            "heading": "Business-Focused Description",
+            "body": [
+              "Automatically parses resumes, understands job descriptions, and computes candidate–job match scores.",
+              "Eliminates manual screening, improves evaluation consistency, and reduces time-to-hire for enterprise HR workflows.",
+              "Designed for accuracy, speed, and standardization at scale."
+            ]
+          },
+          {
+            "heading": "Tech Stack (AI-Focused Breakdown)",
+            "body": [
+              "LLM-assisted parsing: Llama/GPT models for semantic extraction of skills, experience, achievements, and metrics.",
+              "Embeddings: Sentence-Transformers for vector-based skill similarity and matching; cosine similarity scoring.",
+              "Parsing: PyPDF2, docx2txt, spaCy NLP; optional SVM/XGBoost fit classifier; NER fine-tuning.",
+              "Agents: Resume Agent (extract), Job Agent (requirements), Match Agent (scoring).",
+              "Backend: FastAPI inference endpoints; Docker services; S3/GCS storage for embeddings.",
+              "Frontend: React + TypeScript + shadcn/ui, React Query, smart filters and candidate cards."
+            ]
+          },
+          {
+            "heading": "Unique Capabilities Demonstrated",
+            "body": [
+              "AI-first structured resume metadata extraction (skills, seniority, timelines, domains).",
+              "Explainable multi-factor scoring (“Why this candidate?”).",
+              "Multi-agent pipeline enabling batch processing and ATS/HRMS integration readiness.",
+              "Polished UX: drag-drop upload, real-time parsing progress, mismatch warnings."
+            ]
+          }
+        ],
+        "highlights": [
+          "Explainable candidate-job scoring",
+          "Multi-agent HR microservices",
+          "Enterprise ATS-style UI"
+        ]
+      }
+    },
+
+    {
+      "useCaseId": 6,
+      "featuredRank": null,
+      "name": "AI-Powered Financial Reporting & Autonomous FP&A",
+      "slug": "autonomous-fpa-financial-reporting",
+      "category": "Finance AI",
+      "dateLabel": "2025",
+      "short": "Autonomous FP&A system: ingestion → forecasting → variance analysis → CFO-ready reports using LLMs and deep time-series models.",
+      "tags": ["LLMs", "LlamaIndex", "Prophet", "ARIMA", "LSTM", "Airflow", "FastAPI", "RAPIDS"],
+      "thumbnail": "/projects/autonomous-fpa-financial-reporting/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/autonomous-fpa-financial-reporting/01.svg",
+          "/projects/autonomous-fpa-financial-reporting/02.svg",
+          "/projects/autonomous-fpa-financial-reporting/03.svg"
+        ],
+        "badgeIcon": "finance"
+      },
+      "caseStudy": {
+        "intro": "An autonomous FP&A intelligence suite that generates CFO-ready statements and narratives, forecasts key metrics, and runs variance diagnostics continuously.",
+        "sections": [
+          {
+            "heading": "Business-Focused Description",
+            "body": [
+              "Ingests financial data from ERPs/APIs/ledgers and generates real-time CFO-ready reports.",
+              "Automates forecasting, variance analysis, diagnostics, and management narratives to reduce manual reporting effort drastically.",
+              "Designed for enterprises modernizing FP&A with continuous AI-driven insights."
+            ]
+          },
+          {
+            "heading": "Tech Stack (AI-Focused Breakdown)",
+            "body": [
+              "LLM layer: GPT-4 / Llama 3 + LangChain Agents; LlamaIndex for structured retrieval.",
+              "Forecasting: LSTM/BiLSTM/GRU (PyTorch/TensorFlow) + ARIMA/SARIMA/Prophet; incremental learning.",
+              "Agents: Data Ingestion Agent, Feature Engineering Agent, Forecasting Agent, Variance Agent, CFO-Report Agent.",
+              "Data sources: SEC filings, IMF/World Bank datasets, QuickBooks API, market feeds (FMP/Yahoo/etc.).",
+              "ETL scheduling: Apache Airflow; storage in MongoDB/SQL; GPU acceleration via NVIDIA RAPIDS.",
+              "Backend: FastAPI + Pydantic; containerized microservices with Docker/Kubernetes."
+            ]
+          },
+          {
+            "heading": "Unique Capabilities Demonstrated",
+            "body": [
+              "Autonomous CFO-ready reporting: Income Statement, Balance Sheet, Cash Flow, KPIs, ratios, MD&A narrative, tax considerations.",
+              "Multi-agent FP&A workflow mirroring enterprise finance operations.",
+              "Deep learning forecasting across revenue, margins, cashflow, and working capital with continuous improvement.",
+              "Automated variance and anomaly detection across statements."
+            ]
+          }
+        ],
+        "highlights": [
+          "Autonomous CFO report generation",
+          "Deep forecasting + variance intelligence",
+          "Agent-based FP&A automation"
+        ]
+      }
+    },
+
+    {
+      "useCaseId": 7,
+      "featuredRank": null,
+      "name": "High-Performance AI Workstation Setup (Enterprise)",
+      "slug": "ai-workstation-setup-enterprise",
+      "category": "AI Infrastructure",
+      "dateLabel": "2025",
+      "short": "Automated GPU workstation provisioning (HP Z8 Fury) for deep learning, RAPIDS acceleration, and secure VS Code Remote-SSH workflows.",
+      "tags": ["CUDA", "PyTorch", "TensorFlow", "RAPIDS", "Remote SSH", "JupyterLab", "Automation Script", "Ubuntu Server"],
+      "thumbnail": "/projects/ai-workstation-setup-enterprise/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/ai-workstation-setup-enterprise/01.svg",
+          "/projects/ai-workstation-setup-enterprise/02.svg",
+          "/projects/ai-workstation-setup-enterprise/03.svg"
+        ],
+        "badgeIcon": "gpu"
+      },
+      "caseStudy": {
+        "intro": "A fully automated enterprise AI workstation setup enabling reproducible GPU environments, RAPIDS acceleration, and secure remote development workflows.",
+        "sections": [
+          {
+            "heading": "Business-Focused Description",
+            "body": [
+              "Automates setup of an enterprise-grade AI workstation to support deep learning, LLMs, AutoGPT agents, and high-performance FP&A workloads.",
+              "Enables teams to run GPU-accelerated pipelines reliably through SSH + VS Code Remote workflows.",
+              "Designed for repeatability, scalability, and fast onboarding."
+            ]
+          },
+          {
+            "heading": "Tech Stack (AI-Focused Breakdown)",
+            "body": [
+              "Frameworks: PyTorch (CUDA 11.8), TensorFlow (GPU), TorchVision/TorchAudio; LangChain, LlamaIndex, OpenAI SDK, AutoGPT plugins.",
+              "Data acceleration: NVIDIA RAPIDS (cuDF, cuPy, Dask-CUDA, Dask-cuDF).",
+              "Tools: Python 3.10 venv, JupyterLab/Notebook, VS Code Remote SSH, automation via setup_fpna_env.sh.",
+              "Infra: Ubuntu Server, SSH server, network config + static IP, GPU verification checks."
+            ]
+          },
+          {
+            "heading": "Unique Capabilities Demonstrated",
+            "body": [
+              "One-script provisioning + validation for reproducible GPU environments.",
+              "Secure multi-machine dev workflow (Mac → SSH keys → VS Code Remote SSH).",
+              "Optimized for FP&A modeling, forecasting, and agentic workflows.",
+              "RAPIDS-based performance boosts for large dataframe pipelines."
+            ]
+          }
+        ],
+        "highlights": [
+          "Fully automated GPU environment setup",
+          "Remote SSH + VS Code workflow",
+          "RAPIDS acceleration for enterprise AI"
+        ]
+      }
+    },
+
+    {
+      "useCaseId": 8,
+      "featuredRank": null,
+      "name": "Enterprise LLM Model Engineering & Fine-Tuning Pipeline",
+      "slug": "enterprise-llm-finetuning-pipeline",
+      "category": "LLM Engineering",
+      "dateLabel": "2025",
+      "short": "End-to-end enterprise LLM factory: data prep → LoRA fine-tuning → reward modeling → RLHF → deployment-ready exports for secure on-prem copilots.",
+      "tags": ["HuggingFace", "LoRA", "PEFT", "TRL", "RLHF", "bitsandbytes", "PyTorch", "Conda"],
+      "thumbnail": "/projects/enterprise-llm-finetuning-pipeline/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/enterprise-llm-finetuning-pipeline/01.svg",
+          "/projects/enterprise-llm-finetuning-pipeline/02.svg",
+          "/projects/enterprise-llm-finetuning-pipeline/03.svg"
+        ],
+        "badgeIcon": "model"
+      },
+      "caseStudy": {
+        "intro": "A production-grade foundation model engineering pipeline that fine-tunes LLMs on proprietary audit/tax/ESG data for secure enterprise copilots.",
+        "sections": [
+          {
+            "heading": "Business-Focused Description",
+            "body": [
+              "Fine-tunes foundation models on proprietary audit, tax, ESG, and financial corpora to enable secure on-prem LLM copilots.",
+              "Covers the complete lifecycle: data preparation → baseline training → LoRA → reward modeling → RLHF → optimized deployment.",
+              "Creates internal GenAI IP that public models cannot learn."
+            ]
+          },
+          {
+            "heading": "Tech Stack (AI-Focused Breakdown)",
+            "body": [
+              "Base LLMs: GPT-J, Falcon, LLaMA, DistilGPT2 (proof-of-pipeline via smaller models).",
+              "Training stack: HuggingFace Transformers, PEFT (LoRA), TRL for RLHF (reward models + PPO).",
+              "Optimization: Accelerate + bitsandbytes (4/8-bit quantization).",
+              "Data engineering: custom preprocessing, augmentation, tokenization workflows; domain corpora for audit/tax/ESG.",
+              "Dev tooling: Conda env (kdn-models), Jupyter, Git, structured scripts (train_baseline.py, train_finetune_lora.py, train_reward_model.py, rlhf_ppo.py).",
+              "Deployment: Azure/on-prem ready, HuggingFace exports for secure inference + RAG integration."
+            ]
+          },
+          {
+            "heading": "Unique Capabilities Demonstrated",
+            "body": [
+              "Complete enterprise LLM factory (end-to-end, reproducible, automation-first).",
+              "LoRA adapter framework enabling fast/low-VRAM multi-domain specialization.",
+              "RLHF scaffolding for human-aligned enterprise outputs (reward modeling + PPO).",
+              "Deployment-ready offline models for regulated environments (no OpenAI dependency)."
+            ]
+          }
+        ],
+        "highlights": [
+          "Full LLM lifecycle pipeline",
+          "LoRA + RLHF architecture",
+          "On-prem/secure deployment ready"
+        ]
+      }
+    },
+
+    {
+      "useCaseId": 10,
+      "featuredRank": null,
+      "name": "Voice-Activated ESG / Audit Copilot (T-6)",
+      "slug": "voice-esg-audit-copilot",
+      "category": "Voice + RAG",
+      "dateLabel": "2025",
+      "short": "Voice-driven ESG/audit/tax copilot combining Whisper STT + RAG + LLM reasoning for document-grounded compliance answers.",
+      "tags": ["Whisper", "RAG", "LangChain", "FAISS", "Chroma", "FastAPI", "WebRTC", "JWT"],
+      "thumbnail": "/projects/voice-esg-audit-copilot/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/voice-esg-audit-copilot/01.svg",
+          "/projects/voice-esg-audit-copilot/02.svg",
+          "/projects/voice-esg-audit-copilot/03.svg"
+        ],
+        "badgeIcon": "mic"
+      },
+      "caseStudy": {
+        "intro": "A multimodal voice copilot that turns spoken compliance questions into document-grounded ESG/audit/tax answers with clarification and domain specialization.",
+        "sections": [
+          {
+            "heading": "Business-Focused Description",
+            "body": [
+              "Allows auditors and consultants to ask policy/compliance questions verbally and get instant, context-aware answers.",
+              "Grounds responses in enterprise documents and frameworks, reducing research time during audits and ESG workflows.",
+              "Designed for hands-free consulting scenarios while reading PDFs or standards."
+            ]
+          },
+          {
+            "heading": "Tech Stack (AI-Focused Breakdown)",
+            "body": [
+              "Speech: OpenAI Whisper (tiny/medium/large) + WebRTC/browser mic; FastAPI streaming audio endpoint.",
+              "Reasoning: GPT-4 / Llama-3 / enterprise LLMs; rule + LLM hybrid compliance logic.",
+              "Retrieval: LangChain RAG with FAISS/Chroma; PDF ingestion (PyPDF2/Unstructured) + embeddings (text-embedding-3-large/InstructorXL).",
+              "Framework tagging: GRI, SASB, ISA, SEBI/BRSR, tax rules (GST/BEPS), audit standards.",
+              "API endpoints: /transcribe, /query, /document/analyse, /voice/query; JWT auth + CORS.",
+              "Frontend: mic-enabled chatbot UI with streaming transcript, upload + instant indexing, and suggestion chips."
+            ]
+          },
+          {
+            "heading": "Unique Capabilities Demonstrated",
+            "body": [
+              "True voice-to-policy retrieval grounded in documents (not generic voice Q&A).",
+              "Multimodal: spoken query + uploaded docs → clause-level alignment and grounded answers.",
+              "Automatic disambiguation and clarification (framework/jurisdiction aware).",
+              "Extensible knowledge packs for new regulations and internal manuals."
+            ]
+          }
+        ],
+        "highlights": [
+          "Voice + RAG grounded compliance answers",
+          "Automatic disambiguation",
+          "Enterprise-ready modular API"
+        ]
+      }
+    },
+
+    {
+      "useCaseId": 13,
+      "featuredRank": null,
+      "name": "Dynamic Agent Personality Switching (Regulated Services)",
+      "slug": "dynamic-persona-switching-regulated",
+      "category": "AI Governance",
+      "dateLabel": "2025",
+      "short": "Regulation-aware persona engine that switches Audit/Tax/Advisory/Legal reasoning in real time with replayable governance trails.",
+      "tags": ["Persona Overlays", "LangGraph", "Ontologies", "Neo4j", "OpenTelemetry", "RAG", "Compliance Tags", "Kubernetes"],
+      "thumbnail": "/projects/dynamic-persona-switching-regulated/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/dynamic-persona-switching-regulated/01.svg",
+          "/projects/dynamic-persona-switching-regulated/02.svg",
+          "/projects/dynamic-persona-switching-regulated/03.svg"
+        ],
+        "badgeIcon": "switch"
+      },
+      "caseStudy": {
+        "intro": "A unified agent that produces defensible regulated answers by switching personas instantly using overlays, ontologies, compliance tagging, and forensic replay trails.",
+        "sections": [
+          {
+            "heading": "Business-Focused Description",
+            "body": [
+              "Switches reasoning persona (Audit, Tax, Advisory, Legal) instantly for the same client query.",
+              "Ensures answers are traceable, defensible, and aligned with professional services standards.",
+              "Eliminates siloed copilots by delivering one unified multi-domain agent runtime."
+            ]
+          },
+          {
+            "heading": "Tech Stack (AI-Focused Breakdown)",
+            "body": [
+              "LLMs: GPT-4 / Llama-3 / Azure OpenAI.",
+              "Persona engine: YAML-based overlays injecting reasoning style, tone, ontology rules, guardrails, templates; optional persona embeddings layer.",
+              "Orchestration: LangGraph/LangChain/Semantic Kernel for persona switching graphs.",
+              "Ontologies: Audit (PCAOB/ISA), Tax (OECD/BEPS), Advisory (scenario modeling), Legal (GDPR/AML).",
+              "Retrieval: FAISS/Chroma/Pinecone with PDF ingestion and embedding pipelines.",
+              "Governance ledger: Neo4j storing persona used, evidence, compliance tags, reasoning nodes; forensic replay via queries; observability via OpenTelemetry.",
+              "Runtime: FastAPI + Docker/Kubernetes; optional Confidential AI patterns."
+            ]
+          },
+          {
+            "heading": "Unique Capabilities Demonstrated",
+            "body": [
+              "Real-time persona switching producing four domain-correct answers sub-second via caching + overlay injection.",
+              "Regulation-bound reasoning with ontology tagging and evidence-backed justification.",
+              "Forensic replay (step-by-step reasoning reconstruction) for regulator-ready explainability.",
+              "Policy router concept for jurisdiction-aware model selection and multi-model environments."
+            ]
+          }
+        ],
+        "highlights": [
+          "Dynamic persona overlay engine",
+          "Neo4j governance ledger + replay",
+          "Regulated explainability + compliance tags"
+        ]
+      }
+    },
+
+    {
+      "useCaseId": 17,
+      "featuredRank": null,
+      "name": "Smart Crowd Management (Without Azure)",
+      "slug": "smart-crowd-management-no-azure",
+      "category": "Computer Vision",
+      "dateLabel": "2025",
+      "short": "CCTV + computer vision system that counts people, detects congestion, predicts spikes, and triggers real-time safety interventions without Azure.",
+      "tags": ["YOLOv8", "RT-DETR", "ByteTrack", "DeepSORT", "RTSP", "GStreamer", "Kafka", "Edge"],
+      "thumbnail": "/projects/smart-crowd-management-no-azure/thumb.svg",
+      "hero": {
+        "collage": [
+          "/projects/smart-crowd-management-no-azure/01.svg",
+          "/projects/smart-crowd-management-no-azure/02.svg",
+          "/projects/smart-crowd-management-no-azure/03.svg"
+        ],
+        "badgeIcon": "crowd"
+      },
+      "caseStudy": {
+        "intro": "A privacy-aware crowd intelligence platform that converts CCTV feeds into real-time occupancy, queue, congestion forecasts, and automated response workflows—deployed edge-first without Azure dependencies.",
+        "sections": [
+          {
+            "heading": "Business-Focused Description",
+            "body": [
+              "Counts people, detects congestion, predicts crowd build-up, and triggers real-time interventions (dispatch, re-routing, signage updates).",
+              "Improves safety, entry/exit flow, queue time, and incident response for stadiums, arenas, metros, and campuses.",
+              "Implements privacy controls (blurring, retention, RBAC, audit logs)."
+            ]
+          },
+          {
+            "heading": "Tech Stack (AI-Focused Breakdown)",
+            "body": [
+              "Vision: YOLOv8 / RT-DETR for detection, DeepSORT / ByteTrack for tracking; optional MediaPipe/OpenPose for behavior cues.",
+              "Runtime: TensorRT (GPU), ONNX Runtime (CPU/GPU); edge deployment on Jetson Orin/x86 with Docker + NVIDIA Container Toolkit.",
+              "Video ingestion: RTSP → GStreamer/FFmpeg pipelines; event bus via Kafka; optional WebRTC viewing.",
+              "Storage: MinIO for clips/snapshots + PostgreSQL metadata; Redis short-term state.",
+              "Analytics: TimescaleDB/InfluxDB + Grafana/Superset; forecasting via XGBoost/Prophet/LSTM.",
+              "Alerts/actions: Twilio WhatsApp/SMS, email, push (FCM), signage API, gate/security integrations.",
+              "Privacy: face blurring/anonymization pipelines + encryption + retention policies + audit logs."
+            ]
+          },
+          {
+            "heading": "Unique Capabilities Demonstrated",
+            "body": [
+              "Real-time per-zone occupancy + heatmaps + queue length and wait time estimation.",
+              "Predictive congestion forecasting (10–30 min) + proactive recommendations (open gates, reroute, reverse escalators).",
+              "Incident detection + one-click replay clips and post-event reporting (peaks, choke points, SLA breaches)."
+            ]
+          }
+        ],
+        "highlights": [
+          "Edge-first CV pipeline (no Azure)",
+          "Predictive congestion + interventions",
+          "Privacy + audit logs + incident replay"
         ]
       }
     }
   ],
   "skills": {
-    "languages": [
-      "Python",
-      "C++",
-      "JavaScript (ES6+)",
-      "TypeScript",
-      "SQL",
-      "HTML",
-      "CSS"
-    ],
-    "frontend": [
-      "React",
-      "Next.js",
-      "Tailwind CSS",
-      "Three.js",
-      "D3.js"
-    ],
-    "backend": [
-      "FastAPI",
-      "Node.js/Express",
-      "REST APIs",
-      "WebSockets",
-      "Async I/O"
-    ],
-    "ai_llm": [
-      "LangChain",
-      "LangGraph",
-      "LlamaIndex",
-      "RAG",
-      "Whisper ASR",
-      "Hugging Face",
-      "LoRA",
-      "RLHF"
-    ],
-    "data": [
-      "Pandas",
-      "NumPy",
-      "PySpark",
-      "Dask"
-    ],
-    "databases": [
-      "PostgreSQL",
-      "MongoDB",
-      "MySQL",
-      "Redis",
-      "Neo4j",
-      "ChromaDB",
-      "FAISS",
-      "Pinecone"
-    ],
-    "devops": [
-      "Docker",
-      "Kubernetes",
-      "RabbitMQ",
-      "Nginx",
-      "CI/CD",
-      "AWS",
-      "Azure",
-      "GCP"
-    ],
-    "security": [
-      "MITRE ATT&CK",
-      "HoneyTokens",
-      "HoneyVMs",
-      "Threat Telemetry"
-    ]
+    "languages": ["Python", "C++", "JavaScript (ES6+)", "TypeScript", "SQL", "HTML", "CSS"],
+    "frontend": ["React", "Next.js", "Tailwind CSS", "Three.js", "D3.js"],
+    "backend": ["FastAPI", "Node.js/Express", "REST APIs", "WebSockets", "Async I/O"],
+    "ai_llm": ["LangChain", "LangGraph", "LlamaIndex", "RAG", "Whisper ASR", "Hugging Face", "LoRA", "RLHF"],
+    "data": ["Pandas", "NumPy", "PySpark", "Dask"],
+    "databases": ["PostgreSQL", "MongoDB", "MySQL", "Redis", "Neo4j", "ChromaDB", "FAISS", "Pinecone"],
+    "devops": ["Docker", "Kubernetes", "RabbitMQ", "Nginx", "CI/CD", "AWS", "Azure", "GCP"],
+    "security": ["MITRE ATT&CK", "HoneyTokens", "HoneyVMs", "Threat Telemetry"]
   },
-  "awards": [
-    "KDN AI Achiever’s Award (KPMG) — recognized for foundational AI systems development."
-  ],
+  "awards": ["KDN AI Achiever’s Award (KPMG) — recognized for foundational AI systems development."],
   "leadership": [
     "Head of Logistics, Sports Council (DTU) (2023–2024) — coordinated logistics for Avahan’24; led 30 volunteers across 10+ sports events.",
     "Class Representative, DTU (2021–2022) — managed coordination for a cohort of 70 students."
   ],
   "coding": {
-    "leetcode": {
-      "handle": "sbishnoi29",
-      "solved": "950+"
-    },
-    "geeksforgeeks": {
-      "handle": "shubhambishnoi29",
-      "solved": "600+"
-    }
+    "leetcode": { "handle": "sbishnoi29", "solved": "950+" },
+    "geeksforgeeks": { "handle": "shubhambishnoi29", "solved": "600+" }
   }
 }

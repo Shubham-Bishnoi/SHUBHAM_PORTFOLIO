@@ -36,7 +36,7 @@ export type Profile = {
     thumbnail: string
     hero: {
       collage: string[]
-      badgeIcon: 'figma' | 'shield' | 'bots' | 'doc'
+      badgeIcon: BadgeIcon
     }
     caseStudy: {
       intro: string
@@ -53,7 +53,25 @@ export type Profile = {
   }
 }
 
+export type BadgeIcon =
+  | 'figma'
+  | 'shield'
+  | 'bots'
+  | 'doc'
+  | 'finance'
+  | 'leaf'
+  | 'brain'
+  | 'gpu'
+  | 'mic'
+  | 'switch'
+  | 'crowd'
+  | 'chart'
+  | 'users'
+  | 'model'
+
 export type ProjectCard = {
+  useCaseId?: number
+  featuredRank?: number | null
   slug: string
   name: string
   category: string
@@ -65,7 +83,7 @@ export type ProjectCard = {
 export type Project = ProjectCard & {
   hero: {
     collage: string[]
-    badgeIcon: 'figma' | 'shield' | 'bots' | 'doc'
+    badgeIcon: BadgeIcon
   }
   caseStudy: {
     intro: string

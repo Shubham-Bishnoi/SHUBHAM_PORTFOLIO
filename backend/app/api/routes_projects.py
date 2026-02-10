@@ -21,8 +21,18 @@ def _load_profile() -> dict:
 def get_projects() -> list[dict]:
     profile = _load_profile()
     projects = profile.get("projects", [])
+
+    featured = [p for p in projects if isinstance(p.get("featuredRank"), int)]
+    featured.sort(key=lambda p: p.get("featuredRank", 10**9))
+
+    rest = [p for p in projects if not isinstance(p.get("featuredRank"), int)]
+    rest.sort(key=lambda p: p.get("useCaseId", 10**9))
+
+    ordered = featured + rest
     return [
         {
+            "useCaseId": p.get("useCaseId"),
+            "featuredRank": p.get("featuredRank"),
             "slug": p.get("slug", ""),
             "name": p.get("name", ""),
             "category": p.get("category", ""),
@@ -30,7 +40,7 @@ def get_projects() -> list[dict]:
             "short": p.get("short", ""),
             "thumbnail": p.get("thumbnail", ""),
         }
-        for p in projects
+        for p in ordered
     ]
 
 

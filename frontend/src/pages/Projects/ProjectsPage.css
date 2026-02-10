@@ -38,6 +38,27 @@
   border-bottom: 1px solid var(--hairline);
 }
 
+.projectsGroups {
+  display: grid;
+  gap: 34px;
+}
+
+.projectsGroup {
+  display: grid;
+  gap: 14px;
+}
+
+.projectsGroupHeading {
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.projectsGroupTight {
+  gap: 12px;
+}
+
 .projectGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -80,6 +101,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
+  filter: grayscale(1) saturate(0);
 }
 
 .projectCardBody {
