@@ -29,6 +29,35 @@ export function AboutPage() {
     document.head.appendChild(script)
   }, [])
 
+  useEffect(() => {
+    const startedAt = Date.now()
+    const interval = window.setInterval(() => {
+      if (Date.now() - startedAt > 15000) {
+        window.clearInterval(interval)
+        return
+      }
+
+      const viewer = document.querySelector('spline-viewer') as unknown as { shadowRoot?: ShadowRoot } | null
+      const root = viewer?.shadowRoot
+      if (!root) return
+
+      const logo = root.querySelector('#logo')
+      if (logo) logo.remove()
+
+      const builtWith = Array.from(root.querySelectorAll('a, div, span')).find((el) => {
+        const text = (el.textContent ?? '').trim().toLowerCase()
+        return text.includes('built with spline') || text === 'spline'
+      })
+      if (builtWith) builtWith.remove()
+
+      if (logo || builtWith) window.clearInterval(interval)
+    }, 250)
+
+    return () => {
+      window.clearInterval(interval)
+    }
+  }, [])
+
   if (state.kind === 'loading') {
     return (
       <main className="pageRoot">

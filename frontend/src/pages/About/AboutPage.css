@@ -1,5 +1,5 @@
 .pageRoot {
-  padding: 56px 0 84px;
+  padding: 38px 0 84px;
 }
 
 .bullets {
@@ -39,8 +39,10 @@
 
 .aboutSplineCorner {
   justify-self: end;
-  width: 320px;
-  height: 320px;
+  width: 300px;
+  height: 360px;
+  margin-top: -14px;
+  overflow: visible;
 }
 
 .aboutSplineCorner spline-viewer {
@@ -118,6 +120,8 @@
     justify-self: center;
     width: 100%;
     max-width: 420px;
+    height: 360px;
+    margin-top: 0;
   }
 }
 
