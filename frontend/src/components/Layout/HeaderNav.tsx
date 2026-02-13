@@ -2,6 +2,8 @@ import { NavLink } from 'react-router-dom'
 
 import { Container } from '@/components/Layout/Container'
 
+import './HeaderNav.css'
+
 const links = [
   { to: '/about', label: 'about' },
   { to: '/experience', label: 'experience' },
@@ -11,7 +13,7 @@ const links = [
 
 export function HeaderNav() {
   return (
-    <header style={{ borderBottom: '1px solid var(--hairline)' }}>
+    <header className="headerNav" style={{ borderBottom: '1px solid var(--hairline)' }}>
       <Container>
         <div
           style={{
@@ -55,30 +57,18 @@ export function HeaderNav() {
           </NavLink>
 
           <nav aria-label="Primary">
-            <ul
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: 18,
-                flexWrap: 'wrap',
-                justifyContent: 'flex-end',
-                margin: 0,
-                padding: 0,
-                listStyle: 'none',
-                fontSize: 13,
-              }}
-            >
+            <ul className="headerNavLinks">
               {links.map((l) => (
                 <li key={l.to}>
                   <NavLink
                     to={l.to}
-                    style={({ isActive }) => ({
-                      color: isActive ? 'var(--text)' : 'var(--muted)',
-                      textDecoration: isActive ? 'underline' : 'none',
-                      textUnderlineOffset: 6,
-                    })}
+                    className={({ isActive }) =>
+                      `navTile tile button up${isActive ? ' isActive' : ''}`
+                    }
                   >
-                    {l.label}
+                    <div className="navTileInner tile">
+                      <span className="navTileLabel">{l.label}</span>
+                    </div>
                   </NavLink>
                 </li>
               ))}

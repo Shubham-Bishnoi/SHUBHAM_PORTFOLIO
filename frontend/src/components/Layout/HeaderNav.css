@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap');
+
+.headerNav {
+  --height: 1;
+  --tile-light: rgba(255, 255, 255, 0.5);
+  --tile-shadow: rgba(0, 0, 0, 0.5);
+}
+
+.headerNavLinks {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navTile.tile {
+  width: 92px;
+  height: 40px;
+  border-radius: 14px;
+  background: var(--bg);
+  padding: 2px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.navTile.tile::before,
+.navTile.tile::after,
+.navTileInner.tile::before,
+.navTileInner.tile::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.tile {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.up {
+  box-shadow:
+    var(--tile-shadow) calc(0.33rem * var(--height))
+      calc(0.33rem * var(--height)) 0.6rem;
+}
+
+.up::before {
+  box-shadow:
+    var(--tile-light) calc(-0.33rem * var(--height))
+      calc(-0.33rem * var(--height)) 0.6rem;
+}
+
+.button {
+  cursor: pointer;
+  transition: box-shadow 0.15s 0.15s ease-in;
+}
+
+.button::before {
+  transition: box-shadow 0.15s 0.15s ease-in;
+}
+
+.button > div {
+  transition: box-shadow 0.15s ease-in;
+}
+
+.button > div::before {
+  transition: box-shadow 0.15s ease-in;
+}
+
+.button span {
+  transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.navTileInner.tile {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: var(--bg);
+  box-shadow: inset var(--tile-shadow) 0 0 0;
+}
+
+.navTileInner.tile::before {
+  box-shadow: inset var(--tile-light) 0 0 0;
+}
+
+.navTileLabel {
+  position: relative;
+  z-index: 1;
+  font-family: 'Alumni Sans Pinstripe', sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--text);
+  opacity: 0.78;
+}
+
+.navTile:hover {
+  text-decoration: none;
+}
+
+.navTile.button.up {
+  box-shadow:
+    var(--tile-shadow) calc(0.33rem * var(--height))
+      calc(0.33rem * var(--height)) 0.6rem;
+}
+
+.navTile.button.up::before {
+  box-shadow:
+    var(--tile-light) calc(-0.33rem * var(--height))
+      calc(-0.33rem * var(--height)) 0.6rem;
+}
+
+.navTile.button:hover,
+.navTile.button.isActive {
+  box-shadow: var(--tile-shadow) 0 0 0;
+  transition: box-shadow 0.15s ease-out;
+}
+
+.navTile.button:hover::before,
+.navTile.button.isActive::before {
+  box-shadow: var(--tile-light) 0 0 0;
+  transition: box-shadow 0.15s ease-out;
+}
+
+.navTile.button:hover > div,
+.navTile.button.isActive > div {
+  box-shadow:
+    inset rgba(0, 0, 0, 0.5) calc(0.25rem * var(--height))
+      calc(0.25rem * var(--height)) 0.6rem;
+  transition: box-shadow 0.15s 0.15s ease-out;
+}
+
+.navTile.button:hover > div::before,
+.navTile.button.isActive > div::before {
+  box-shadow:
+    inset var(--tile-light) calc(-0.25rem * var(--height))
+      calc(-0.25rem * var(--height)) 0.6rem;
+  transition: box-shadow 0.15s 0.15s ease-out;
+}
+
+.navTile.button:hover span,
+.navTile.button.isActive span {
+  transform: translateY(0.1516rem);
+}
+
+.navTile.button:hover .navTileLabel,
+.navTile.button.isActive .navTileLabel {
+  color: var(--text);
+  opacity: 1;
+}
+
+@media screen and (max-width: 720px) {
+  .navTile.tile {
+    width: 84px;
+    height: 36px;
+  }
+
+  .navTileLabel {
+    font-size: 16px;
+  }
+}
