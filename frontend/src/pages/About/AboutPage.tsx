@@ -37,21 +37,13 @@ export function AboutPage() {
         return
       }
 
-      const viewer = document.querySelector('spline-viewer') as unknown as { shadowRoot?: ShadowRoot } | null
+      const viewer = document.querySelector('spline-viewer') as (HTMLElement & { shadowRoot?: ShadowRoot }) | null
       const root = viewer?.shadowRoot
       if (!root) return
 
+      if (viewer) viewer.style.background = 'transparent'
       const canvas = root.querySelector('canvas') as HTMLCanvasElement | null
-      if (canvas) {
-        canvas.style.background = 'transparent'
-      }
-
-      const transparentTargets = root.querySelectorAll('div, section, main')
-      for (const el of transparentTargets) {
-        const style = (el as HTMLElement).style
-        if (style.backgroundColor) style.backgroundColor = 'transparent'
-        if (style.background) style.background = 'transparent'
-      }
+      if (canvas) canvas.style.background = 'transparent'
 
       const logo = root.querySelector('#logo')
       if (logo) logo.remove()
