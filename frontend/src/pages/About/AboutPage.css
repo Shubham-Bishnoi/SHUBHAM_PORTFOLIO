@@ -32,6 +32,23 @@
   gap: 18px;
 }
 
+.aboutRightCol {
+  display: grid;
+  gap: 18px;
+}
+
+.aboutSplineCorner {
+  justify-self: end;
+  width: 320px;
+  height: 320px;
+}
+
+.aboutSplineCorner spline-viewer {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .eduItem {
   padding-top: 14px;
   border-top: 1px solid var(--hairline);
@@ -96,5 +113,16 @@
   .codingRow {
     grid-template-columns: 1fr;
   }
+
+  .aboutSplineCorner {
+    justify-self: center;
+    width: 100%;
+    max-width: 420px;
+  }
 }
 
+@media (max-width: 520px) {
+  .aboutSplineCorner {
+    display: none;
+  }
+}

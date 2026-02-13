@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+
 import { Container } from '@/components/Layout/Container'
 import { PageTitle } from '@/components/UI/PageTitle'
 import { Section } from '@/components/UI/Section'
@@ -16,6 +18,16 @@ function subtitleFromSummary(summary: string[]): string {
 
 export function AboutPage() {
   const state = useProfile()
+
+  useEffect(() => {
+    const existing = document.querySelector('script[data-spline-viewer]')
+    if (existing) return
+    const script = document.createElement('script')
+    script.type = 'module'
+    script.src = 'https://unpkg.com/@splinetool/viewer@1.12.53/build/spline-viewer.js'
+    script.setAttribute('data-spline-viewer', 'true')
+    document.head.appendChild(script)
+  }, [])
 
   if (state.kind === 'loading') {
     return (
@@ -77,18 +89,24 @@ export function AboutPage() {
             </>
           }
           right={
-            <div className="edu">
-              {p.education.map((e, i) => (
-                <div key={i} className="eduItem">
-                  <div className="eduProgram">{e.program}</div>
-                  <div className="eduMeta">
-                    {e.institution} · {e.location}
+            <div className="aboutRightCol">
+              <div className="aboutSplineCorner" aria-hidden="true">
+                <spline-viewer url="https://prod.spline.design/JFG2U0cFTcytOnCL/scene.splinecode"></spline-viewer>
+              </div>
+
+              <div className="edu">
+                {p.education.map((e, i) => (
+                  <div key={i} className="eduItem">
+                    <div className="eduProgram">{e.program}</div>
+                    <div className="eduMeta">
+                      {e.institution} · {e.location}
+                    </div>
+                    <div className="eduMeta">
+                      {'years' in e && e.years ? e.years : e.year} · {e.score}
+                    </div>
                   </div>
-                  <div className="eduMeta">
-                    {'years' in e && e.years ? e.years : e.year} · {e.score}
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           }
         />
