@@ -1,5 +1,5 @@
 .pageRoot {
-  padding: 38px 0 84px;
+  padding: clamp(16px, 3vw, 28px) 0 84px;
 }
 
 .bullets {
@@ -41,7 +41,7 @@
   justify-self: end;
   width: 280px;
   height: 320px;
-  margin-top: -34px;
+  margin-top: -10px;
   overflow: hidden;
   background: transparent;
 }
@@ -51,7 +51,7 @@
   height: 380px;
   display: block;
   background: transparent;
-  transform: translateY(18px) scale(0.88);
+  transform: translateY(34px) scale(0.84);
   transform-origin: top right;
 }
 
@@ -130,7 +130,7 @@
 
   .aboutSplineCorner spline-viewer {
     height: 380px;
-    transform: translateY(18px) scale(0.9);
+    transform: translateY(34px) scale(0.86);
     transform-origin: top center;
   }
 }

@@ -1,3 +1,5 @@
+import '@splinetool/viewer'
+
 import { useEffect } from 'react'
 
 import { Container } from '@/components/Layout/Container'
@@ -18,16 +20,6 @@ function subtitleFromSummary(summary: string[]): string {
 
 export function AboutPage() {
   const state = useProfile()
-
-  useEffect(() => {
-    const existing = document.querySelector('script[data-spline-viewer]')
-    if (existing) return
-    const script = document.createElement('script')
-    script.type = 'module'
-    script.src = 'https://unpkg.com/@splinetool/viewer@1.12.53/build/spline-viewer.js'
-    script.setAttribute('data-spline-viewer', 'true')
-    document.head.appendChild(script)
-  }, [])
 
   useEffect(() => {
     const startedAt = Date.now()
