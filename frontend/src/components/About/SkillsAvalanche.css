@@ -1,0 +1,173 @@
+.skillsAvalanche {
+  width: 100%;
+}
+
+.skillsAvalancheArena {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  background: radial-gradient(circle at 25% 20%, rgba(0, 0, 0, 0.03), transparent 55%),
+    radial-gradient(circle at 85% 70%, rgba(0, 0, 0, 0.04), transparent 60%),
+    var(--bg);
+}
+
+.skillsAvalancheCanvas {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.skillsAvalancheScene {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.skillsAvalanchePill {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  user-select: none;
+  cursor: grab;
+  pointer-events: auto;
+  will-change: transform;
+}
+
+.skillsAvalanchePill:active {
+  cursor: grabbing;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.12);
+}
+
+.skillsAvalancheUi {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  padding: 18px;
+  background: radial-gradient(circle at 50% 50%, transparent 72%, rgba(0, 0, 0, 0.06) 100%);
+}
+
+.skillsAvalancheTitleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.skillsAvalancheTitle {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.skillsAvalancheSubtitle {
+  margin-top: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 520px;
+}
+
+.skillsAvalancheControls {
+  display: flex;
+  gap: 10px;
+  pointer-events: auto;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.skillsAvalancheBtn {
+  border: 1px solid var(--hairline);
+  background: rgba(0, 0, 0, 0.03);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: transform 0.12s ease, background 0.12s ease;
+}
+
+.skillsAvalancheBtn:hover {
+  background: rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.skillsAvalancheBtn:active {
+  transform: translateY(0);
+}
+
+.skillsAvalancheSource {
+  display: none;
+}
+
+.skillsAvalancheStatic {
+  border: 1px solid var(--hairline);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.skillsAvalancheStaticNote {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.skillsAvalancheStaticGrid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 28px;
+}
+
+.skillsAvalancheStaticBlock {
+  display: grid;
+  gap: 10px;
+}
+
+.skillsAvalancheStaticTitle {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.skillsAvalancheStaticPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skillsAvalancheStaticPill {
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .skillsAvalancheArena {
+    min-height: 360px;
+  }
+
+  .skillsAvalancheStaticGrid {
+    grid-template-columns: 1fr;
+  }
+}
+

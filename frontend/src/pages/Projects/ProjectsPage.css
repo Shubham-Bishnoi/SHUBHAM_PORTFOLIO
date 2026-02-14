@@ -55,6 +55,21 @@
   color: var(--muted);
 }
 
+.projectsGroupHeadingButton {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+}
+
+.projectsGroupHeadingButton:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
 .projectsGroupTight {
   gap: 12px;
 }
@@ -101,7 +116,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(1) saturate(0);
+  filter: none;
 }
 
 .projectCardBody {

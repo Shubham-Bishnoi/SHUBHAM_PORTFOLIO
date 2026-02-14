@@ -72,12 +72,12 @@
       "dateLabel": "2025",
       "short": "Self-adapting AI deception fabric that traps adversaries inside synthetic environments with real-time MITRE ATT&CK insights.",
       "tags": ["MITRE ATT&CK", "HoneyTokens", "Honey VMs", "Honey APIs", "LangChain Agents", "Three.js", "WebSockets", "SIEM"],
-      "thumbnail": "/projects/adaptive-deception-mesh/thumb.svg",
+      "thumbnail": "/projects/adaptive-deception-mesh/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/adaptive-deception-mesh/01.svg",
-          "/projects/adaptive-deception-mesh/02.svg",
-          "/projects/adaptive-deception-mesh/03.svg"
+          "/projects/adaptive-deception-mesh/01.jpg",
+          "/projects/adaptive-deception-mesh/02.jpg",
+          "/projects/adaptive-deception-mesh/03.jpg"
         ],
         "badgeIcon": "shield"
       },
@@ -129,12 +129,12 @@
       "dateLabel": "2025",
       "short": "Multi-agent executive assistant that schedules, books travel, manages docs and approvals across web, Teams, and WhatsApp.",
       "tags": ["LangGraph", "LangChain", "FastAPI", "WebSockets", "Outlook Graph", "Pinecone", "LlamaIndex", "Twilio"],
-      "thumbnail": "/projects/secbot-ai/thumb.svg",
+      "thumbnail": "/projects/secbot-ai/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/secbot-ai/01.svg",
-          "/projects/secbot-ai/02.svg",
-          "/projects/secbot-ai/03.svg"
+          "/projects/secbot-ai/01.jpg",
+          "/projects/secbot-ai/02.jpg",
+          "/projects/secbot-ai/03.jpg"
         ],
         "badgeIcon": "bots"
       },
@@ -185,12 +185,12 @@
       "dateLabel": "2025",
       "short": "Real-time meeting intelligence: live transcription, evolving summaries, and structured action items via multi-agent orchestration.",
       "tags": ["Whisper", "LlamaIndex", "LangGraph", "FastAPI", "WebSockets", "Diarization", "Task Manager"],
-      "thumbnail": "/projects/meeting-summarisation-action-tracking/thumb.svg",
+      "thumbnail": "/projects/meeting-summarisation-action-tracking/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/meeting-summarisation-action-tracking/01.svg",
-          "/projects/meeting-summarisation-action-tracking/02.svg",
-          "/projects/meeting-summarisation-action-tracking/03.svg"
+          "/projects/meeting-summarisation-action-tracking/01.jpg",
+          "/projects/meeting-summarisation-action-tracking/02.jpg",
+          "/projects/meeting-summarisation-action-tracking/03.jpg"
         ],
         "badgeIcon": "doc"
       },
@@ -243,12 +243,12 @@
       "dateLabel": "2025",
       "short": "Conversational, event-driven hiring automation with Workable ATS integration, RabbitMQ orchestration, approvals, and audit logs.",
       "tags": ["Workable ATS", "RabbitMQ", "FastAPI", "LangChain", "Audit Logs", "Maker-Checker", "NLU", "Microservices"],
-      "thumbnail": "/projects/recruitment-orchestrator/thumb.svg",
+      "thumbnail": "/projects/recruitment-orchestrator/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/recruitment-orchestrator/01.svg",
-          "/projects/recruitment-orchestrator/02.svg",
-          "/projects/recruitment-orchestrator/03.svg"
+          "/projects/recruitment-orchestrator/01.jpg",
+          "/projects/recruitment-orchestrator/02.jpg",
+          "/projects/recruitment-orchestrator/03.jpg"
         ],
         "badgeIcon": "bots"
       },
@@ -300,12 +300,12 @@
       "dateLabel": "2025",
       "short": "End-to-end AI agent pipeline: OCR/text extraction → classification → entity extraction → professional response generation with confidence scoring.",
       "tags": ["OCR", "PyTesseract", "PyPDF2", "LangChain Agents", "Embeddings", "FastAPI", "React", "Confidence Scoring"],
-      "thumbnail": "/projects/target-document-processing/thumb.svg",
+      "thumbnail": "/projects/target-document-processing/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/target-document-processing/01.svg",
-          "/projects/target-document-processing/02.svg",
-          "/projects/target-document-processing/03.svg"
+          "/projects/target-document-processing/01.jpg",
+          "/projects/target-document-processing/02.jpg",
+          "/projects/target-document-processing/03.jpg"
         ],
         "badgeIcon": "doc"
       },
@@ -356,12 +356,12 @@
       "dateLabel": "2025",
       "short": "Real-time supplier–treasury digital twin with risk, forecasting, and action agents for liquidity decisions and scenario simulation.",
       "tags": ["Neo4j", "LangChain Agents", "Prophet", "Kafka", "Power BI", "Mapbox", "FastAPI", "OpenTelemetry"],
-      "thumbnail": "/projects/supplier-treasury-digital-twin/thumb.svg",
+      "thumbnail": "/projects/supplier-treasury-digital-twin/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/supplier-treasury-digital-twin/01.svg",
-          "/projects/supplier-treasury-digital-twin/02.svg",
-          "/projects/supplier-treasury-digital-twin/03.svg"
+          "/projects/supplier-treasury-digital-twin/01.jpg",
+          "/projects/supplier-treasury-digital-twin/02.jpg",
+          "/projects/supplier-treasury-digital-twin/03.jpg"
         ],
         "badgeIcon": "finance"
       },
@@ -413,12 +413,12 @@
       "dateLabel": "2025",
       "short": "ML-based audit fraud-risk scoring with SHAP explainability to prioritize high-risk clients and reduce audit cycle time.",
       "tags": ["XGBoost", "LSTM", "SHAP", "FastAPI", "PostgreSQL/Oracle", "Streamlit", "Dash", "Docker"],
-      "thumbnail": "/projects/predictive-audit-risk-scoring-platform/thumb.svg",
+      "thumbnail": "/projects/predictive-audit-risk-scoring-platform/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/predictive-audit-risk-scoring-platform/01.svg",
-          "/projects/predictive-audit-risk-scoring-platform/02.svg",
-          "/projects/predictive-audit-risk-scoring-platform/03.svg"
+          "/projects/predictive-audit-risk-scoring-platform/01.jpg",
+          "/projects/predictive-audit-risk-scoring-platform/02.jpg",
+          "/projects/predictive-audit-risk-scoring-platform/03.jpg"
         ],
         "badgeIcon": "chart"
       },
@@ -471,12 +471,12 @@
       "dateLabel": "2025",
       "short": "Geospatial AI platform that detects deforestation, water pollution, and biodiversity loss at scale and generates TNFD-aligned risk reports.",
       "tags": ["CNN", "Remote Sensing", "Earth Engine", "Rasterio", "GDAL", "TorchGeo", "TNFD", "D3.js"],
-      "thumbnail": "/projects/biodiversity-natural-capital-evaluation/thumb.svg",
+      "thumbnail": "/projects/biodiversity-natural-capital-evaluation/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/biodiversity-natural-capital-evaluation/01.svg",
-          "/projects/biodiversity-natural-capital-evaluation/02.svg",
-          "/projects/biodiversity-natural-capital-evaluation/03.svg"
+          "/projects/biodiversity-natural-capital-evaluation/01.jpg",
+          "/projects/biodiversity-natural-capital-evaluation/02.jpg",
+          "/projects/biodiversity-natural-capital-evaluation/03.jpg"
         ],
         "badgeIcon": "leaf"
       },
@@ -529,12 +529,12 @@
       "dateLabel": "2025",
       "short": "Multi-agent DeepRL bidding simulator with LLM-driven negotiation to discover optimal procurement and contracting strategies.",
       "tags": ["PPO", "DQN", "SAC", "Ray RLlib", "PettingZoo", "Gymnasium", "LangChain", "FastAPI"],
-      "thumbnail": "/projects/multi-agent-rl-contract-bidding-negotiation/thumb.svg",
+      "thumbnail": "/projects/multi-agent-rl-contract-bidding-negotiation/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/multi-agent-rl-contract-bidding-negotiation/01.svg",
-          "/projects/multi-agent-rl-contract-bidding-negotiation/02.svg",
-          "/projects/multi-agent-rl-contract-bidding-negotiation/03.svg"
+          "/projects/multi-agent-rl-contract-bidding-negotiation/01.jpg",
+          "/projects/multi-agent-rl-contract-bidding-negotiation/02.jpg",
+          "/projects/multi-agent-rl-contract-bidding-negotiation/03.jpg"
         ],
         "badgeIcon": "brain"
       },
@@ -587,12 +587,12 @@
       "dateLabel": "2025",
       "short": "Real-time fraud detection pipeline with Kafka streaming, hybrid ML + graph + rules, and LLM-based audit report generation.",
       "tags": ["Kafka", "Isolation Forest", "Autoencoders", "Neo4j", "MLflow", "FastAPI", "Docker", "Kubernetes"],
-      "thumbnail": "/projects/anomaly-detection-fraud-risk-scoring/thumb.svg",
+      "thumbnail": "/projects/anomaly-detection-fraud-risk-scoring/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/anomaly-detection-fraud-risk-scoring/01.svg",
-          "/projects/anomaly-detection-fraud-risk-scoring/02.svg",
-          "/projects/anomaly-detection-fraud-risk-scoring/03.svg"
+          "/projects/anomaly-detection-fraud-risk-scoring/01.jpg",
+          "/projects/anomaly-detection-fraud-risk-scoring/02.jpg",
+          "/projects/anomaly-detection-fraud-risk-scoring/03.jpg"
         ],
         "badgeIcon": "shield"
       },
@@ -646,12 +646,12 @@
       "dateLabel": "2025",
       "short": "Resume parsing + job understanding + explainable match scoring using embeddings and multi-agent AI microservices.",
       "tags": ["Embeddings", "Sentence-Transformers", "spaCy", "FastAPI", "React", "shadcn/ui", "Vector DB", "Explainable Scoring"],
-      "thumbnail": "/projects/ai-resume-screener-recruitment-platform/thumb.svg",
+      "thumbnail": "/projects/ai-resume-screener-recruitment-platform/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/ai-resume-screener-recruitment-platform/01.svg",
-          "/projects/ai-resume-screener-recruitment-platform/02.svg",
-          "/projects/ai-resume-screener-recruitment-platform/03.svg"
+          "/projects/ai-resume-screener-recruitment-platform/01.jpg",
+          "/projects/ai-resume-screener-recruitment-platform/02.jpg",
+          "/projects/ai-resume-screener-recruitment-platform/03.jpg"
         ],
         "badgeIcon": "users"
       },
@@ -704,12 +704,12 @@
       "dateLabel": "2025",
       "short": "Autonomous FP&A system: ingestion → forecasting → variance analysis → CFO-ready reports using LLMs and deep time-series models.",
       "tags": ["LLMs", "LlamaIndex", "Prophet", "ARIMA", "LSTM", "Airflow", "FastAPI", "RAPIDS"],
-      "thumbnail": "/projects/autonomous-fpa-financial-reporting/thumb.svg",
+      "thumbnail": "/projects/autonomous-fpa-financial-reporting/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/autonomous-fpa-financial-reporting/01.svg",
-          "/projects/autonomous-fpa-financial-reporting/02.svg",
-          "/projects/autonomous-fpa-financial-reporting/03.svg"
+          "/projects/autonomous-fpa-financial-reporting/01.jpg",
+          "/projects/autonomous-fpa-financial-reporting/02.jpg",
+          "/projects/autonomous-fpa-financial-reporting/03.jpg"
         ],
         "badgeIcon": "finance"
       },
@@ -762,12 +762,12 @@
       "dateLabel": "2025",
       "short": "Automated GPU workstation provisioning (HP Z8 Fury) for deep learning, RAPIDS acceleration, and secure VS Code Remote-SSH workflows.",
       "tags": ["CUDA", "PyTorch", "TensorFlow", "RAPIDS", "Remote SSH", "JupyterLab", "Automation Script", "Ubuntu Server"],
-      "thumbnail": "/projects/ai-workstation-setup-enterprise/thumb.svg",
+      "thumbnail": "/projects/ai-workstation-setup-enterprise/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/ai-workstation-setup-enterprise/01.svg",
-          "/projects/ai-workstation-setup-enterprise/02.svg",
-          "/projects/ai-workstation-setup-enterprise/03.svg"
+          "/projects/ai-workstation-setup-enterprise/01.jpg",
+          "/projects/ai-workstation-setup-enterprise/02.jpg",
+          "/projects/ai-workstation-setup-enterprise/03.jpg"
         ],
         "badgeIcon": "gpu"
       },
@@ -818,12 +818,12 @@
       "dateLabel": "2025",
       "short": "End-to-end enterprise LLM factory: data prep → LoRA fine-tuning → reward modeling → RLHF → deployment-ready exports for secure on-prem copilots.",
       "tags": ["HuggingFace", "LoRA", "PEFT", "TRL", "RLHF", "bitsandbytes", "PyTorch", "Conda"],
-      "thumbnail": "/projects/enterprise-llm-finetuning-pipeline/thumb.svg",
+      "thumbnail": "/projects/enterprise-llm-finetuning-pipeline/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/enterprise-llm-finetuning-pipeline/01.svg",
-          "/projects/enterprise-llm-finetuning-pipeline/02.svg",
-          "/projects/enterprise-llm-finetuning-pipeline/03.svg"
+          "/projects/enterprise-llm-finetuning-pipeline/01.jpg",
+          "/projects/enterprise-llm-finetuning-pipeline/02.jpg",
+          "/projects/enterprise-llm-finetuning-pipeline/03.jpg"
         ],
         "badgeIcon": "model"
       },
@@ -870,18 +870,18 @@
     {
       "useCaseId": 10,
       "featuredRank": null,
-      "name": "Voice-Activated ESG / Audit Copilot (T-6)",
+      "name": "Voice-Activated ESG / Audit Copilot",
       "slug": "voice-esg-audit-copilot",
       "category": "Voice + RAG",
       "dateLabel": "2025",
       "short": "Voice-driven ESG/audit/tax copilot combining Whisper STT + RAG + LLM reasoning for document-grounded compliance answers.",
       "tags": ["Whisper", "RAG", "LangChain", "FAISS", "Chroma", "FastAPI", "WebRTC", "JWT"],
-      "thumbnail": "/projects/voice-esg-audit-copilot/thumb.svg",
+      "thumbnail": "/projects/voice-esg-audit-copilot/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/voice-esg-audit-copilot/01.svg",
-          "/projects/voice-esg-audit-copilot/02.svg",
-          "/projects/voice-esg-audit-copilot/03.svg"
+          "/projects/voice-esg-audit-copilot/01.jpg",
+          "/projects/voice-esg-audit-copilot/02.jpg",
+          "/projects/voice-esg-audit-copilot/03.jpg"
         ],
         "badgeIcon": "mic"
       },
@@ -934,12 +934,12 @@
       "dateLabel": "2025",
       "short": "Regulation-aware persona engine that switches Audit/Tax/Advisory/Legal reasoning in real time with replayable governance trails.",
       "tags": ["Persona Overlays", "LangGraph", "Ontologies", "Neo4j", "OpenTelemetry", "RAG", "Compliance Tags", "Kubernetes"],
-      "thumbnail": "/projects/dynamic-persona-switching-regulated/thumb.svg",
+      "thumbnail": "/projects/dynamic-persona-switching-regulated/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/dynamic-persona-switching-regulated/01.svg",
-          "/projects/dynamic-persona-switching-regulated/02.svg",
-          "/projects/dynamic-persona-switching-regulated/03.svg"
+          "/projects/dynamic-persona-switching-regulated/01.jpg",
+          "/projects/dynamic-persona-switching-regulated/02.jpg",
+          "/projects/dynamic-persona-switching-regulated/03.jpg"
         ],
         "badgeIcon": "switch"
       },
@@ -987,18 +987,18 @@
     {
       "useCaseId": 17,
       "featuredRank": null,
-      "name": "Smart Crowd Management (Without Azure)",
+      "name": "Smart Crowd Management",
       "slug": "smart-crowd-management-no-azure",
       "category": "Computer Vision",
       "dateLabel": "2025",
       "short": "CCTV + computer vision system that counts people, detects congestion, predicts spikes, and triggers real-time safety interventions without Azure.",
       "tags": ["YOLOv8", "RT-DETR", "ByteTrack", "DeepSORT", "RTSP", "GStreamer", "Kafka", "Edge"],
-      "thumbnail": "/projects/smart-crowd-management-no-azure/thumb.svg",
+      "thumbnail": "/projects/smart-crowd-management-no-azure/thumb.jpg",
       "hero": {
         "collage": [
-          "/projects/smart-crowd-management-no-azure/01.svg",
-          "/projects/smart-crowd-management-no-azure/02.svg",
-          "/projects/smart-crowd-management-no-azure/03.svg"
+          "/projects/smart-crowd-management-no-azure/01.jpg",
+          "/projects/smart-crowd-management-no-azure/02.jpg",
+          "/projects/smart-crowd-management-no-azure/03.jpg"
         ],
         "badgeIcon": "crowd"
       },

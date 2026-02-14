@@ -1,8 +1,25 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
+import { execFile } from 'node:child_process'
+import { promisify } from 'node:util'
+
+import { Resvg } from '../frontend/node_modules/@resvg/resvg-js/index.js'
+
+const execFileAsync = promisify(execFile)
 
 function svgText(label, { width, height, fontSize }) {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">\n  <rect width="${width}" height="${height}" fill="#E5E7EB"/>\n  <rect x="24" y="24" width="${width - 48}" height="${height - 48}" fill="#F3F4F6" stroke="#111111" stroke-opacity="0.14"/>\n  <text x="${Math.round(width / 2)}" y="${Math.round(height / 2)}" text-anchor="middle" dominant-baseline="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="${fontSize}" fill="#111111" fill-opacity="0.55">${label}</text>\n</svg>\n`
+}
+
+async function writeJpg(outPath, svgSource) {
+  const dir = path.dirname(outPath)
+  const base = path.basename(outPath, '.jpg')
+  const tmpPngPath = path.join(dir, `${base}.__tmp__.png`)
+
+  const resvg = new Resvg(svgSource, { background: 'white' })
+  await fs.writeFile(tmpPngPath, resvg.render().asPng())
+  await execFileAsync('sips', ['-s', 'format', 'jpeg', '-s', 'formatOptions', '90', tmpPngPath, '--out', outPath])
+  await fs.unlink(tmpPngPath)
 }
 
 async function main() {
@@ -34,17 +51,16 @@ async function main() {
     const dir = path.join(outRoot, slug)
     await fs.mkdir(dir, { recursive: true })
 
-    await fs.writeFile(path.join(dir, 'thumb.svg'), svgText(`${slug} • thumb`, sizes.thumb), 'utf8')
-    await fs.writeFile(path.join(dir, '01.svg'), svgText(`${slug} • 01`, sizes['01']), 'utf8')
-    await fs.writeFile(path.join(dir, '02.svg'), svgText(`${slug} • 02`, sizes['02']), 'utf8')
-    await fs.writeFile(path.join(dir, '03.svg'), svgText(`${slug} • 03`, sizes['03']), 'utf8')
+    await writeJpg(path.join(dir, 'thumb.jpg'), svgText(`${slug} • thumb`, sizes.thumb))
+    await writeJpg(path.join(dir, '01.jpg'), svgText(`${slug} • 01`, sizes['01']))
+    await writeJpg(path.join(dir, '02.jpg'), svgText(`${slug} • 02`, sizes['02']))
+    await writeJpg(path.join(dir, '03.jpg'), svgText(`${slug} • 03`, sizes['03']))
   }
 
-  process.stdout.write(`Generated placeholder SVGs for ${projects.length} projects in ${outRoot}\n`)
+  process.stdout.write(`Generated placeholder JPGs for ${projects.length} projects in ${outRoot}\n`)
 }
 
 main().catch((err) => {
   console.error(err)
   process.exit(1)
 })
-

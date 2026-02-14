@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 
 import { MakeItPopPanel } from '@/components/Projects/MakeItPopPanel'
 import { ProjectGrid } from '@/components/Projects/ProjectGrid'
+import { UseCaseOptions } from '@/components/Projects/UseCaseOptions'
 import type { PopSettings } from '@/components/Projects/ProjectCard'
 import { Container } from '@/components/Layout/Container'
 import { useProfile } from '@/hooks/useProfile'
@@ -66,7 +67,7 @@ export function ProjectsPage() {
 
                   <section className="projectsGroup projectsGroupTight">
                     <div className="projectsGroupHeading">All use cases</div>
-                    <ProjectGrid projects={rest} pop={pop} />
+                    <UseCaseOptions projects={rest} />
                   </section>
                 </div>
               )

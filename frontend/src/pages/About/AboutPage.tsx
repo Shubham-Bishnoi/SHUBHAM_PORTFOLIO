@@ -6,6 +6,7 @@ import { Container } from '@/components/Layout/Container'
 import { PageTitle } from '@/components/UI/PageTitle'
 import { Section } from '@/components/UI/Section'
 import { TwoCol } from '@/components/UI/TwoCol'
+import { SkillsAvalanche } from '@/components/About/SkillsAvalanche'
 import { useProfile } from '@/hooks/useProfile'
 
 import './AboutPage.css'
@@ -137,14 +138,7 @@ export function AboutPage() {
         />
 
         <Section title="Skills">
-          <div className="skillsGrid">
-            {Object.entries(p.skills).map(([k, vals]) => (
-              <div key={k} className="skillBlock">
-                <div className="skillTitle">{k.replace(/_/g, ' ')}</div>
-                <div className="skillList">{vals.join(', ')}</div>
-              </div>
-            ))}
-          </div>
+          <SkillsAvalanche skills={p.skills} />
         </Section>
 
         <Section title="Awards">

@@ -95,7 +95,7 @@
   border-radius: 18px;
   box-shadow: var(--shadow-pop);
   background: #f2f2f2;
-  filter: grayscale(1) saturate(0);
+  filter: none;
 }
 
 .pd-collage-a {
@@ -109,7 +109,7 @@
   box-shadow: var(--shadow-soft);
   background: #f2f2f2;
   z-index: 2;
-  filter: grayscale(1) saturate(0);
+  filter: none;
 }
 
 .pd-collage-b {
@@ -123,7 +123,7 @@
   box-shadow: var(--shadow-soft);
   background: #f2f2f2;
   z-index: 3;
-  filter: grayscale(1) saturate(0);
+  filter: none;
 }
 
 .pd-collage-badge {
