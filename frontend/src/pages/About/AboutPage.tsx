@@ -7,6 +7,8 @@ import { PageTitle } from '@/components/UI/PageTitle'
 import { Section } from '@/components/UI/Section'
 import { TwoCol } from '@/components/UI/TwoCol'
 import { SkillsAvalanche } from '@/components/About/SkillsAvalanche'
+import { MyStorySection } from '@/components/About/MyStorySection'
+import { CodingSection } from '@/components/About/CodingSection'
 import { useProfile } from '@/hooks/useProfile'
 
 import './AboutPage.css'
@@ -157,22 +159,8 @@ export function AboutPage() {
           </ul>
         </Section>
 
-        <Section title="Coding">
-          <div className="codingRow">
-            <div>
-              <div className="codingLabel">LeetCode</div>
-              <div className="codingValue">
-                {p.coding.leetcode.handle} · {p.coding.leetcode.solved}
-              </div>
-            </div>
-            <div>
-              <div className="codingLabel">GeeksforGeeks</div>
-              <div className="codingValue">
-                {p.coding.geeksforgeeks.handle} · {p.coding.geeksforgeeks.solved}
-              </div>
-            </div>
-          </div>
-        </Section>
+        <MyStorySection />
+        <CodingSection id="coding" />
       </Container>
     </main>
   )

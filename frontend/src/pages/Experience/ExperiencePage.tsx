@@ -1,6 +1,6 @@
 import { Container } from '@/components/Layout/Container'
-import { PageTitle } from '@/components/UI/PageTitle'
-import { Timeline } from '@/components/UI/Timeline'
+import { ExperienceTimeTunnel } from '@/components/experience/ExperienceTimeTunnel'
+import { buildTimeTunnelItems } from '@/data/timeTunnel'
 import { useProfile } from '@/hooks/useProfile'
 
 import './ExperiencePage.css'
@@ -12,7 +12,7 @@ export function ExperiencePage() {
     return (
       <main className="pageRoot">
         <Container>
-          <PageTitle title="experience." subtitle="Loading…" />
+          <div className="text-sm text-black/60">Loading…</div>
         </Container>
       </main>
     )
@@ -22,25 +22,17 @@ export function ExperiencePage() {
     return (
       <main className="pageRoot">
         <Container>
-          <PageTitle title="experience." subtitle="Could not load profile." />
+          <div className="text-sm text-black/60">Could not load profile.</div>
         </Container>
       </main>
     )
   }
 
-  const items = state.profile.experience.map((e) => ({
-    heading: `${e.company} — ${e.title}`,
-    meta: `${e.dates} · ${e.location}`,
-    bullets: e.highlights,
-  }))
+  const items = buildTimeTunnelItems(state.profile)
 
   return (
-    <main className="pageRoot">
-      <Container>
-        <PageTitle title="experience." subtitle="Where I've worked and what I shipped." />
-        <Timeline items={items} />
-      </Container>
+    <main>
+      <ExperienceTimeTunnel items={items} />
     </main>
   )
 }
-

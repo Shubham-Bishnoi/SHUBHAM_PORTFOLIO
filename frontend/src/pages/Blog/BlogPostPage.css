@@ -1,0 +1,77 @@
+.postRoot {
+  padding: clamp(16px, 3vw, 28px) 0 84px;
+}
+
+.postTopRow {
+  margin-bottom: 14px;
+}
+
+.postBack {
+  color: inherit;
+  text-decoration: none;
+}
+
+.postBack:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.postArticle {
+  max-width: 860px;
+}
+
+.postHeader {
+  margin-bottom: 18px;
+}
+
+.postH1 {
+  font-size: clamp(40px, 6vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin: 0;
+  font-weight: 500;
+}
+
+.postMeta {
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.postCover {
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  overflow: hidden;
+  background: radial-gradient(circle at 25% 20%, rgba(0, 0, 0, 0.03), transparent 55%),
+    radial-gradient(circle at 85% 70%, rgba(0, 0, 0, 0.04), transparent 60%),
+    var(--bg);
+}
+
+.postCoverImg {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+}
+
+.postBody {
+  margin-top: 22px;
+  max-width: 760px;
+}
+
+.postP {
+  margin: 14px 0 0;
+  line-height: 1.8;
+}
+
+.postP:first-child {
+  margin-top: 0;
+}
+
+.postH2 {
+  margin: 26px 0 10px;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+}
+
