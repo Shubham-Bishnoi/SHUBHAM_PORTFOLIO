@@ -74,6 +74,7 @@ export type ProjectCard = {
   featuredRank?: number | null
   slug: string
   name: string
+  shortLabel?: string
   category: string
   dateLabel: string
   short: string

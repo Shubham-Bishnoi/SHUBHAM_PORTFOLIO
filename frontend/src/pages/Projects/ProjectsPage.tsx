@@ -2,7 +2,8 @@ import { useMemo, useState } from 'react'
 
 import { MakeItPopPanel } from '@/components/Projects/MakeItPopPanel'
 import { ProjectGrid } from '@/components/Projects/ProjectGrid'
-import { UseCaseOptions } from '@/components/Projects/UseCaseOptions'
+import { ExpandableProjectRow } from '@/components/Projects/ExpandableProjectRow'
+import { ProjectGridRow } from '@/components/Projects/ProjectGridRow'
 import type { PopSettings } from '@/components/Projects/ProjectCard'
 import { Container } from '@/components/Layout/Container'
 import { useProfile } from '@/hooks/useProfile'
@@ -51,23 +52,56 @@ export function ProjectsPage() {
           {projectsState.kind === 'error' ? <div>Not found.</div> : null}
           {projectsState.kind === 'ready' ? (
             (() => {
-              const featured = projectsState.projects.filter((p) => typeof p.featuredRank === 'number')
-              const rest = projectsState.projects.filter((p) => typeof p.featuredRank !== 'number')
+              const featuredSorted = projectsState.projects
+                .filter((p) => typeof p.featuredRank === 'number')
+                .slice()
+                .sort((a, b) => {
+                  const ar = typeof a.featuredRank === 'number' ? a.featuredRank : 999
+                  const br = typeof b.featuredRank === 'number' ? b.featuredRank : 999
+                  return ar - br
+                })
+              const featuredProjects = featuredSorted.slice(0, 6)
+              const shortLabelsByName: Record<string, string> = {
+                'Adaptive Deception Mesh': 'Deception Mesh',
+                'Agentic AI Secretary (Secbot AI)': 'Secbot AI',
+                'Multi-Agent Meeting Summarisation & Action Tracking': 'Meeting Intel',
+                'Recruitment Orchestrator & Workflow': 'Hiring Ops',
+                'Target: AI-Agent Document Processing System': 'Doc Agent',
+                'Supplier–Treasury Digital Twin': 'Treasury Twin',
+              }
 
-              if (!featured.length) {
+              for (const p of featuredProjects) {
+                const shortLabel = shortLabelsByName[p.name]
+                if (shortLabel) p.shortLabel = shortLabel
+              }
+
+              const featuredSlugs = new Set(featuredProjects.map((p) => p.slug))
+              const allUseCaseProjects = projectsState.projects.filter((p) => !featuredSlugs.has(p.slug)).slice(0, 11)
+
+              if (!featuredProjects.length) {
                 return <ProjectGrid projects={projectsState.projects} pop={pop} />
               }
+
+              const featuredRow1 = featuredProjects.slice(0, 3)
+              const featuredRow2 = featuredProjects.slice(3, 6)
+
+              const useCaseRow1 = allUseCaseProjects.slice(0, 4)
+              const useCaseRow2 = allUseCaseProjects.slice(4, 8)
+              const useCaseRow3 = allUseCaseProjects.slice(8, 11)
 
               return (
                 <div className="projectsGroups">
                   <section className="projectsGroup">
                     <div className="projectsGroupHeading">Featured</div>
-                    <ProjectGrid projects={featured} pop={pop} />
+                    <ExpandableProjectRow projects={featuredRow1} defaultActiveIndex={0} autoRotate rotateMs={3000} />
+                    <ExpandableProjectRow projects={featuredRow2} defaultActiveIndex={0} autoRotate rotateMs={3000} />
                   </section>
 
                   <section className="projectsGroup projectsGroupTight">
                     <div className="projectsGroupHeading">All use cases</div>
-                    <UseCaseOptions projects={rest} />
+                    <ProjectGridRow projects={useCaseRow1} pop={pop} columns={{ base: 1, md: 2, lg: 4 }} />
+                    <ProjectGridRow projects={useCaseRow2} pop={pop} columns={{ base: 1, md: 2, lg: 4 }} />
+                    <ProjectGridRow projects={useCaseRow3} pop={pop} columns={{ base: 1, md: 2, lg: 3 }} />
                   </section>
                 </div>
               )

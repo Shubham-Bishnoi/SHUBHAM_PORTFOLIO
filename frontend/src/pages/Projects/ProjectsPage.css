@@ -80,6 +80,24 @@
   gap: 18px;
 }
 
+.projectGridRow {
+  display: grid;
+  grid-template-columns: repeat(var(--cols-base, 1), minmax(0, 1fr));
+  gap: 18px;
+}
+
+@media (min-width: 768px) {
+  .projectGridRow {
+    grid-template-columns: repeat(var(--cols-md, 2), minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .projectGridRow {
+    grid-template-columns: repeat(var(--cols-lg, 4), minmax(0, 1fr));
+  }
+}
+
 .projectCard {
   display: block;
   border-radius: 16px;

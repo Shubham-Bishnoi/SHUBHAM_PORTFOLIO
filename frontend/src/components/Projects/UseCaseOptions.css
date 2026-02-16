@@ -107,6 +107,15 @@
   padding: 14px 10px;
 }
 
+@supports not (writing-mode: vertical-rl) {
+  .useCaseTitle {
+    writing-mode: horizontal-tb;
+    text-orientation: initial;
+    transform: rotate(-90deg);
+    display: inline-block;
+  }
+}
+
 .useCaseThumb,
 .useCaseDesc,
 .useCaseCta {
