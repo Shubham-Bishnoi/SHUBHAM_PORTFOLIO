@@ -93,15 +93,15 @@ export function ProjectsPage() {
                 <div className="projectsGroups">
                   <section className="projectsGroup">
                     <div className="projectsGroupHeading">Featured</div>
-                    <ExpandableProjectRow projects={featuredRow1} defaultActiveIndex={0} autoRotate rotateMs={3000} />
-                    <ExpandableProjectRow projects={featuredRow2} defaultActiveIndex={0} autoRotate rotateMs={3000} />
+                    <ExpandableProjectRow projects={featuredRow1} defaultActiveIndex={0} autoRotate rotateMs={4000} />
+                    <ExpandableProjectRow projects={featuredRow2} defaultActiveIndex={0} autoRotate rotateMs={4000} />
                   </section>
 
                   <section className="projectsGroup projectsGroupTight">
                     <div className="projectsGroupHeading">All use cases</div>
                     <ProjectGridRow projects={useCaseRow1} pop={pop} columns={{ base: 1, md: 2, lg: 4 }} />
                     <ProjectGridRow projects={useCaseRow2} pop={pop} columns={{ base: 1, md: 2, lg: 4 }} />
-                    <ProjectGridRow projects={useCaseRow3} pop={pop} columns={{ base: 1, md: 2, lg: 3 }} />
+                    <ProjectGridRow projects={useCaseRow3} pop={pop} columns={{ base: 1, md: 2, lg: 4 }} />
                   </section>
                 </div>
               )

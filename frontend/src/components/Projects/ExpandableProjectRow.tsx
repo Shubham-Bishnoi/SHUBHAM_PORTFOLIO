@@ -46,7 +46,7 @@ export function ExpandableProjectRow({
   projects,
   defaultActiveIndex = 0,
   autoRotate = true,
-  rotateMs = 3000,
+  rotateMs = 4000,
 }: Props) {
   const ordered = useMemo(() => projects.slice(0, 3), [projects])
   const [activeIndex, setActiveIndex] = useState(() => clampIndex(defaultActiveIndex, ordered.length))
@@ -134,23 +134,38 @@ export function ExpandableProjectRow({
                     setActiveIndex(index)
                   }}
                 >
-                  <img className="useCaseBg" src={project.thumbnail} alt="" loading="lazy" aria-hidden="true" />
-                  <div className="useCaseOverlay" aria-hidden="true" />
+                  {isActive ? (
+                    <>
+                      <img className="useCaseBg" src={project.thumbnail} alt="" loading="lazy" aria-hidden="true" />
+                      <div className="useCaseOverlay" aria-hidden="true" />
 
-                  <div className="useCaseContent">
-                    <img className="useCaseThumb" src={project.thumbnail} alt="" loading="lazy" aria-hidden="true" />
+                      <div className="useCaseContent">
+                        <img className="useCaseThumb" src={project.thumbnail} alt="" loading="lazy" aria-hidden="true" />
 
-                    <div className="useCaseText">
-                      <h3 className="useCaseTitle">{isActive ? project.name : collapsedLabel}</h3>
-                      <p className="useCaseDesc">{project.short}</p>
-                      <div className="useCaseCta" aria-hidden="true">
-                        <span className="useCaseCtaIcon">
-                          <ArrowUpRight size={16} />
-                        </span>
-                        <span>Details</span>
+                        <div className="useCaseText">
+                          <h3 className="useCaseTitle">{project.name}</h3>
+                          <p className="useCaseDesc">{project.short}</p>
+                          <div className="useCaseCta" aria-hidden="true">
+                            <span className="useCaseCtaIcon">
+                              <ArrowUpRight size={16} />
+                            </span>
+                            <span>Details</span>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
+                    </>
+                  ) : (
+                    <>
+                      <img className="useCaseBg" src={project.thumbnail} alt="" loading="lazy" aria-hidden="true" />
+                      <div className="useCaseOverlay" aria-hidden="true" />
+
+                      <div className="useCaseContent">
+                        <div className="useCaseText">
+                          <h3 className="useCaseTitle">{collapsedLabel}</h3>
+                        </div>
+                      </div>
+                    </>
+                  )}
                 </Link>
               </div>
             )

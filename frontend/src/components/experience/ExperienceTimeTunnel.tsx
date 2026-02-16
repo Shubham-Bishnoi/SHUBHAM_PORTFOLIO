@@ -97,8 +97,8 @@ export function ExperienceTimeTunnel({ items }: Props) {
           <span className="uppercase">Time Tunnel</span>
         </div>
 
-        <h2 className="m-0 mt-6 text-5xl font-extrabold leading-[0.9] tracking-[0.14em] sm:text-6xl md:text-7xl">
-          <span className="bg-gradient-to-b from-black to-zinc-700 bg-clip-text text-transparent">EXPERIENCE</span>
+        <h2 className="m-0 mt-6 text-[clamp(38px,6vw,56px)] leading-[1.02] tracking-[-0.02em] font-medium">
+          experience.
         </h2>
 
         <p className="m-0 mt-5 max-w-2xl text-sm leading-relaxed text-black/60 sm:text-base">
