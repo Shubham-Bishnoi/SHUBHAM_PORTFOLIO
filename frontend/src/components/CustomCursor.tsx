@@ -123,6 +123,9 @@ export default function CustomCursor({
 
   if (!enabled) return null
 
+  const hoverStroke = '#F2E7D8'
+  const hoverStrokeWidth = 4
+
   return (
     <div
       ref={cursorRef}
@@ -132,17 +135,33 @@ export default function CustomCursor({
       }`}
       style={{ width: cursorSize, height: cursorSize, willChange: 'transform' }}
     >
-      <div
-        className="h-full w-full rounded-full border-2 flex items-center justify-center transition-colors duration-300"
-        style={{ borderColor: cursorColor, backgroundColor: isHovering ? cursorColor : 'transparent' }}
-      >
-        <ArrowUpRight
-          size={cursorSize * 0.35}
-          strokeWidth={2}
-          style={{ color: isHovering ? arrowColor : cursorColor }}
-        />
-      </div>
+      {isHovering ? (
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 100 100"
+          fill="none"
+          shapeRendering="geometricPrecision"
+          style={{ display: 'block' }}
+        >
+          <circle cx="50" cy="50" r="48" stroke={hoverStroke} strokeWidth={hoverStrokeWidth} />
+          <path
+            d="M34 66 L66 34 M46 34 H66 V54"
+            stroke={hoverStroke}
+            strokeWidth={hoverStrokeWidth}
+            strokeLinecap="butt"
+            strokeLinejoin="miter"
+            strokeMiterlimit={10}
+          />
+        </svg>
+      ) : (
+        <div
+          className="h-full w-full rounded-full border-2 flex items-center justify-center transition-colors duration-300"
+          style={{ borderColor: cursorColor, backgroundColor: 'transparent' }}
+        >
+          <ArrowUpRight size={cursorSize * 0.35} strokeWidth={2} style={{ color: cursorColor }} />
+        </div>
+      )}
     </div>
   )
 }
-

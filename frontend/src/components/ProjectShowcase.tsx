@@ -4,6 +4,32 @@ import type { MouseEvent } from 'react'
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+function HoverCursorMark() {
+  const stroke = '#F2E7D8'
+  const strokeWidth = 4
+
+  return (
+    <svg
+      width="100%"
+      height="100%"
+      viewBox="0 0 100 100"
+      fill="none"
+      shapeRendering="geometricPrecision"
+      style={{ display: 'block' }}
+    >
+      <circle cx="50" cy="50" r="48" stroke={stroke} strokeWidth={strokeWidth} />
+      <path
+        d="M34 66 L66 34 M46 34 H66 V54"
+        stroke={stroke}
+        strokeWidth={strokeWidth}
+        strokeLinecap="butt"
+        strokeLinejoin="miter"
+        strokeMiterlimit={10}
+      />
+    </svg>
+  )
+}
+
 export type ShowcaseProject = {
   id: string
   title: string
@@ -82,8 +108,8 @@ function ProjectCard({ project, index }: { project: ShowcaseProject; index: numb
               }}
               transition={{ type: 'spring', stiffness: 500, damping: 30, mass: 0.5 }}
             >
-              <div className="w-[100px] h-[100px] rounded-full border-2 border-white/90 bg-white/90 flex items-center justify-center">
-                <ArrowUpRight size={35} className="text-black" strokeWidth={2} />
+              <div className="w-[100px] h-[100px] flex items-center justify-center">
+                <HoverCursorMark />
               </div>
             </motion.div>
           </div>
@@ -149,8 +175,8 @@ function ProjectCard({ project, index }: { project: ShowcaseProject; index: numb
             }}
             transition={{ type: 'spring', stiffness: 500, damping: 30, mass: 0.5 }}
           >
-            <div className="w-[100px] h-[100px] rounded-full border-2 border-white/90 bg-white/90 flex items-center justify-center">
-              <ArrowUpRight size={35} className="text-black" strokeWidth={2} />
+            <div className="w-[100px] h-[100px] flex items-center justify-center">
+              <HoverCursorMark />
             </div>
           </motion.div>
         </div>
