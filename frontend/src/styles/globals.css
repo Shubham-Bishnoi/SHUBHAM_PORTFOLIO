@@ -34,3 +34,32 @@ textarea {
   background: rgba(0, 0, 0, 0.08);
 }
 
+body.custom-cursor-active,
+body.custom-cursor-active * {
+  cursor: none !important;
+}
+
+body.custom-cursor-active a,
+body.custom-cursor-active button,
+body.custom-cursor-active [role='button'],
+body.custom-cursor-active [data-cursor-hover],
+body.custom-cursor-active .cursor-pointer,
+body.custom-cursor-active .project-card,
+body.custom-cursor-active .projectCard {
+  cursor: none !important;
+}
+
+@media (pointer: coarse) {
+  body.custom-cursor-active,
+  body.custom-cursor-active * {
+    cursor: auto !important;
+  }
+}
+
+.project-card img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card:hover img {
+  transform: scale(1.05);
+}

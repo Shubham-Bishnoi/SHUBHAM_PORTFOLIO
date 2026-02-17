@@ -74,6 +74,16 @@
   gap: 12px;
 }
 
+.allUseCasesGroup .projectCardMedia {
+  aspect-ratio: 3 / 2;
+}
+
+@media (min-width: 1024px) {
+  .allUseCasesGroup .projectCardMedia {
+    aspect-ratio: 7 / 5;
+  }
+}
+
 .projectGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

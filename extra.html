@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Cursor with Color Inversion Effect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           SECTION 1: THE CUSTOM CURSOR STYLES
+           ============================================ */
+
+        /* Hide default cursor when hovering project cards */
+        .project-card {
+            cursor: none;
+        }
+
+        /* The custom cursor container */
+        .custom-cursor {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            pointer-events: none; /* Let clicks pass through */
+            z-index: 9999;
+            transform: translate(-50%, -50%); /* Center on mouse */
+            opacity: 0; /* Hidden by default */
+            transition: opacity 0.2s ease;
+            mix-blend-mode: difference; /* KEY: Color inversion magic! */
+        }
+
+        /* Show cursor when hovering project area */
+        body.has-custom-cursor .custom-cursor {
+            opacity: 1;
+        }
+
+        /* The circular border */
+        .cursor-circle {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid #fff;
+            border-radius: 50%;
+        }
+
+        /* The arrow inside */
+        .cursor-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Arrow SVG styling */
+        .cursor-arrow svg {
+            width: 100%;
+            height: 100%;
+            fill: none;
+            stroke: #fff;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* ============================================
+           SECTION 2: DEMO PAGE STYLES
+           ============================================ */
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #888;
+            margin-bottom: 60px;
+            font-size: 1.1rem;
+        }
+
+        /* Project grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Project card styles */
+        .project-card {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.02);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Project info overlay */
+        .project-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 30px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .project-category {
+            font-size: 0.875rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ============================================
+           SECTION 3: EXPLANATION PANEL
+           ============================================ */
+
+        .explanation {
+            margin-top: 80px;
+            padding: 40px;
+            background: #111;
+            border-radius: 16px;
+            border: 1px solid #222;
+        }
+
+        .explanation h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .explanation h3 {
+            font-size: 1.2rem;
+            margin: 30px 0 15px;
+            color: #4fc3f7;
+        }
+
+        .explanation p, .explanation li {
+            color: #bbb;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .explanation ul {
+            margin-left: 20px;
+        }
+
+        .explanation code {
+            background: #1a1a1a;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Consolas', monospace;
+            color: #4fc3f7;
+            font-size: 0.9em;
+        }
+
+        .explanation pre {
+            background: #1a1a1a;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .explanation pre code {
+            background: none;
+            padding: 0;
+            color: #fff;
+        }
+
+        .highlight {
+            color: #4fc3f7;
+            font-weight: 600;
+        }
+
+        /* Code tabs */
+        .code-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .code-tab {
+            padding: 10px 20px;
+            background: #1a1a1a;
+            border: none;
+            color: #888;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .code-tab.active {
+            background: #4fc3f7;
+            color: #000;
+        }
+
+        .code-content {
+            display: none;
+        }
+
+        .code-content.active {
+            display: block;
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- ============================================
+         THE CUSTOM CURSOR ELEMENT
+         ============================================ -->
+    <div class="custom-cursor" id="customCursor">
+        <div class="cursor-circle"></div>
+        <div class="cursor-arrow">
+            <svg viewBox="0 0 24 24">
+                <!-- Diagonal arrow pointing top-right -->
+                <line x1="7" y1="17" x2="17" y2="7"></line>
+                <polyline points="7 7 17 7 17 17"></polyline>
+            </svg>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Custom Cursor with Color Inversion</h1>
+        <p class="subtitle">Hover over the project cards below to see the effect</p>
+
+        <!-- ============================================
+             PROJECT GRID - WHERE CURSOR APPEARS
+             ============================================ -->
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Project 1: Dark background -->
+            <div class="project-card" data-cursor="true">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80" alt="Abstract Dark">
+                <div class="project-info">
+                    <div class="project-title">Midnight Dreams</div>
+                    <div class="project-category">Brand Identity</div>
+                </div>
+            </div>
+
+            <!-- Project 2: Light/Colorful background -->
+            <div class="project-card" data-cursor="true">
+                <img src="https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=800&q=80" alt="Abstract Color">
+                <div class="project-info">
+                    <div class="project-title">Sunset Waves</div>
+                    <div class="project-category">Web Design</div>
+                </div>
+            </div>
+
+            <!-- Project 3: Mixed background -->
+            <div class="project-card" data-cursor="true">
+                <img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=800&q=80" alt="Gradient">
+                <div class="project-info">
+                    <div class="project-title">Gradient Flow</div>
+                    <div class="project-category">Motion Design</div>
+                </div>
+            </div>
+
+            <!-- Project 4: Light background -->
+            <div class="project-card" data-cursor="true">
+                <img src="https://images.unsplash.com/photo-1550684848-fac1c5b4e853?w=800&q=80" alt="Light Abstract">
+                <div class="project-info">
+                    <div class="project-title">Pure Light</div>
+                    <div class="project-category">Photography</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================
+             EXPLANATION SECTION
+             ============================================ -->
+        <div class="explanation">
+            <h2>How This Effect Works</h2>
+            
+            <h3>1. The Magic: mix-blend-mode: difference</h3>
+            <p>
+                The color-changing effect is achieved using CSS's <code>mix-blend-mode: difference</code>. 
+                This blend mode inverts the colors of the element based on the background it's over. 
+                When the cursor (white) passes over dark areas, it stays white. When it passes over light areas, 
+                it automatically becomes dark/inverted - no JavaScript color detection needed!
+            </p>
+
+            <h3>2. How It Works Step by Step</h3>
+            <ul>
+                <li><span class="highlight">Fixed Positioning:</span> The cursor uses <code>position: fixed</code> to stay on screen while scrolling</li>
+                <li><span class="highlight">Mouse Tracking:</span> JavaScript updates the cursor's <code>left</code> and <code>top</code> positions based on mouse coordinates</li>
+                <li><span class="highlight">Center Offset:</span> <code>transform: translate(-50%, -50%)</code> centers the cursor on the mouse pointer</li>
+                <li><span class="highlight">Pointer Events:</span> <code>pointer-events: none</code> lets clicks pass through to elements below</li>
+                <li><span class="highlight">Color Inversion:</span> <code>mix-blend-mode: difference</code> automatically inverts colors</li>
+            </ul>
+
+            <h3>3. The Code</h3>
+            
+            <div class="code-tabs">
+                <button class="code-tab active" onclick="showTab('html')">HTML</button>
+                <button class="code-tab" onclick="showTab('css')">CSS</button>
+                <button class="code-tab" onclick="showTab('js')">JavaScript</button>
+            </div>
+
+            <div class="code-content active" id="html-code">
+                <pre><code>&lt;!-- The Custom Cursor --&gt;
+&lt;div class="custom-cursor" id="customCursor"&gt;
+    &lt;div class="cursor-circle"&gt;&lt;/div&gt;
+    &lt;div class="cursor-arrow"&gt;
+        &lt;svg viewBox="0 0 24 24"&gt;
+            &lt;line x1="7" y1="17" x2="17" y2="7"&gt;&lt;/line&gt;
+            &lt;polyline points="7 7 17 7 17 17"&gt;&lt;/polyline&gt;
+        &lt;/svg&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Project Card with cursor trigger --&gt;
+&lt;div class="project-card" data-cursor="true"&gt;
+    &lt;img src="project-image.jpg" alt="Project"&gt;
+    &lt;div class="project-info"&gt;
+        &lt;div class="project-title"&gt;Project Name&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="code-content" id="css-code">
+                <pre><code>/* Hide default cursor on project cards */
+.project-card {
+    cursor: none;
+}
+
+/* Custom cursor styling */
+.custom-cursor {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    
+    /* KEY: Color inversion magic! */
+    mix-blend-mode: difference;
+}
+
+/* Show cursor when body has class */
+body.has-custom-cursor .custom-cursor {
+    opacity: 1;
+}
+
+/* Circle border */
+.cursor-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+/* Arrow styling */
+.cursor-arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+}
+
+.cursor-arrow svg {
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: #fff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}</code></pre>
+            </div>
+
+            <div class="code-content" id="js-code">
+                <pre><code>// Get cursor element
+const cursor = document.getElementById('customCursor');
+const projectGrid = document.getElementById('projectsGrid');
+
+// Track mouse movement
+let mouseX = 0, mouseY = 0;
+let cursorX = 0, cursorY = 0;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+// Smooth cursor animation
+function animateCursor() {
+    // Smooth follow effect (lerp)
+    cursorX += (mouseX - cursorX) * 0.15;
+    cursorY += (mouseY - cursorY) * 0.15;
+    
+    cursor.style.left = cursorX + 'px';
+    cursor.style.top = cursorY + 'px';
+    
+    requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
+
+// Show cursor on project grid hover
+projectGrid.addEventListener('mouseenter', () => {
+    document.body.classList.add('has-custom-cursor');
+});
+
+projectGrid.addEventListener('mouseleave', () => {
+    document.body.classList.remove('has-custom-cursor');
+});</code></pre>
+            </div>
+
+            <h3>4. React Component Version</h3>
+            <p>Here's how to implement this in a React project:</p>
+            <pre><code>import React, { useEffect, useRef, useState } from 'react';
+
+const CustomCursor = () => {
+    const cursorRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+    const mousePos = useRef({ x: 0, y: 0 });
+    const cursorPos = useRef({ x: 0, y: 0 });
+
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            mousePos.current = { x: e.clientX, y: e.clientY };
+        };
+
+        document.addEventListener('mousemove', handleMouseMove);
+
+        // Animation loop
+        let animationId;
+        const animate = () => {
+            cursorPos.current.x += (mousePos.current.x - cursorPos.current.x) * 0.15;
+            cursorPos.current.y += (mousePos.current.y - cursorPos.current.y) * 0.15;
+            
+            if (cursorRef.current) {
+                cursorRef.current.style.left = cursorPos.current.x + 'px';
+                cursorRef.current.style.top = cursorPos.current.y + 'px';
+            }
+            
+            animationId = requestAnimationFrame(animate);
+        };
+        animate();
+
+        return () => {
+            document.removeEventListener('mousemove', handleMouseMove);
+            cancelAnimationFrame(animationId);
+        };
+    }, []);
+
+    return (
+        &lt;div 
+            ref={cursorRef}
+            className={`custom-cursor ${isVisible ? 'visible' : ''}`}
+            style={{
+                position: 'fixed',
+                width: '60px',
+                height: '60px',
+                pointerEvents: 'none',
+                zIndex: 9999,
+                transform: 'translate(-50%, -50%)',
+                mixBlendMode: 'difference',
+                opacity: isVisible ? 1 : 0,
+                transition: 'opacity 0.2s ease'
+            }}
+        &gt;
+            &lt;div style={{
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                border: '2px solid #fff',
+                borderRadius: '50%'
+            }} /&gt;
+            &lt;svg 
+                viewBox="0 0 24 24" 
+                style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    width: '20px',
+                    height: '20px',
+                    fill: 'none',
+                    stroke: '#fff',
+                    strokeWidth: 2
+                }}
+            &gt;
+                &lt;line x1="7" y1="17" x2="17" y2="7" /&gt;
+                &lt;polyline points="7 7 17 7 17 17" /&gt;
+            &lt;/svg&gt;
+        &lt;/div&gt;
+    );
+};
+
+export default CustomCursor;</code></pre>
+
+            <h3>5. Key Points to Remember</h3>
+            <ul>
+                <li><span class="highlight">Always use</span> <code>pointer-events: none</code> so the cursor doesn't block clicks</li>
+                <li><span class="highlight">The blend mode</span> only works if the cursor and background are in the same stacking context</li>
+                <li><span class="highlight">Use requestAnimationFrame</span> for smooth cursor movement, not direct mouse tracking</li>
+                <li><span class="highlight">Add a slight delay/lerp</span> to the cursor following for a more organic feel</li>
+                <li><span class="highlight">Test on different backgrounds</span> - the inversion effect varies!</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ============================================
+         JAVSCRIPT FOR CUSTOM CURSOR
+         ============================================ -->
+    <script>
+        // Get elements
+        const cursor = document.getElementById('customCursor');
+        const projectsGrid = document.getElementById('projectsGrid');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        // Mouse position tracking
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+
+        // Track mouse movement
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Smooth cursor animation with lerp (linear interpolation)
+        function animateCursor() {
+            // Smooth follow effect - 0.15 is the "lag" factor
+            // Lower = more lag/organic, Higher = more responsive
+            cursorX += (mouseX - cursorX) * 0.15;
+            cursorY += (mouseY - cursorY) * 0.15;
+            
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            
+            requestAnimationFrame(animateCursor);
+        }
+
+        // Start animation
+        animateCursor();
+
+        // Show/hide cursor on project grid hover
+        projectsGrid.addEventListener('mouseenter', () => {
+            document.body.classList.add('has-custom-cursor');
+        });
+
+        projectsGrid.addEventListener('mouseleave', () => {
+            document.body.classList.remove('has-custom-cursor');
+        });
+
+        // Also handle individual cards for better UX
+        projectCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                document.body.classList.add('has-custom-cursor');
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                document.body.classList.remove('has-custom-cursor');
+            });
+        });
+
+        // Tab switching for code examples
+        function showTab(tab) {
+            // Hide all content
+            document.querySelectorAll('.code-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Remove active from all tabs
+            document.querySelectorAll('.code-tab').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Show selected content
+            document.getElementById(tab + '-code').classList.add('active');
+            
+            // Activate clicked tab
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
