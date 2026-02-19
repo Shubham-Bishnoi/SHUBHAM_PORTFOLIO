@@ -56,7 +56,7 @@ export function HeaderNav() {
         isProjectsPage
           ? undefined
           : isBlogIndexPage
-            ? { borderBottom: '1px solid rgba(255,255,255,0.12)', backgroundColor: '#000000', color: '#ffffff' }
+            ? { borderBottom: 'none', backgroundColor: '#000000', color: '#ffffff' }
             : { borderBottom: '1px solid var(--hairline)' }
       }
     >
