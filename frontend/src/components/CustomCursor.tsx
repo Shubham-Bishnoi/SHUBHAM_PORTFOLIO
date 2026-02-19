@@ -1,10 +1,9 @@
-import { ArrowUpRight } from 'lucide-react'
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useLayoutEffect, useMemo, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 
 type CustomCursorProps = {
   cursorSize?: number
   cursorColor?: string
-  arrowColor?: string
   hoverScale?: number
 }
 
@@ -15,17 +14,16 @@ function isCoarsePointer(): boolean {
 
 export default function CustomCursor({
   cursorSize = 100,
-  cursorColor = 'rgba(255, 255, 255, 0.9)',
-  arrowColor = '#000',
+  cursorColor = '#F2E7D8',
   hoverScale = 1.3,
 }: CustomCursorProps) {
   const cursorRef = useRef<HTMLDivElement>(null)
 
-  const [isHovering, setIsHovering] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
   const [enabled, setEnabled] = useState(false)
 
   const isHoveringRef = useRef(false)
+  const isVisibleRef = useRef(false)
   const mousePosition = useRef({ x: 0, y: 0 })
   const cursorPosition = useRef({ x: 0, y: 0 })
   const rafId = useRef<number | null>(null)
@@ -44,26 +42,30 @@ export default function CustomCursor({
     []
   )
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const enabledNow = !isCoarsePointer()
     setEnabled(enabledNow)
     if (!enabledNow) return
 
-    const handleMouseMove = (e: MouseEvent) => {
-      mousePosition.current = { x: e.clientX, y: e.clientY }
-      setIsVisible(true)
+    const setVisible = (next: boolean) => {
+      if (isVisibleRef.current === next) return
+      isVisibleRef.current = next
+      setIsVisible(next)
     }
 
-    const handleMouseEnter = () => setIsVisible(true)
-    const handleMouseLeave = () => setIsVisible(false)
+    const handleMouseMove = (e: MouseEvent) => {
+      mousePosition.current = { x: e.clientX, y: e.clientY }
+      setVisible(true)
+    }
+
+    const handleMouseEnter = () => setVisible(true)
+    const handleMouseLeave = () => setVisible(false)
 
     const onHoverEnter = () => {
       isHoveringRef.current = true
-      setIsHovering(true)
     }
     const onHoverLeave = () => {
       isHoveringRef.current = false
-      setIsHovering(false)
     }
 
     const attachHoverListeners = () => {
@@ -81,10 +83,18 @@ export default function CustomCursor({
     }
 
     const animate = () => {
-      const ease = 0.15
+      const ease = 0.32
 
-      cursorPosition.current.x += (mousePosition.current.x - cursorPosition.current.x) * ease
-      cursorPosition.current.y += (mousePosition.current.y - cursorPosition.current.y) * ease
+      const dx = mousePosition.current.x - cursorPosition.current.x
+      const dy = mousePosition.current.y - cursorPosition.current.y
+
+      if (Math.abs(dx) + Math.abs(dy) > 220) {
+        cursorPosition.current.x = mousePosition.current.x
+        cursorPosition.current.y = mousePosition.current.y
+      } else {
+        cursorPosition.current.x += dx * ease
+        cursorPosition.current.y += dy * ease
+      }
 
       if (cursorRef.current) {
         const scale = isHoveringRef.current ? hoverScale : 1
@@ -123,45 +133,40 @@ export default function CustomCursor({
 
   if (!enabled) return null
 
-  const hoverStroke = '#F2E7D8'
+  const hoverStroke = cursorColor
   const hoverStrokeWidth = 4
 
-  return (
+  const portalTarget = typeof document === 'undefined' ? null : document.body
+  if (!portalTarget) return null
+
+  return createPortal(
     <div
       ref={cursorRef}
       aria-hidden="true"
-      className={`fixed left-0 top-0 pointer-events-none z-[9999] mix-blend-difference transition-opacity duration-200 ${
+      className={`fixed left-0 top-0 pointer-events-none mix-blend-difference transition-opacity duration-200 ${
         isVisible ? 'opacity-100' : 'opacity-0'
       }`}
-      style={{ width: cursorSize, height: cursorSize, willChange: 'transform' }}
+      style={{ width: cursorSize, height: cursorSize, willChange: 'transform', zIndex: 2147483647 }}
     >
-      {isHovering ? (
-        <svg
-          width="100%"
-          height="100%"
-          viewBox="0 0 100 100"
-          fill="none"
-          shapeRendering="geometricPrecision"
-          style={{ display: 'block' }}
-        >
-          <circle cx="50" cy="50" r="48" stroke={hoverStroke} strokeWidth={hoverStrokeWidth} />
-          <path
-            d="M34 66 L66 34 M46 34 H66 V54"
-            stroke={hoverStroke}
-            strokeWidth={hoverStrokeWidth}
-            strokeLinecap="butt"
-            strokeLinejoin="miter"
-            strokeMiterlimit={10}
-          />
-        </svg>
-      ) : (
-        <div
-          className="h-full w-full rounded-full border-2 flex items-center justify-center transition-colors duration-300"
-          style={{ borderColor: cursorColor, backgroundColor: 'transparent' }}
-        >
-          <ArrowUpRight size={cursorSize * 0.35} strokeWidth={2} style={{ color: cursorColor }} />
-        </div>
-      )}
-    </div>
+      <svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 100 100"
+        fill="none"
+        shapeRendering="geometricPrecision"
+        style={{ display: 'block' }}
+      >
+        <circle cx="50" cy="50" r="48" stroke={hoverStroke} strokeWidth={hoverStrokeWidth} />
+        <path
+          d="M34 66 L66 34 M46 34 H66 V54"
+          stroke={hoverStroke}
+          strokeWidth={hoverStrokeWidth}
+          strokeLinecap="butt"
+          strokeLinejoin="miter"
+          strokeMiterlimit={10}
+        />
+      </svg>
+    </div>,
+    portalTarget
   )
 }

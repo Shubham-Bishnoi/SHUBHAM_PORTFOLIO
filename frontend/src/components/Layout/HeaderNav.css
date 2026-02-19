@@ -1,9 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans+Pinstripe&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap');
 
 .headerNav {
   --height: 1;
   --tile-light: rgba(255, 255, 255, 0.5);
   --tile-shadow: rgba(0, 0, 0, 0.5);
+}
+
+.headerNav--projects {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: transparent;
+  color: #ffffff;
+  mix-blend-mode: difference;
+  transition: color 0.2s ease-in-out;
 }
 
 .headerNavLinks {
@@ -18,30 +30,14 @@
 }
 
 .navTile.tile {
-  width: 92px;
-  height: 40px;
-  border-radius: 14px;
-  background: var(--bg);
-  padding: 2px;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-}
-
-.navTile.tile::before,
-.navTile.tile::after,
-.navTileInner.tile::before,
-.navTileInner.tile::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
-  pointer-events: none;
+  padding: 0 6px;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .tile {
@@ -52,60 +48,69 @@
 }
 
 .up {
-  box-shadow:
-    var(--tile-shadow) calc(0.33rem * var(--height))
-      calc(0.33rem * var(--height)) 0.6rem;
+  box-shadow: none;
 }
 
 .up::before {
-  box-shadow:
-    var(--tile-light) calc(-0.33rem * var(--height))
-      calc(-0.33rem * var(--height)) 0.6rem;
+  box-shadow: none;
 }
 
 .button {
   cursor: pointer;
-  transition: box-shadow 0.15s 0.15s ease-in;
+  transition: color 0.2s ease-in-out;
 }
 
 .button::before {
-  transition: box-shadow 0.15s 0.15s ease-in;
+  transition: none;
 }
 
 .button > div {
-  transition: box-shadow 0.15s ease-in;
+  transition: none;
 }
 
 .button > div::before {
-  transition: box-shadow 0.15s ease-in;
+  transition: none;
 }
 
 .button span {
-  transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out, color 0.2s ease-in-out;
 }
 
 .navTileInner.tile {
-  width: 100%;
-  height: 100%;
-  border-radius: 12px;
-  background: var(--bg);
-  box-shadow: inset var(--tile-shadow) 0 0 0;
-}
-
-.navTileInner.tile::before {
-  box-shadow: inset var(--tile-light) 0 0 0;
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .navTileLabel {
   position: relative;
   z-index: 1;
-  font-family: 'Alumni Sans Pinstripe', sans-serif;
-  font-size: 18px;
-  letter-spacing: 0.12em;
+  font-family: 'Figtree', 'Figtree Placeholder', sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-weight: 700;
-  color: var(--text);
+  font-weight: 500;
+  color: inherit;
   opacity: 0.78;
+}
+
+.headerNav:not(.headerNav--projects) .navTileLabel {
+  color: var(--text);
+}
+
+.headerNav--projects .navTileLabel {
+  color: #ffffff;
+}
+
+.navYear {
+  font-family: 'Figtree', 'Figtree Placeholder', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--muted);
 }
 
 .navTile:hover {
@@ -165,11 +170,54 @@
 
 @media screen and (max-width: 720px) {
   .navTile.tile {
-    width: 84px;
-    height: 36px;
+    padding: 0 4px;
   }
 
   .navTileLabel {
-    font-size: 16px;
+    font-size: 14px;
   }
+}
+
+.navTile.button.up {
+  box-shadow: none;
+}
+
+.navTile.button.up::before {
+  box-shadow: none;
+}
+
+.navTile.button:hover,
+.navTile.button.isActive {
+  box-shadow: none;
+}
+
+.navTile.button:hover::before,
+.navTile.button.isActive::before {
+  box-shadow: none;
+}
+
+.navTile.button:hover > div,
+.navTile.button.isActive > div {
+  box-shadow: none;
+}
+
+.navTile.button:hover > div::before,
+.navTile.button.isActive > div::before {
+  box-shadow: none;
+}
+
+.navTile.button:hover span,
+.navTile.button.isActive span {
+  transform: translateY(0.1516rem);
+  opacity: 1;
+}
+
+.navTile.button:hover .navTileLabel,
+.navTile.button.isActive .navTileLabel {
+  color: var(--text);
+}
+
+.headerNav--projects .navTile.button:hover .navTileLabel,
+.headerNav--projects .navTile.button.isActive .navTileLabel {
+  color: #ffffff;
 }

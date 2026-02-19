@@ -3,6 +3,7 @@ import '@splinetool/viewer'
 import { useEffect } from 'react'
 
 import { Container } from '@/components/Layout/Container'
+import { Footer } from '@/components/Layout/Footer'
 import { PageTitle } from '@/components/UI/PageTitle'
 import { Section } from '@/components/UI/Section'
 import { TwoCol } from '@/components/UI/TwoCol'
@@ -82,86 +83,89 @@ export function AboutPage() {
   const github = normalizeUrl(p.basics.links.github)
 
   return (
-    <main className="pageRoot">
-      <Container>
-        <PageTitle title="about." subtitle={subtitleFromSummary(p.basics.summary)} />
+    <>
+      <main className="pageRoot">
+        <Container>
+          <PageTitle title="about." subtitle={subtitleFromSummary(p.basics.summary)} />
 
-        <TwoCol
-          left={
-            <>
-              <ul className="bullets">
-                {p.basics.summary.map((s, i) => (
-                  <li key={i}>{s}</li>
-                ))}
-              </ul>
+          <TwoCol
+            left={
+              <>
+                <ul className="bullets">
+                  {p.basics.summary.map((s, i) => (
+                    <li key={i}>{s}</li>
+                  ))}
+                </ul>
 
-              <div className="inlineLinks" aria-label="Contact links">
-                <a href={`mailto:${p.basics.email}`}>{p.basics.email}</a>
-                <span className="dot" aria-hidden="true">
-                  ·
-                </span>
-                <a href={`tel:${p.basics.phone}`}>{p.basics.phone}</a>
-                <span className="dot" aria-hidden="true">
-                  ·
-                </span>
-                <a href={linkedin} target="_blank" rel="noreferrer">
-                  LinkedIn
-                </a>
-                <span className="dot" aria-hidden="true">
-                  ·
-                </span>
-                <a href={github} target="_blank" rel="noreferrer">
-                  GitHub
-                </a>
-              </div>
-            </>
-          }
-          right={
-            <div className="aboutRightCol">
-              <div className="aboutSplineCorner" aria-hidden="true">
-                <spline-viewer url="https://prod.spline.design/JFG2U0cFTcytOnCL/scene.splinecode"></spline-viewer>
-              </div>
+                <div className="inlineLinks" aria-label="Contact links">
+                  <a href={`mailto:${p.basics.email}`}>{p.basics.email}</a>
+                  <span className="dot" aria-hidden="true">
+                    ·
+                  </span>
+                  <a href={`tel:${p.basics.phone}`}>{p.basics.phone}</a>
+                  <span className="dot" aria-hidden="true">
+                    ·
+                  </span>
+                  <a href={linkedin} target="_blank" rel="noreferrer">
+                    LinkedIn
+                  </a>
+                  <span className="dot" aria-hidden="true">
+                    ·
+                  </span>
+                  <a href={github} target="_blank" rel="noreferrer">
+                    GitHub
+                  </a>
+                </div>
+              </>
+            }
+            right={
+              <div className="aboutRightCol">
+                <div className="aboutSplineCorner" aria-hidden="true">
+                  <spline-viewer url="https://prod.spline.design/JFG2U0cFTcytOnCL/scene.splinecode"></spline-viewer>
+                </div>
 
-              <div className="edu">
-                {p.education.map((e, i) => (
-                  <div key={i} className="eduItem">
-                    <div className="eduProgram">{e.program}</div>
-                    <div className="eduMeta">
-                      {e.institution} · {e.location}
+                <div className="edu">
+                  {p.education.map((e, i) => (
+                    <div key={i} className="eduItem">
+                      <div className="eduProgram">{e.program}</div>
+                      <div className="eduMeta">
+                        {e.institution} · {e.location}
+                      </div>
+                      <div className="eduMeta">
+                        {'years' in e && e.years ? e.years : e.year} · {e.score}
+                      </div>
                     </div>
-                    <div className="eduMeta">
-                      {'years' in e && e.years ? e.years : e.year} · {e.score}
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          }
-        />
+            }
+          />
 
-        <Section title="Skills">
-          <SkillsAvalanche skills={p.skills} />
-        </Section>
+          <Section title="Skills">
+            <SkillsAvalanche skills={p.skills} />
+          </Section>
 
-        <Section title="Awards">
-          <ul className="bullets">
-            {p.awards.map((a, i) => (
-              <li key={i}>{a}</li>
-            ))}
-          </ul>
-        </Section>
+          <Section title="Awards">
+            <ul className="bullets">
+              {p.awards.map((a, i) => (
+                <li key={i}>{a}</li>
+              ))}
+            </ul>
+          </Section>
 
-        <Section title="Leadership">
-          <ul className="bullets">
-            {p.leadership.map((l, i) => (
-              <li key={i}>{l}</li>
-            ))}
-          </ul>
-        </Section>
+          <Section title="Leadership">
+            <ul className="bullets">
+              {p.leadership.map((l, i) => (
+                <li key={i}>{l}</li>
+              ))}
+            </ul>
+          </Section>
 
-        <MyStorySection />
-        <CodingSection id="coding" />
-      </Container>
-    </main>
+          <MyStorySection />
+          <CodingSection id="coding" />
+        </Container>
+      </main>
+      <Footer />
+    </>
   )
 }

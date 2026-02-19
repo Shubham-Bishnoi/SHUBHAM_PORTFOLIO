@@ -1,52 +1,76 @@
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { ArrowUpRight } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+"use client";
 
-export function Footer() {
-  const containerRef = useRef<HTMLElement | null>(null)
-  const navigate = useNavigate()
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
+interface SocialLink {
+  label: string;
+  href: string;
+}
+
+interface NavLink {
+  label: string;
+  href: string;
+}
+
+const navLinks: NavLink[] = [
+  { label: "PROJECTS", href: "#projects" },
+  { label: "ABOUT", href: "#about" },
+  { label: "EXPERIENCE", href: "#experience" },
+  { label: "CONTACT", href: "#contact" },
+];
+
+const socialLinks: SocialLink[] = [
+  { label: "LINKEDIN", href: "https://linkedin.com/in/shubham" },
+  { label: "GITHUB", href: "https://github.com/shubham" },
+  { label: "TWITTER", href: "https://twitter.com/shubham" },
+];
+
+export default function Footer() {
+  const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start end', 'end end'],
-  })
+    offset: ["start end", "end end"],
+  });
 
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
+  // Parallax effect for background image
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
-  const navLinks = [
-    { label: 'PROJECTS', to: '/projects' },
-    { label: 'ABOUT', to: '/about' },
-    { label: 'EXPERIENCE', to: '/experience' },
-    { label: 'CONTACT', to: '/contact' },
-  ]
-
-  const socialLinks = [
-    { label: 'LINKEDIN', href: 'https://linkedin.com/in/shubham' },
-    { label: 'GITHUB', href: 'https://github.com/shubham' },
-    { label: 'TWITTER', href: 'https://twitter.com/shubham' },
-  ]
+  const scrollToSection = (href: string) => {
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <footer
       ref={containerRef}
       className="relative min-h-[80vh] w-full overflow-hidden bg-white"
     >
-      <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY }}>
+      {/* Background Image with Parallax */}
+      <motion.div
+        className="absolute inset-0 z-0"
+        style={{ y: backgroundY }}
+      >
         <div className="absolute inset-0 h-[120%] w-full">
+          {/* Replace this with your own background image */}
           <img
-            src="/images/IMG_8388.jpg"
-            alt=""
+            src="/your-background-image.jpg"
+            alt="Background"
             className="h-full w-full object-cover opacity-30"
           />
+          {/* Gradient overlay for better text readability */}
           <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
         </div>
       </motion.div>
 
+      {/* Large Typography Overlay */}
       <div className="absolute inset-0 z-10 flex items-center justify-center overflow-hidden">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -67,8 +91,11 @@ export function Footer() {
         </motion.div>
       </div>
 
+      {/* Footer Content */}
       <div className="relative z-20 flex min-h-[80vh] flex-col justify-between px-6 py-12 lg:px-16">
+        {/* Top Section - Navigation & Social */}
         <div className="flex flex-col justify-between gap-8 pt-20 lg:flex-row">
+          {/* Left - Navigation Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -79,21 +106,8 @@ export function Footer() {
             {navLinks.map((link) => (
               <motion.button
                 key={link.label}
-                type="button"
-                onClick={() => navigate(link.to)}
-                className="group flex items-center gap-1 text-black"
-                style={{
-                  fontFamily: '"Figtree", "Figtree Placeholder", sans-serif',
-                  fontSize: 16,
-                  letterSpacing: '0.06em',
-                  textTransform: 'uppercase',
-                  fontWeight: 500,
-                  backgroundColor: 'transparent',
-                  border: 'none',
-                  padding: 0,
-                  margin: 0,
-                  cursor: 'pointer',
-                }}
+                onClick={() => scrollToSection(link.href)}
+                className="group flex items-center gap-1 text-sm font-medium tracking-wider text-black"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.2 }}
               >
@@ -103,6 +117,7 @@ export function Footer() {
             ))}
           </motion.div>
 
+          {/* Right - Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -115,15 +130,8 @@ export function Footer() {
                 key={link.label}
                 href={link.href}
                 target="_blank"
-                rel="noreferrer"
-                className="group flex items-center gap-1 text-black"
-                style={{
-                  fontFamily: '"Figtree", "Figtree Placeholder", sans-serif',
-                  fontSize: 16,
-                  letterSpacing: '0.06em',
-                  textTransform: 'uppercase',
-                  fontWeight: 500,
-                }}
+                rel="noopener noreferrer"
+                className="group flex items-center gap-1 text-sm font-medium tracking-wider text-black"
                 whileHover={{ x: -5 }}
                 transition={{ duration: 0.2 }}
               >
@@ -131,10 +139,13 @@ export function Footer() {
                 <ArrowUpRight className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
               </motion.a>
             ))}
-            <p className="mt-4 text-sm text-gray-500">Designed with passion</p>
+            <p className="mt-4 text-sm text-gray-500">
+              Designed with passion
+            </p>
           </motion.div>
         </div>
 
+        {/* Bottom Section - Copyright & Back to Top */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -143,13 +154,15 @@ export function Footer() {
           className="flex flex-col items-center justify-between gap-6 border-t border-gray-200 pt-8 lg:flex-row"
         >
           <div className="flex flex-col items-center gap-2 lg:flex-row lg:gap-8">
-            <span className="text-sm text-gray-600">© 2026 Shubham Bishnoi</span>
+            <span className="text-sm text-gray-600">
+              © 2026 Shubham Bishnoi
+            </span>
             <span className="hidden text-gray-300 lg:inline">|</span>
             <span className="text-sm text-gray-600">Bangalore, India</span>
           </div>
 
+          {/* Back to Top Button */}
           <motion.button
-            type="button"
             onClick={scrollToTop}
             className="group flex items-center gap-2 rounded-full border border-gray-300 px-6 py-3 text-sm font-medium text-black transition-all hover:bg-black hover:text-white"
             whileHover={{ scale: 1.05 }}
@@ -161,5 +174,5 @@ export function Footer() {
         </motion.div>
       </div>
     </footer>
-  )
+  );
 }

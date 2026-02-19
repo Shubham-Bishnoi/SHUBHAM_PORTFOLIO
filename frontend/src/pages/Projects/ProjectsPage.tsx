@@ -56,7 +56,7 @@ export function ProjectsPage() {
 
   return (
     <main className="bg-black min-h-screen">
-      <CustomCursor cursorSize={100} cursorColor="rgba(255, 255, 255, 0.9)" arrowColor="#000" hoverScale={1.3} />
+      <CustomCursor cursorSize={100} cursorColor="#F2E7D8" hoverScale={1.3} />
 
       {projectsState.kind === 'loading' ? <div className="text-white px-6 py-10">Loading...</div> : null}
       {projectsState.kind === 'error' ? <div className="text-white px-6 py-10">Not found.</div> : null}

@@ -1,4 +1,6 @@
-import { NavLink } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { NavLink, useLocation } from 'react-router-dom'
 
 import { Container } from '@/components/Layout/Container'
 
@@ -13,8 +15,63 @@ const links = [
 ]
 
 export function HeaderNav() {
+  const [isHovering, setIsHovering] = useState(false)
+  const containerRef = useRef<HTMLElement | null>(null)
+  const location = useLocation()
+
+  const isProjectsPage = location.pathname === '/projects'
+
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  const springConfig = { damping: 25, stiffness: 300 }
+  const cursorX = useSpring(mouseX, springConfig)
+  const cursorY = useSpring(mouseY, springConfig)
+
+  useEffect(() => {
+    const handleMouseMove = (event: MouseEvent) => {
+      const rect = containerRef.current?.getBoundingClientRect()
+      if (!rect) return
+      mouseX.set(event.clientX - rect.left)
+      mouseY.set(event.clientY - rect.top)
+    }
+
+    if (!isProjectsPage) {
+      window.addEventListener('mousemove', handleMouseMove)
+    }
+
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+    }
+  }, [mouseX, mouseY, isProjectsPage])
+
   return (
-    <header className="headerNav" style={{ borderBottom: '1px solid var(--hairline)' }}>
+    <header
+      ref={containerRef}
+      className={isProjectsPage ? 'headerNav headerNav--projects' : 'headerNav'}
+      style={isProjectsPage ? undefined : { borderBottom: '1px solid var(--hairline)' }}
+    >
+      {!isProjectsPage && (
+        <motion.div
+          className="pointer-events-none fixed z-[100] mix-blend-difference"
+          style={{
+            x: cursorX,
+            y: cursorY,
+            translateX: '-50%',
+            translateY: '-50%',
+          }}
+        >
+          <motion.div
+            className="rounded-full bg-white"
+            animate={{
+              width: isHovering ? 60 : 0,
+              height: isHovering ? 60 : 0,
+              opacity: isHovering ? 1 : 0,
+            }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+          />
+        </motion.div>
+      )}
       <Container>
         <div
           style={{
@@ -25,39 +82,43 @@ export function HeaderNav() {
             gap: 20,
           }}
         >
-          <NavLink
-            to="/about"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 10,
-            }}
-            aria-label="Shubham"
-          >
-            <img
-              src="/images/shubham.jpeg"
-              alt="Shubham"
-              width={34}
-              height={34}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <NavLink
+              to="/about"
               style={{
-                borderRadius: 999,
-                objectFit: 'cover',
-                border: '1px solid var(--hairline)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: 10,
               }}
-            />
-            <span
-              style={{
-                fontSize: 14,
-                letterSpacing: '0.28em',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-              }}
+              aria-label="Shubham"
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
             >
-              SHUBHAM
-            </span>
-          </NavLink>
+              <img
+                src="/images/shubham.jpeg"
+                alt="Shubham"
+                width={34}
+                height={34}
+                style={{
+                  borderRadius: 999,
+                  objectFit: 'cover',
+                  border: '1px solid var(--hairline)',
+                }}
+              />
+              <span
+                style={{
+                  fontSize: 14,
+                  letterSpacing: '0.28em',
+                  fontWeight: 600,
+                  textTransform: 'uppercase',
+                }}
+              >
+                SHUBHAM
+              </span>
+            </NavLink>
+          </div>
 
-          <nav aria-label="Primary">
+          <nav aria-label="Primary" style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
             <ul className="headerNavLinks">
               {links.map((l) => (
                 <li key={l.to}>
@@ -66,6 +127,8 @@ export function HeaderNav() {
                     className={({ isActive }) =>
                       `navTile tile button up${isActive ? ' isActive' : ''}`
                     }
+                    onMouseEnter={() => setIsHovering(true)}
+                    onMouseLeave={() => setIsHovering(false)}
                   >
                     <div className="navTileInner tile">
                       <span className="navTileLabel">{l.label}</span>

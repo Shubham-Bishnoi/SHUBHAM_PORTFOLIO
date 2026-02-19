@@ -1,34 +1,7 @@
 import { motion, useInView } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
-import type { MouseEvent } from 'react'
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-
-function HoverCursorMark() {
-  const stroke = '#F2E7D8'
-  const strokeWidth = 4
-
-  return (
-    <svg
-      width="100%"
-      height="100%"
-      viewBox="0 0 100 100"
-      fill="none"
-      shapeRendering="geometricPrecision"
-      style={{ display: 'block' }}
-    >
-      <circle cx="50" cy="50" r="48" stroke={stroke} strokeWidth={strokeWidth} />
-      <path
-        d="M34 66 L66 34 M46 34 H66 V54"
-        stroke={stroke}
-        strokeWidth={strokeWidth}
-        strokeLinecap="butt"
-        strokeLinejoin="miter"
-        strokeMiterlimit={10}
-      />
-    </svg>
-  )
-}
 
 export type ShowcaseProject = {
   id: string
@@ -54,13 +27,6 @@ function ProjectCard({ project, index }: { project: ShowcaseProject; index: numb
   const cardRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(cardRef, { once: true, margin: '-100px' })
   const [isHovered, setIsHovered] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return
-    const rect = cardRef.current.getBoundingClientRect()
-    setMousePosition({ x: e.clientX - rect.left, y: e.clientY - rect.top })
-  }
 
   const href = project.link || `/projects/${project.id}`
 
@@ -68,8 +34,8 @@ function ProjectCard({ project, index }: { project: ShowcaseProject; index: numb
     <motion.div
       ref={cardRef}
       className="project-card relative w-full cursor-pointer group"
-      initial={{ opacity: 0, y: 100 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+      initial={index === 0 ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+      animate={index === 0 || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
       transition={{
         duration: 0.8,
         delay: index * 0.1,
@@ -77,7 +43,6 @@ function ProjectCard({ project, index }: { project: ShowcaseProject; index: numb
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onMouseMove={handleMouseMove}
       data-cursor-hover
     >
       {isExternalLink(href) ? (
@@ -97,21 +62,6 @@ function ProjectCard({ project, index }: { project: ShowcaseProject; index: numb
                 isHovered ? 'opacity-100' : 'opacity-0'
               }`}
             />
-
-            <motion.div
-              className="absolute pointer-events-none z-10"
-              animate={{
-                x: mousePosition.x - 50,
-                y: mousePosition.y - 50,
-                scale: isHovered ? 1 : 0,
-                opacity: isHovered ? 1 : 0,
-              }}
-              transition={{ type: 'spring', stiffness: 500, damping: 30, mass: 0.5 }}
-            >
-              <div className="w-[100px] h-[100px] flex items-center justify-center">
-                <HoverCursorMark />
-              </div>
-            </motion.div>
           </div>
 
           <div className="py-6 px-2 flex items-start justify-between">
@@ -164,21 +114,6 @@ function ProjectCard({ project, index }: { project: ShowcaseProject; index: numb
               isHovered ? 'opacity-100' : 'opacity-0'
             }`}
           />
-
-          <motion.div
-            className="absolute pointer-events-none z-10"
-            animate={{
-              x: mousePosition.x - 50,
-              y: mousePosition.y - 50,
-              scale: isHovered ? 1 : 0,
-              opacity: isHovered ? 1 : 0,
-            }}
-            transition={{ type: 'spring', stiffness: 500, damping: 30, mass: 0.5 }}
-          >
-            <div className="w-[100px] h-[100px] flex items-center justify-center">
-              <HoverCursorMark />
-            </div>
-          </motion.div>
         </div>
 
         <div className="py-6 px-2 flex items-start justify-between">
@@ -229,9 +164,9 @@ export default function ProjectShowcase({
   const titleInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   return (
-    <section ref={sectionRef} className="w-full min-h-screen bg-black py-20 md:py-32">
+    <section ref={sectionRef} className="w-full bg-black py-16 md:py-24">
       <div className="max-w-[90vw] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-20 md:mb-32">
+        <div className="text-center mb-16 md:mb-20">
           <motion.h2
             className="text-5xl md:text-7xl lg:text-8xl font-medium text-white mb-6"
             initial={{ opacity: 0, y: 50 }}
