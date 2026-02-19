@@ -82,18 +82,18 @@ export function ExperienceTimeTunnel({ items }: Props) {
   // progress widget removed
 
   return (
-    <section id="experience" ref={sectionRef} className="relative overflow-hidden py-16 md:py-24">
+    <section id="experience" ref={sectionRef} className="relative overflow-hidden bg-[#05060A] py-16 text-white md:py-24">
       <div
         aria-hidden="true"
         className={cn(
-          'pointer-events-none absolute inset-0 -z-10 bg-[#fbfbfc]',
-          '[background-image:repeating-linear-gradient(to_right,rgba(0,0,0,0.04)_0,rgba(0,0,0,0.04)_1px,transparent_1px,transparent_64px),repeating-linear-gradient(to_bottom,rgba(0,0,0,0.04)_0,rgba(0,0,0,0.04)_1px,transparent_1px,transparent_64px),radial-gradient(1200px_650px_at_50%_0%,rgba(0,0,0,0.02),transparent_68%),radial-gradient(900px_700px_at_50%_100%,rgba(0,0,0,0.04),transparent_70%)]'
+          'pointer-events-none absolute inset-0 -z-10 bg-[#05060A]',
+          '[background-image:repeating-linear-gradient(to_right,rgba(255,255,255,0.04)_0,rgba(255,255,255,0.04)_1px,transparent_1px,transparent_64px),repeating-linear-gradient(to_bottom,rgba(255,255,255,0.04)_0,rgba(255,255,255,0.04)_1px,transparent_1px,transparent_64px),radial-gradient(1200px_650px_at_50%_0%,rgba(255,255,255,0.06),transparent_68%),radial-gradient(900px_700px_at_50%_100%,rgba(255,255,255,0.04),transparent_70%),radial-gradient(ellipse_at_center,transparent_35%,rgba(0,0,0,0.92)_100%)]'
         )}
       />
 
       <div className="mx-auto max-w-6xl px-6">
-        <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/70 px-3 py-1 text-xs font-medium tracking-[0.28em] text-black/60 backdrop-blur">
-          <Briefcase className="size-3.5 text-black/50" aria-hidden="true" />
+        <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium tracking-[0.28em] text-white/70 backdrop-blur">
+          <Briefcase className="size-3.5 text-white/60" aria-hidden="true" />
           <span className="uppercase">Time Tunnel</span>
         </div>
 
@@ -101,7 +101,7 @@ export function ExperienceTimeTunnel({ items }: Props) {
           experience.
         </h2>
 
-        <p className="m-0 mt-5 max-w-2xl text-sm leading-relaxed text-black/60 sm:text-base">
+        <p className="m-0 mt-5 max-w-2xl text-sm leading-relaxed text-white/60 sm:text-base">
           Roles, impact, and outcomes — rendered as a scroll-driven timeline.
         </p>
 
@@ -139,16 +139,16 @@ export function ExperienceTimeTunnel({ items }: Props) {
                     <div className="relative flex h-full w-full justify-start md:justify-center">
                       <div
                         aria-hidden="true"
-                        className="absolute top-0 bottom-0 left-[12px] w-px bg-black/10 md:left-1/2 md:-translate-x-1/2"
+                        className="absolute bottom-0 left-[12px] top-0 w-px bg-white/10 md:left-1/2 md:-translate-x-1/2"
                       />
                       <div
                         aria-hidden="true"
                         className={cn(
                           'relative z-10 mt-2 size-3 rounded-full border transition-[transform,box-shadow,background-color,border-color] duration-200',
-                          'ml-[12px] -translate-x-1/2 bg-[#d1d5db] border-[#e5e7eb] md:ml-0 md:translate-x-0',
+                          'ml-[12px] -translate-x-1/2 bg-white/20 border-white/10 md:ml-0 md:translate-x-0',
                           isActive &&
                             cn(
-                              'bg-[#111827] border-[#111827] shadow-[0_0_0_6px_rgba(17,24,39,0.12)]',
+                              'bg-white/90 border-white/90 shadow-[0_0_0_6px_rgba(255,255,255,0.12)]',
                               !reduceMotion && 'scale-110'
                             )
                         )}

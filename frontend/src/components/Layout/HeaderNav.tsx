@@ -21,6 +21,13 @@ export function HeaderNav() {
 
   const isProjectsPage = location.pathname === '/projects'
   const isBlogIndexPage = location.pathname === '/blog'
+  const isDarkRoute =
+    location.pathname === '/about' ||
+    location.pathname === '/experience' ||
+    location.pathname === '/contact' ||
+    location.pathname.startsWith('/about/') ||
+    location.pathname.startsWith('/experience/') ||
+    location.pathname.startsWith('/contact/')
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -46,18 +53,34 @@ export function HeaderNav() {
     }
   }, [mouseX, mouseY, isProjectsPage])
 
+  useEffect(() => {
+    if (typeof document === 'undefined') return
+    document.body.classList.toggle('theme-dark', isDarkRoute)
+    return () => {
+      document.body.classList.remove('theme-dark')
+    }
+  }, [isDarkRoute])
+
   return (
     <header
       ref={containerRef}
       className={
-        isProjectsPage ? 'headerNav headerNav--projects' : isBlogIndexPage ? 'headerNav headerNav--blog' : 'headerNav'
+        isProjectsPage
+          ? 'headerNav headerNav--projects'
+          : isBlogIndexPage
+            ? 'headerNav headerNav--blog'
+            : isDarkRoute
+              ? 'headerNav headerNav--dark'
+              : 'headerNav'
       }
       style={
         isProjectsPage
           ? undefined
           : isBlogIndexPage
             ? { borderBottom: 'none', backgroundColor: '#000000', color: '#ffffff' }
-            : { borderBottom: '1px solid var(--hairline)' }
+            : isDarkRoute
+              ? undefined
+              : { borderBottom: '1px solid var(--hairline)' }
       }
     >
       {!isProjectsPage && (

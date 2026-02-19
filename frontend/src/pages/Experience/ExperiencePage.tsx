@@ -12,7 +12,9 @@ export function ExperiencePage() {
     return (
       <main className="pageRoot">
         <Container>
-          <div className="text-sm text-black/60">Loading…</div>
+          <div className="text-sm" style={{ color: 'var(--muted)' }}>
+            Loading…
+          </div>
         </Container>
       </main>
     )
@@ -22,7 +24,9 @@ export function ExperiencePage() {
     return (
       <main className="pageRoot">
         <Container>
-          <div className="text-sm text-black/60">Could not load profile.</div>
+          <div className="text-sm" style={{ color: 'var(--muted)' }}>
+            Could not load profile.
+          </div>
         </Container>
       </main>
     )

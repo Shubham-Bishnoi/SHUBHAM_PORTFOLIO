@@ -44,14 +44,14 @@ export function MyStorySection({ className }: Props) {
     )
   }, [])
 
-  const mainSrc = mainFailed ? fallbackMain : '/images/about/my-story.jpg'
+  const mainSrc = mainFailed ? fallbackMain : '/images/IMG_1471.jpg'
   const avatarSrc = avatarFailed ? fallbackAvatar : '/images/shubham.jpeg'
 
   return (
     <section className={['myStorySection', className].filter(Boolean).join(' ')}>
       <div className="myStoryGrid">
         <div className="myStoryMedia">
-          <div className="myStoryCard" aria-hidden="true">
+          <div className="myStoryCard theme-media" aria-hidden="true">
             <img
               className="myStoryCardImage"
               src={mainSrc}
@@ -61,7 +61,7 @@ export function MyStorySection({ className }: Props) {
             />
           </div>
 
-          <div className="myStoryAvatar" aria-hidden="true">
+          <div className="myStoryAvatar theme-media theme-media--avatar" aria-hidden="true">
             <img
               className="myStoryAvatarImage"
               src={avatarSrc}

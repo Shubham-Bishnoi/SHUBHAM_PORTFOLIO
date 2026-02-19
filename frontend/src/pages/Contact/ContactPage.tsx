@@ -66,7 +66,7 @@ export function ContactPage() {
             </div>
           </section>
 
-          <aside className="contactRight" aria-label="Portrait">
+          <aside className="contactRight theme-media" aria-label="Portrait">
             <img className="portrait" src="/images/shubham.jpeg" alt="Shubham" />
           </aside>
         </div>

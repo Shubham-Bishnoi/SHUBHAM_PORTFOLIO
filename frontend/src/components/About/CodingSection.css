@@ -52,6 +52,10 @@
   background: rgba(0, 0, 0, 0.03);
 }
 
+body.theme-dark .codingRowLink:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
 .codingRowLink:hover .codingRowLabel {
   text-decoration: underline;
   text-underline-offset: 3px;
@@ -62,3 +66,6 @@
   outline-offset: -2px;
 }
 
+body.theme-dark .codingRowLink:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.24);
+}

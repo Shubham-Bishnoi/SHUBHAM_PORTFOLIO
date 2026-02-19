@@ -14,6 +14,12 @@
     var(--bg);
 }
 
+body.theme-dark .skillsAvalancheArena {
+  background: radial-gradient(circle at 25% 20%, rgba(255, 255, 255, 0.05), transparent 55%),
+    radial-gradient(circle at 85% 70%, rgba(255, 255, 255, 0.04), transparent 60%),
+    var(--bg);
+}
+
 .skillsAvalancheCanvas {
   position: absolute;
   inset: 0;
@@ -59,6 +65,10 @@
   pointer-events: none;
   padding: 18px;
   background: radial-gradient(circle at 50% 50%, transparent 72%, rgba(0, 0, 0, 0.06) 100%);
+}
+
+body.theme-dark .skillsAvalancheUi {
+  background: radial-gradient(circle at 50% 50%, transparent 72%, rgba(0, 0, 0, 0.32) 100%);
 }
 
 .skillsAvalancheTitleRow {
@@ -107,6 +117,14 @@
 .skillsAvalancheBtn:hover {
   background: rgba(0, 0, 0, 0.06);
   transform: translateY(-1px);
+}
+
+body.theme-dark .skillsAvalancheBtn {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+body.theme-dark .skillsAvalancheBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .skillsAvalancheBtn:active {
@@ -170,4 +188,3 @@
     grid-template-columns: 1fr;
   }
 }
-

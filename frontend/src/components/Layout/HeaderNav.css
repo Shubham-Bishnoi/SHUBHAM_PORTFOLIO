@@ -23,6 +23,14 @@
   color: #ffffff;
 }
 
+.headerNav--dark {
+  background: rgba(5, 6, 10, 0.8);
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
 .headerNavLinks {
   display: flex;
   align-items: center;
