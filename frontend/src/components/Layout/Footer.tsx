@@ -20,7 +20,6 @@ export function Footer() {
 
   const navLinks = [
     { label: 'PROJECTS', to: '/projects' },
-    { label: 'ABOUT', to: '/about' },
     { label: 'EXPERIENCE', to: '/experience' },
     { label: 'CONTACT', to: '/contact' },
   ]
@@ -34,16 +33,16 @@ export function Footer() {
   return (
     <footer
       ref={containerRef}
-      className="relative min-h-[80vh] w-full overflow-hidden bg-white"
+      className="relative min-h-[80vh] w-full overflow-hidden bg-[#05060A] text-white"
     >
       <motion.div className="absolute inset-0 z-0" style={{ y: backgroundY }}>
         <div className="absolute inset-0 h-[120%] w-full">
           <img
             src="/images/IMG_8388.jpg"
             alt=""
-            className="h-full w-full object-cover opacity-30"
+            className="h-full w-full object-cover opacity-15"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#05060A] via-[#05060A]/80 to-transparent" />
         </div>
       </motion.div>
 
@@ -55,12 +54,12 @@ export function Footer() {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className="text-[12vw] font-light leading-none tracking-tighter text-black/10">
+          <h2 className="text-[12vw] font-light leading-none tracking-tighter text-white/10">
             Shubham
           </h2>
           <div className="flex items-center justify-center gap-4">
-            <span className="text-[8vw] font-light text-black/10">©2026</span>
-            <span className="text-[12vw] font-light leading-none tracking-tighter text-black/10">
+            <span className="text-[8vw] font-light text-white/10">©2026</span>
+            <span className="text-[12vw] font-light leading-none tracking-tighter text-white/10">
               BISHNOI
             </span>
           </div>
@@ -81,7 +80,7 @@ export function Footer() {
                 key={link.label}
                 type="button"
                 onClick={() => navigate(link.to)}
-                className="group flex items-center gap-1 text-black"
+                className="group flex items-center gap-1 text-white/70 transition-colors hover:text-white"
                 style={{
                   fontFamily: '"Figtree", "Figtree Placeholder", sans-serif',
                   fontSize: 16,
@@ -108,7 +107,7 @@ export function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="flex flex-col items-start gap-2 lg:items-end"
+            className="mt-10 flex flex-col items-start gap-2 lg:mt-4 lg:items-end"
           >
             {socialLinks.map((link) => (
               <motion.a
@@ -116,7 +115,7 @@ export function Footer() {
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex items-center gap-1 text-black"
+                className="group flex items-center gap-1 text-white/70 transition-colors hover:text-white"
                 style={{
                   fontFamily: '"Figtree", "Figtree Placeholder", sans-serif',
                   fontSize: 16,
@@ -131,7 +130,7 @@ export function Footer() {
                 <ArrowUpRight className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
               </motion.a>
             ))}
-            <p className="mt-4 text-sm text-gray-500">Designed with passion</p>
+            <p className="mt-4 text-sm text-white/50">Designed with passion</p>
           </motion.div>
         </div>
 
@@ -140,18 +139,16 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="flex flex-col items-center justify-between gap-6 border-t border-gray-200 pt-8 lg:flex-row"
+          className="flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 lg:flex-row"
         >
           <div className="flex flex-col items-center gap-2 lg:flex-row lg:gap-8">
-            <span className="text-sm text-gray-600">© 2026 Shubham Bishnoi</span>
-            <span className="hidden text-gray-300 lg:inline">|</span>
-            <span className="text-sm text-gray-600">Bangalore, India</span>
+            <span className="text-sm text-white/60">Bangalore, India</span>
           </div>
 
           <motion.button
             type="button"
             onClick={scrollToTop}
-            className="group flex items-center gap-2 rounded-full border border-gray-300 px-6 py-3 text-sm font-medium text-black transition-all hover:bg-black hover:text-white"
+            className="group flex items-center gap-2 rounded-full border border-white/20 bg-white/0 px-6 py-3 text-sm font-medium text-white/80 transition-all hover:bg-white/10 hover:text-white"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
