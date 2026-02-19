@@ -79,7 +79,7 @@ export function MyStorySection({ className }: Props) {
             Analyst / AI Full-Stack Engineer. I’ve included key learnings, project decisions, and behind-the-scenes notes
             from building real enterprise systems.
           </p>
-          <Link className="myStoryLink" to="/blog/my-story">
+          <Link className="myStoryLink" to="/blog">
             Read my story
           </Link>
         </div>
@@ -87,4 +87,3 @@ export function MyStorySection({ className }: Props) {
     </section>
   )
 }
-
