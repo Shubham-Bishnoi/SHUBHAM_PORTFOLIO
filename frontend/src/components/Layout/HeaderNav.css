@@ -18,6 +18,11 @@
   transition: color 0.2s ease-in-out;
 }
 
+.headerNav--blog {
+  background: #000000;
+  color: #ffffff;
+}
+
 .headerNavLinks {
   display: flex;
   align-items: center;
@@ -220,4 +225,22 @@
 .headerNav--projects .navTile.button:hover .navTileLabel,
 .headerNav--projects .navTile.button.isActive .navTileLabel {
   color: #ffffff;
+}
+
+.headerNav--blog .navTileLabel {
+  color: #ffffff !important;
+  opacity: 0.9;
+}
+
+.headerNav--blog .navTile.button:hover .navTileLabel,
+.headerNav--blog .navTile.button.isActive .navTileLabel {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.headerNav--blog a,
+.headerNav--blog a:visited,
+.headerNav--blog a:active,
+.headerNav--blog a:focus {
+  color: #ffffff !important;
 }

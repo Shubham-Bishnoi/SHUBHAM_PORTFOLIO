@@ -20,6 +20,7 @@ export function HeaderNav() {
   const location = useLocation()
 
   const isProjectsPage = location.pathname === '/projects'
+  const isBlogIndexPage = location.pathname === '/blog'
 
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
@@ -48,8 +49,16 @@ export function HeaderNav() {
   return (
     <header
       ref={containerRef}
-      className={isProjectsPage ? 'headerNav headerNav--projects' : 'headerNav'}
-      style={isProjectsPage ? undefined : { borderBottom: '1px solid var(--hairline)' }}
+      className={
+        isProjectsPage ? 'headerNav headerNav--projects' : isBlogIndexPage ? 'headerNav headerNav--blog' : 'headerNav'
+      }
+      style={
+        isProjectsPage
+          ? undefined
+          : isBlogIndexPage
+            ? { borderBottom: '1px solid rgba(255,255,255,0.12)', backgroundColor: '#000000', color: '#ffffff' }
+            : { borderBottom: '1px solid var(--hairline)' }
+      }
     >
       {!isProjectsPage && (
         <motion.div
