@@ -41,51 +41,41 @@
   color: #fff;
 }
 
-.socialLink.twitter {
-  color: #1da1f2;
+.socialLink.social-x {
+  color: #000000;
 }
 
-.socialLink.twitter .socialIcon {
-  background: #1da1f2;
+.socialLink.social-x .socialIcon {
+  background: #000000;
 }
 
-.socialLink.facebook {
-  color: #1877f2;
+.socialLink.social-github {
+  color: #181717;
 }
 
-.socialLink.facebook .socialIcon {
-  background: #1877f2;
+.socialLink.social-github .socialIcon {
+  background: #181717;
 }
 
-.socialLink.linkedin {
+.socialLink.social-medium {
+  color: #00ab6c;
+}
+
+.socialLink.social-medium .socialIcon {
+  background: #00ab6c;
+}
+
+.socialLink.social-linkedin {
   color: #0a66c2;
 }
 
-.socialLink.linkedin .socialIcon {
+.socialLink.social-linkedin .socialIcon {
   background: #0a66c2;
-}
-
-.socialLink.instagram {
-  color: #e1306c;
-}
-
-.socialLink.instagram .socialIcon {
-  background: #e1306c;
 }
 
 .socialLink:hover .socialLabel {
   text-decoration: underline;
   text-underline-offset: 6px;
-}
-
-.emailLine {
-  margin-top: 26px;
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.emailLine a {
-  color: inherit;
 }
 
 .contactRight {
