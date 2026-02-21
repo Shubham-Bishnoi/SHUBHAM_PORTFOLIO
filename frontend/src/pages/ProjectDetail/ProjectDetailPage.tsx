@@ -1,24 +1,12 @@
 import { Link, useParams } from 'react-router-dom'
 
 import { Container } from '@/components/Layout/Container'
-import { ProjectCollage } from '@/components/Projects/ProjectCollage'
-import { ProjectHero } from '@/components/Projects/ProjectHero'
-import { ProjectNav } from '@/components/Projects/ProjectNav'
 import { useProject } from '@/hooks/useProject'
 import { useProjects } from '@/hooks/useProjects'
 
-import './ProjectDetailPage.css'
+import { ProjectArticlePage } from './ProjectArticlePage'
 
-function previewFromSections(sections: Array<{ body: string[] }>, maxParas: number): string[] {
-  const out: string[] = []
-  for (const s of sections) {
-    for (const p of s.body) {
-      out.push(p)
-      if (out.length >= maxParas) return out
-    }
-  }
-  return out
-}
+import styles from './ProjectDetailPage.module.css'
 
 export function ProjectDetailPage() {
   const { slug } = useParams()
@@ -27,7 +15,7 @@ export function ProjectDetailPage() {
 
   if (state.kind === 'loading') {
     return (
-      <main className="projectDetailRoot">
+      <main className={styles.stateRoot}>
         <Container>Loading...</Container>
       </main>
     )
@@ -35,7 +23,7 @@ export function ProjectDetailPage() {
 
   if (state.kind === 'error') {
     return (
-      <main className="projectNotFound">
+      <main className={styles.stateRoot}>
         <Container>
           <div>Not found.</div>
           <div style={{ marginTop: 10 }}>
@@ -48,7 +36,7 @@ export function ProjectDetailPage() {
 
   if (state.kind === 'not_found') {
     return (
-      <main className="projectNotFound">
+      <main className={styles.stateRoot}>
         <Container>
           <div>Not found.</div>
           <div style={{ marginTop: 10 }}>
@@ -60,7 +48,6 @@ export function ProjectDetailPage() {
   }
 
   const project = state.project
-  const previewParagraphs = previewFromSections(project.caseStudy.sections, 3)
 
   const nextSlug = (() => {
     if (listState.kind !== 'ready') return null
@@ -71,42 +58,5 @@ export function ProjectDetailPage() {
     return next.slug
   })()
 
-  return (
-    <main className="projectDetailRoot">
-      <Container>
-        <div className="projectHero">
-          <ProjectHero project={project} previewParagraphs={previewParagraphs} />
-          <div>
-            <ProjectCollage project={project} />
-          </div>
-          <ProjectNav nextSlug={nextSlug} />
-        </div>
-
-        <div className="projectContent">
-          {project.caseStudy.sections.map((s, i) => (
-            <section key={i} className="projectSection">
-              <h2 className="projectSectionHeading">{s.heading}</h2>
-              <div className="projectSectionBody">
-                {s.body.map((p, j) => (
-                  <p key={j}>{p}</p>
-                ))}
-              </div>
-            </section>
-          ))}
-
-          {project.caseStudy.highlights && project.caseStudy.highlights.length ? (
-            <section className="projectHighlights">
-              <div className="projectHighlightsTitle">Highlights</div>
-              <ul>
-                {project.caseStudy.highlights.map((h, i) => (
-                  <li key={i}>{h}</li>
-                ))}
-              </ul>
-            </section>
-          ) : null}
-        </div>
-      </Container>
-    </main>
-  )
+  return <ProjectArticlePage project={project} nextSlug={nextSlug} />
 }
-

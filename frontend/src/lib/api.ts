@@ -34,6 +34,8 @@ export type Profile = {
     dateLabel: string
     short: string
     thumbnail: string
+    tags?: string[]
+    links?: ProjectLinks
     hero: {
       collage: string[]
       badgeIcon: BadgeIcon
@@ -79,6 +81,13 @@ export type ProjectCard = {
   dateLabel: string
   short: string
   thumbnail: string
+  tags?: string[]
+}
+
+export type ProjectLinks = {
+  github?: string
+  demo?: string
+  docs?: string
 }
 
 export type Project = ProjectCard & {
@@ -91,6 +100,7 @@ export type Project = ProjectCard & {
     sections: Array<{ heading: string; body: string[] }>
     highlights?: string[]
   }
+  links?: ProjectLinks
 }
 
 export class NotFoundError extends Error {

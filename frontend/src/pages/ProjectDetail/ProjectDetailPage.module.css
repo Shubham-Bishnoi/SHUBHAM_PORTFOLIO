@@ -1,0 +1,10 @@
+.stateRoot {
+  padding: 56px 0 84px;
+}
+
+.stateRoot a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+

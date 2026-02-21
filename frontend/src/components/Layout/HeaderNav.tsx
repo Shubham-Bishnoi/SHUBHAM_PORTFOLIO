@@ -20,8 +20,10 @@ export function HeaderNav() {
   const location = useLocation()
 
   const isProjectsPage = location.pathname === '/projects'
+  const isProjectDetailPage = location.pathname.startsWith('/projects/')
   const isBlogIndexPage = location.pathname === '/blog'
   const isDarkRoute =
+    isProjectDetailPage ||
     location.pathname === '/about' ||
     location.pathname === '/experience' ||
     location.pathname === '/contact' ||
