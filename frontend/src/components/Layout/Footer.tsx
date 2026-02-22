@@ -25,9 +25,9 @@ export function Footer() {
   ]
 
   const socialLinks = [
-    { label: 'LINKEDIN', href: 'https://linkedin.com/in/shubham' },
-    { label: 'GITHUB', href: 'https://github.com/shubham' },
-    { label: 'TWITTER', href: 'https://twitter.com/shubham' },
+    { label: 'LINKEDIN', href: 'https://www.linkedin.com/in/shubham-bishnoi-17b3b1363/' },
+    { label: 'GITHUB', href: 'https://github.com/Shubham-Bishnoi' },
+    { label: 'TWITTER', href: 'https://x.com/shubhamnoi?s=21' },
   ]
 
   return (
