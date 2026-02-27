@@ -1040,6 +1040,75 @@
           "Privacy + audit logs + incident replay"
         ]
       }
+    },
+    {
+      "useCaseId": 18,
+      "featuredRank": null,
+      "name": "MCP UNO Game Server",
+      "slug": "mcp-uno-game-server",
+      "category": "Agentic Systems",
+      "dateLabel": "2025",
+      "short": "MCP-based UNO game server where an LLM plays through tool calls with shared state, turn sync, and resumable gameplay.",
+      "tags": ["Python", "MCP", "Anthropic Claude Haiku", "Redis", "UNO Engine"],
+      "thumbnail": "/projects/mcp-uno-game-server/thumb.jpg",
+      "hero": {
+        "collage": [
+          "/projects/mcp-uno-game-server/01.jpg",
+          "/projects/mcp-uno-game-server/02.jpg"
+        ],
+        "badgeIcon": "bots"
+      },
+      "caseStudy": {
+        "intro": "A Python-based Model Context Protocol (MCP) UNO game server that lets an LLM play a two-player game through structured tools over stdio, with shared state, turn synchronization, and restart-safe persistence.",
+        "sections": [
+          {
+            "heading": "Business-Focused Description",
+            "body": [
+              "MCP tool server exposing real game state/actions to an LLM via controlled tool calls",
+              "Persistent shared state across two independent processes (game_id-based)",
+              "Real-time turn synchronization (Wait tool blocks until opponent moves)",
+              "LLM-driven opponent for autonomous gameplay demos"
+            ]
+          },
+          {
+            "heading": "Tech Stack (AI-Focused Breakdown)",
+            "body": [
+              "AI / Agent Layer: Anthropic Claude Haiku as Player B (LLM opponent)",
+              "Tool-driven gameplay loop using: Status, Play, Draw, Wait",
+              "Tool-constrained action validation (only legal moves)",
+              "MCP / Protocol Layer: Python MCP SDK (official), stdio transport",
+              "Structured tool registration/invocation (MCP patterns)",
+              "Game Logic / Backend: Python 3.11+, Full UNO engine (108-card deck, shuffle/deal, discard, turn mgmt, action cards, wild color, win detection)",
+              "2-player rules (Reverse behaves as Skip)",
+              "Modular state + rules processing",
+              "Persistence / Sync: Redis for persistence + inter-process coordination (preferred), File fallback optional",
+              "Restart-safe resumable architecture",
+              "Testing / Automation: Python test harness simulating two-player MCP interaction",
+              "Scripts: run_test.sh, run_wait_test.sh, llm_play.sh",
+              "Multi-process testing + trace logging"
+            ]
+          },
+          {
+            "heading": "Unique Capabilities Demonstrated",
+            "body": [
+              "MCP-native tool server using official SDK",
+              "Stateful LLM interaction over tools (not chat)",
+              "Persistent multi-process coordination with shared game state",
+              "Low-latency turn sync via blocking Wait tool",
+              "LLM-controlled gameplay with constrained tools",
+              "Robust rule engine (legal moves, wild handling, draw mechanics)",
+              "Resumable architecture (survives process restarts)",
+              "Interview-grade system design (protocol + backend + concurrency + persistence + tests + AI)"
+            ]
+          }
+        ],
+        "highlights": [
+          "MCP-native tool server",
+          "Stateful LLM gameplay",
+          "Redis-backed persistence",
+          "Restart-safe architecture"
+        ]
+      }
     }
   ],
   "skills": {
